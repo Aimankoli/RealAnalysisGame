@@ -15,7 +15,8 @@ DisabledTheorem BddSeriesEven
 
 /-- Prove `BddSeriesEven`
 -/
-Statement {a : ℕ → ℝ} (ha : Antitone a) (apos : ∀ n, 0 ≤ a n) (n : ℕ) : ∑ k ∈ range (2 * n), (-1)^k * a k ≤ a 0 := by sorry
+Statement {a : ℕ → ℝ} (ha : Antitone a) (apos : ∀ n, 0 ≤ a n) (n : ℕ) : ∑ k ∈ range (2 * n), (-1)^k * a k ≤ a 0 := by
+sorry
 
 
 Conclusion "
