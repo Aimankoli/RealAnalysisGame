@@ -15,8 +15,8 @@ DisabledTheorem BddSeriesOdd
 
 /-- Prove `BddSeriesOdd`
 -/
-Statement {a : ℕ → ℝ} (ha : Antitone a) (ha' : ∀ n, 0 ≤ a n) (n : ℕ) : 0 ≤ ∑ k ∈ range (2 * n + 1), (-1)^k * a k := by sorry
-
+Statement {a : ℕ → ℝ} (ha : Antitone a) (ha' : ∀ n, 0 ≤ a n) (n : ℕ) : 0 ≤ ∑ k ∈ range (2 * n + 1), (-1)^k * a k := by
+sorry
 
 Conclusion "
 "

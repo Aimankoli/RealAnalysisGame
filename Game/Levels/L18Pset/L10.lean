@@ -15,9 +15,8 @@ DisabledTheorem DiffGoesToZero
 
 /-- Prove `DiffGoesToZero`
 -/
-Statement  {a : ℕ → ℝ} (aLim : SeqLim a 0) : SeqLim (fun n ↦ ∑ k ∈ range (2 * n + 1), (-1)^k * a k - ∑ k ∈ range (2 * n), (-1)^k * a k) 0 := by sorry
-
-
+Statement  {a : ℕ → ℝ} (aLim : SeqLim a 0) : SeqLim (fun n ↦ ∑ k ∈ range (2 * n + 1), (-1)^k * a k - ∑ k ∈ range (2 * n), (-1)^k * a k) 0 := by
+sorry
 
 Conclusion "
 "
