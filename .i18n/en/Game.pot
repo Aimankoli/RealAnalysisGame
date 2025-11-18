@@ -625,13 +625,6 @@ msgid "Perfect! You've completed your first Lean proof involving real numbers.\n
 "Remember: the `apply` tactic is used when you have what you need to prove the goal. Look at the top right: your list of tactics now includes `apply`, and if you forget how it works or what it does, just click on it for a reminder."
 msgstr ""
 
-#: Game.Levels.L20Levels.L06
-msgid "`FunLimAt (fun h ↦ (f (c + h) - f c) / h) L 0`\n"
-"\n"
-"\n"
-"The derivative of x² - 1 at x = 2 is 4."
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L05_use
 msgid "There exists a real number that makes this binomial expansion work."
 msgstr ""
@@ -1291,6 +1284,12 @@ msgstr ""
 msgid "Pset 18"
 msgstr ""
 
+#: Game.Levels.L20Levels.L06
+msgid "`FunLimAt (fun h ↦ (f (c + h) - f c) / h) L 0`\n"
+"\n"
+"The derivative of x² - 1 at x = 2 is 4."
+msgstr ""
+
 #: Game.Levels.L18Lecture
 msgid "# Lecture 18: Infinite Addition\n"
 "\n"
@@ -1497,12 +1496,6 @@ msgid "# Problem 1:\n"
 "The two sequences are equivalent if `a n - b n` goes to zero, that is, if for all `ε > 0, ∃ N, ∀ n ≥ N, |a n - b n| < ε`.\n"
 "\n"
 "Hint: In Lecture 8, we proved a theorem (now) called `IdLeTwoPow`..."
-msgstr ""
-
-#: Game.Levels.L20Levels.L07
-msgid "`FunDeriv f g` means that `g` is the derivative function of `f`.\n"
-"\n"
-"The derivative of `x² - 1` is `2x` everywhere."
 msgstr ""
 
 #: Game.Levels.L18Levels.L02
@@ -1782,6 +1775,12 @@ msgid "# Level 4 **Bigger Boss**: Conditional Convergence Theorem\n"
 "This result helped establish modern standards of rigor in analysis and revealed the subtle, sometimes treacherous, nature of infinite processes.\n"
 "\n"
 "Your task: Appreciate the statement of this magnificent theorem (the full proof is beyond our scope, but the ideas are accessible)!"
+msgstr ""
+
+#: Game.Levels.L20Levels.L07
+msgid "`∀ x, FunDerivAt f (g x) x`.\n"
+"\n"
+"The derivative of `x² - 1` is `2x` everywhere."
 msgstr ""
 
 #: Game.Levels.L18Pset.L10

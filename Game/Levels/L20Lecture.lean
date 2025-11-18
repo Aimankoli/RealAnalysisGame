@@ -2,9 +2,6 @@ import Game.Levels.L20Levels.L01
 import Game.Levels.L20Levels.L02
 import Game.Levels.L20Levels.L03
 import Game.Levels.L20Levels.L04
-import Game.Levels.L20Levels.L05
-import Game.Levels.L20Levels.L06
-import Game.Levels.L20Levels.L07
 
 World "Lecture20"
 Title "Lecture 20: Function Limits"

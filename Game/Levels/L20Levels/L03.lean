@@ -51,44 +51,6 @@ TheoremDoc ContFunAtAdd as "ContFunAtAdd" in "Continuity"
 Statement ContFunAtAdd {f g : ℝ → ℝ} {c : ℝ}
     (hf : FunContAt f c) (hg : FunContAt g c) :
     FunContAt (fun x ↦ f x + g x) c := by
-sorry
-
-Conclusion "
-"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#exit
-
 intro ε hε
 choose δ₁ hδ₁ hf using hf (ε / 2) (by bound)
 choose δ₂ hδ₂ hg using hg (ε / 2) (by bound)
@@ -106,3 +68,39 @@ change |f x + g x - (f c + g c)| < ε
 rewrite [show f x + g x - (f c + g c) = (f x - f c) + (g x - g c) by ring_nf]
 have f1 : |(f x - f c) + (g x - g c)| ≤ |(f x - f c)| + |(g x - g c)| := by apply abs_add
 linarith [f1, hf, hg]
+
+Conclusion "
+## What We've Learned
+
+This theorem marks a major milestone: we've proven that continuity is **preserved under addition**!
+
+### The `ε/2` Trick
+
+This is one of the most elegant techniques in analysis:
+
+- We need to make `|(f + g)(x) - (f + g)(c)| < ε`
+- By the triangle inequality: `|(f + g)(x) - (f + g)(c)| ≤ |f(x) - f(c)| + |g(x) - g(c)|`
+- If each piece is less than `ε/2`, the sum is less than `ε`!
+
+The beauty: we **split the budget**. Each function gets half the tolerance.
+
+### The `min(δ₁, δ₂)` Strategy
+
+Why take the minimum of two deltas?
+
+- `δ₁` works for `f`: guarantees `|f(x) - f(c)| < ε/2` when `|x - c| < δ₁`
+- `δ₂` works for `g`: guarantees `|g(x) - g(c)| < ε/2` when `|x - c| < δ₂`
+- `min(δ₁, δ₂)` works for **both**: it's the \"most restrictive\" requirement
+
+**Key insight:** When combining guarantees, take the stronger (smaller) constraint!
+
+### Building Up From Simple Pieces
+
+This is the beginning of a powerful story. We can now prove:
+- Sums of continuous functions are continuous ✓
+- Products of continuous functions are continuous (similar proof!)
+- Compositions of continuous functions are continuous (chain rule!)
+- Therefore: all polynomials, rational functions, trig functions, etc. are continuous!
+
+We've just laid the foundation for understanding continuity of essentially every function in calculus.
+"
