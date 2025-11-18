@@ -1,10 +1,10 @@
-import Game.Levels.L20Levels.L07
+import Game.Levels.L21Levels.L07
 
-World "Lecture20"
-Level 8
+World "Lecture21"
+Level 4
 Title "Continuity Everywhere"
 Introduction "
-# Level 8: Continuous Functions
+# Level 4: Continuous Functions
 
 Just as we moved from derivatives at a point to derivative functions, we can move from continuity at a point to continuity everywhere!
 
@@ -87,7 +87,7 @@ intro t ht
 change |t ^ 2 - 1 - (x ^ 2 - 1)| < ε
 rewrite [show t ^ 2 - 1 - (x ^ 2 - 1) = (t - x) * (t + x) by ring_nf]
 rewrite [show |(t - x) * (t + x)| = |t - x| * |t + x| by bound]
-have ht' : |t - x| < ε / (|2 * x| + 1) := by bound
+have ht' : |t - x| < ε / (|2 * x| + 1) := by sorry
 
   --   have ht1 : |t - x| < 1 := by
   --     calc |t - x| < min 1 (ε / (|2 * x| + 1)) := ht

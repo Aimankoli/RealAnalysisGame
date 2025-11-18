@@ -1,12 +1,12 @@
-import Game.Levels.L20Levels.L04
+import Game.Levels.L20Lecture
 
-World "Lecture20"
-Level 5
+World "Lecture21"
+Level 1
 Title "Sequential Criterion for Limits (Backward Direction)"
 Introduction "
-# Level 5: Sequential Criterion for Limits (Backward Direction)
+# Level 1: Sequential Criterion for Limits (Backward Direction)
 
-In the previous level, we proved that function limits imply sequential limits. Now we prove the **converse**: if function values converge for *every* appropriate sequence, then the function has a limit!
+Previously, we proved that function limits imply sequential limits. Now we prove the **converse**: if function values converge for *every* appropriate sequence, then the function has a limit!
 
 ## The Sequential Criterion (Backward Direction)
 

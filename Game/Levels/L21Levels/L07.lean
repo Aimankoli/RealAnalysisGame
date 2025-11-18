@@ -1,10 +1,10 @@
-import Game.Levels.L20Levels.L06
+import Game.Levels.L21Levels.L06
 
-World "Lecture20"
-Level 7
+World "Lecture21"
+Level 3
 Title "The Derivative Function"
 Introduction "
-# Level 7: Derivatives Everywhere
+# Level 3: Derivatives Everywhere
 
 In the previous level, we computed the derivative of `f(x) = x² - 1` at a single point `x = 2`. Now we'll prove something much more powerful: we'll find the derivative at **every** point!
 
