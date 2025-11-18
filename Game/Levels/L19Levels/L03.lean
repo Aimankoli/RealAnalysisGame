@@ -14,7 +14,7 @@ This is it—the moment we've been building toward! We're about to prove one of 
 
 **Theorem** (`RearrangementThm`): If a series `∑ a_n` converges absolutely, then for any rearrangement `σ : ℕ → ℕ`, the rearranged series `∑ a_(σ(n))` converges to the same limit.
 
-In symbols: If `AbsSeriesConv a` and `σ` is a `Rearrangement`, then there exists `L` such that both `SeriesLim a L` and `SeriesLim (a ∘ σ) L`.
+In symbols: If `AbsSeriesConv a`, then there exists `L` such that, for all `Rearrangement`s, `σ`, (including the identity) and `SeriesLim (a ∘ σ) L`.
 
 ## The Deep Meaning
 
@@ -77,12 +77,11 @@ NewTheorem Finset.sum_sdiff Finset.abs_sum_le_sum_abs Series_image
 -/
 TheoremDoc RearrangementThm as "RearrangementThm" in "Series"
 
-Statement RearrangementThm {a : ℕ → ℝ} (ha : AbsSeriesConv a) {σ : ℕ → ℕ}
-  (hσ : Rearrangement σ) : ∃ L, SeriesLim a L ∧ SeriesLim (a ∘ σ) L := by
+Statement RearrangementThm {a : ℕ → ℝ} (ha : AbsSeriesConv a) :
+  ∃ L, ∀ (σ : ℕ → ℕ) (_ : Rearrangement σ), SeriesLim (a ∘ σ) L := by
 choose L hL using Conv_of_AbsSeriesConv ha
 use L
-split_ands
-apply hL
+intro σ hσ
 intro ε hε
 apply IsCauchy_of_SeqConv at ha
 choose N1 hN1 using ha (ε / 2) (by bound)
