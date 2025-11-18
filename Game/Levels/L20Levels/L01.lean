@@ -1,27 +1,99 @@
 import Game.Levels.L19Lecture
 
-open Finset Function
-
 World "Lecture20"
 Level 1
-Title "Functions"
+Title "Limits of Functions"
 Introduction "
-# Level 1: Functions
+# Level 1: Introduction to Function Limits
 
+Welcome to Lecture 20! We now shift our focus from sequences to **functions**. Just as we studied limits of sequences, we can study limits of functions as the input approaches a particular point.
+
+## The Definition
+
+**Definition (`FunLimAt`):** We say that `f` has limit `L` at `x = c` if:
+```
+∀ ε > 0, ∃ δ > 0, ∀ x ≠ c, |x - c| < δ → |f x - L| < ε
+```
+
+This is written `FunLimAt f L c`. (First the function, then the limit, then \"at\" `x = c`.)
+
+**Reading the definition:** For *every* tolerance `ε` around the output value `L`, there exists a distance `δ` around the input value `c` such that whenever `x` is within `δ` of `c` (but not equal to `c`), the function value `f(x)` is within `ε` of `L`.
+
+## The Intuition
+
+The key difference from sequence limits is the condition `x ≠ c`. We care about what happens *near* c, but not at all about what happens *at* c. The function might not even be defined at `c`!
+
+This is exactly what happens with the classic example:
+
+`f(x) = (x² - 1)/(x - 1)`
+
+At `x = 1`, the function is \"undefined\" (because it's `0/0`; in Lean, this is equal to `0`). But for `x ≠ 1`, we can factor:
+
+`f(x) = (x² - 1)/(x - 1) = (x - 1)(x + 1)/(x - 1) = x + 1`
+
+So as x approaches 1, `f(x)` approaches some constant `L`. Your job: figure out `L`, and prove that it's the limit!
+
+## Your Challenge
+
+Prove that there exists a limit `L` such that:
+
+`FunLimAt (fun x ↦ (x^2 - 1)/(x - 1)) L 1`
+
+In other words, prove that the function `f(x) = (x² - 1)/(x - 1)` has *some* limit as `x` approaches `1`.
 
 "
 
-/--
-  If `Series a` converges absolutely, then for any `ε > 0`, there is an `N`, so that,
-  for any finite set `S` whose elements are all at least `N`, `∑ k ∈ S, |a k| < ε`.
+def FunLimAt (f : ℝ → ℝ) (L : ℝ) (c : ℝ) : Prop :=
+  ∀ ε > 0, ∃ δ > 0, ∀ x ≠ c, |x - c| < δ → |f x - L| < ε
+
+/-- `∀ ε > 0, ∃ δ > 0, ∀ x ≠ c, |x - c| < δ → |f x - L| < ε`
+
+  The function `(x² - 1)/(x - 1)` has a limit at x = 1.
 -/
-TheoremDoc StrongCauchy_of_AbsSeriesConv' as "StrongCauchy_of_AbsSeriesConv" in "Series"
+DefinitionDoc FunLimAt as "FunLimAt"
 
-Statement StrongCauchy_of_AbsSeriesConv'
-    {a : ℕ → ℝ} (ha : AbsSeriesConv a) {ε : ℝ} (hε : ε > 0) :
-    ∃ N, ∀ (S : Finset ℕ), (∀ k ∈ S, k ≥ N) → ∑ k ∈ S, |a k| < ε := by
+NewDefinition FunLimAt
+
+Statement :
+    ∃ L, FunLimAt (fun x ↦ (x^2 - 1)/(x - 1)) L 1 := by
 sorry
-
 
 Conclusion "
 "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#exit
+
+use 2
+intro ε hε
+use ε, hε
+intro x hxc hx
+change |(x ^ 2 - 1) / (x - 1) - 2| < ε
+have f1 : x - 1 ≠ 0 := by bound
+rewrite [show (x ^ 2 - 1) / (x - 1) = x + 1 by field_simp; ring_nf]
+rewrite [show x + 1 - 2 = x - 1 by ring_nf]
+apply hx
