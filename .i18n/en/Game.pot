@@ -33,65 +33,6 @@ msgid "`(a : ℕ → ℝ) : Prop := SeqConv (Series a)`\n"
 "The Series of a sequence `a : N → ℝ` converges if the sequence of its partial sums converges."
 msgstr ""
 
-#: Game.Levels.L21Levels.L08
-msgid "# Level 4: Continuous Functions\n"
-"\n"
-"Just as we moved from derivatives at a point to derivative functions, we can move from continuity at a point to continuity everywhere!\n"
-"\n"
-"## From Point Continuity to Global Continuity\n"
-"\n"
-"So far, `FunContAt f c` tells us that `f` is continuous at the specific point `c`.\n"
-"\n"
-"But many functions (like polynomials) are continuous at *every* point.\n"
-"\n"
-"## The New Definition\n"
-"\n"
-"**Definition (`FunCont`):** We say that `f` is **continuous** (everywhere) if:\n"
-"```\n"
-"∀ x, FunContAt f x\n"
-"```\n"
-"\n"
-"This is written `FunCont f`.\n"
-"\n"
-"In other words: `f` is continuous at every point in its domain.\n"
-"\n"
-"## Why Polynomials Are Continuous\n"
-"\n"
-"Intuitively, polynomials like `f(x) = x² - 1` are continuous because:\n"
-"- You can draw them without lifting your pen\n"
-"- Small changes in `x` produce small changes in `f(x)`\n"
-"- There are no jumps, breaks, or asymptotes\n"
-"\n"
-"We proved in Level 2 that `x² - 1` is continuous at `x = 2`. Now we'll prove it's continuous **everywhere**!\n"
-"\n"
-"## The Strategy\n"
-"\n"
-"For any point `x`, we need to show `FunContAt (fun t ↦ t^2 - 1) x`.\n"
-"\n"
-"This means: given `ε > 0`, find `δ > 0` such that `|t - x| < δ` implies `|f(t) - f(x)| < ε`.\n"
-"\n"
-"The algebra is similar to Level 2:\n"
-"```\n"
-"f(t) - f(x) = (t² - 1) - (x² - 1) = t² - x² = (t - x)(t + x)\n"
-"```\n"
-"\n"
-"So `|f(t) - f(x)| = |t - x| · |t + x|`.\n"
-"\n"
-"If we restrict `|t - x| < 1`, then `|t + x| < |2x| + 1`.\n"
-"\n"
-"Taking `δ = min(1, ε / (|2x| + 1))` will work!\n"
-"\n"
-"## Your Challenge\n"
-"\n"
-"Prove that `f(x) = x² - 1` is continuous everywhere:\n"
-"\n"
-"`FunCont (fun x ↦ x^2 - 1)`\n"
-"\n"
-"**Hint:** After introducing `x`, the proof is very similar to Level 2, but you need to bound `|t + x|` in terms of `x` (not a constant like `5`).\n"
-"\n"
-"Use `min 1 (ε / (|2 * x| + 1))` as your `δ`. The key is showing that when `|t - x| < 1`, we have `|t + x| < |2 * x| + 1`."
-msgstr ""
-
 #: Game.Levels.L7Levels.L02_SeqOfAbs
 msgid "The absolute value function is Lipschitz with constant 1."
 msgstr ""
@@ -444,7 +385,6 @@ msgid "The `linarith` tactic, with syntax `linarith [h₁, h₂]`, can solve goa
 msgstr ""
 
 #: Game.Levels.L18Pset.L01
-#: Game.Levels.L20Pset.L01
 msgid "Prove `DiffOfSeries`"
 msgstr ""
 
@@ -642,10 +582,6 @@ msgid "# Congratulations!\n"
 "In Level 4, we'll see the shocking flip side: Riemann's Rearrangement Theorem. For conditionally convergent series, rearrangements can make the sum equal to *any* real number. The contrast couldn't be more dramatic!"
 msgstr ""
 
-#: Game.Levels.L20PsetIntro
-msgid "Pset 20"
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
 msgid "Now write `specialize hf t_pos` feed in the proof that `t > 0`; then you should be able to finish it yourself."
 msgstr ""
@@ -734,10 +670,6 @@ msgid "# Level 1: Introduction to Function Limits\n"
 "`FunLimAt (fun x ↦ (x^2 - 1)/(x - 1)) L 1`\n"
 "\n"
 "In other words, prove that the function `f(x) = (x² - 1)/(x - 1)` has *some* limit as `x` approaches `1`."
-msgstr ""
-
-#: Game.Levels.L21Levels.L07
-msgid "The Derivative Function"
 msgstr ""
 
 #: Game.Levels.L11Lecture
@@ -1291,12 +1223,6 @@ msgstr ""
 msgid "Pset 18"
 msgstr ""
 
-#: Game.Levels.L21Levels.L06
-msgid "`FunLimAt (fun h ↦ (f (c + h) - f c) / h) L 0`\n"
-"\n"
-"The derivative of x² - 1 at x = 2 is 4."
-msgstr ""
-
 #: Game.Levels.L20Levels.L04
 msgid "## What We've Learned\n"
 "\n"
@@ -1477,10 +1403,6 @@ msgid "# Lecture 8: Mathematical Induction\n"
 "**SIMPLICIO:** Okay, I'm convinced this is a legitimate proof technique. Can you give me an example?\n"
 "\n"
 "**SOCRATES:** Certainly."
-msgstr ""
-
-#: Game.Levels.L20PsetIntro
-msgid "# Problem Set 20"
 msgstr ""
 
 #: Game.Levels.L20Levels.L01
@@ -1685,63 +1607,6 @@ msgstr ""
 msgid "Lecture 1: The Story of Real Analysis"
 msgstr ""
 
-#: Game.Levels.L21Levels.L07
-msgid "# Level 3: Derivatives Everywhere\n"
-"\n"
-"In the previous level, we computed the derivative of `f(x) = x² - 1` at a single point `x = 2`. Now we'll prove something much more powerful: we'll find the derivative at **every** point!\n"
-"\n"
-"## From Point Derivatives to Derivative Functions\n"
-"\n"
-"So far, `FunDerivAt f L c` tells us that `f` has derivative `L` at the specific point `c`.\n"
-"\n"
-"But for most functions, we can compute derivatives at *every* point, giving us a **derivative function**.\n"
-"\n"
-"## The New Definition\n"
-"\n"
-"**Definition (`FunDeriv`):** We say that `g` is the derivative of `f` (everywhere) if:\n"
-"```\n"
-"∀ x, FunDerivAt f (g x) x\n"
-"```\n"
-"\n"
-"This is written `FunDeriv f g`.\n"
-"\n"
-"In other words: for each point `x`, the derivative of `f` at `x` equals `g(x)`.\n"
-"\n"
-"## The Power Rule\n"
-"\n"
-"For `f(x) = x² - 1`, we'll prove that `f'(x) = 2x` for all `x`.\n"
-"\n"
-"This is an instance of the **power rule**: `d/dx[xⁿ] = n·xⁿ⁻¹`.\n"
-"\n"
-"## Computing the General Derivative\n"
-"\n"
-"For arbitrary `x`, we need:\n"
-"```\n"
-"lim[h→0] (f(x + h) - f(x)) / h\n"
-"     = lim[h→0] ((x + h)² - 1 - (x² - 1)) / h\n"
-"     = lim[h→0] (x² + 2xh + h² - x²) / h\n"
-"     = lim[h→0] (2xh + h²) / h\n"
-"     = lim[h→0] h(2x + h) / h\n"
-"     = lim[h→0] (2x + h)\n"
-"     = 2x\n"
-"```\n"
-"\n"
-"## Your Challenge\n"
-"\n"
-"Prove that the derivative of `f(x) = x² - 1` is `g(x) = 2x` everywhere:\n"
-"\n"
-"`FunDeriv (fun x ↦ x^2 - 1) (fun x ↦ 2 * x)`\n"
-"\n"
-"**Hint:** You need to prove `∀ x, FunDerivAt (fun x ↦ x^2 - 1) (2 * x) x`.\n"
-"\n"
-"After introducing `x`, the proof is very similar to Level 6, but with `x` instead of `2`.\n"
-"\n"
-"Given `ε > 0`, use `δ = ε`. For `h ≠ 0` with `|h| < ε`, simplify:\n"
-"- `(x + h)² - 1 - (x² - 1) = 2xh + h²`\n"
-"- `(2xh + h²) / h = 2x + h` (for `h ≠ 0`)\n"
-"- `|(2x + h) - 2x| = |h| < ε`"
-msgstr ""
-
 #: Game.Levels.L2Pset.L2Pset1
 #: Game.Levels.L2Pset.L2Pset2
 msgid "Find the correct constant."
@@ -1878,12 +1743,6 @@ msgid "# Level 4 **Bigger Boss**: Conditional Convergence Theorem\n"
 "This result helped establish modern standards of rigor in analysis and revealed the subtle, sometimes treacherous, nature of infinite processes.\n"
 "\n"
 "Your task: Appreciate the statement of this magnificent theorem (the full proof is beyond our scope, but the ideas are accessible)!"
-msgstr ""
-
-#: Game.Levels.L21Levels.L07
-msgid "`∀ x, FunDerivAt f (g x) x`.\n"
-"\n"
-"The derivative of `x² - 1` is `2x` everywhere."
 msgstr ""
 
 #: Game.Levels.L18Pset.L10
@@ -3214,72 +3073,6 @@ msgstr ""
 msgid "Eventually"
 msgstr ""
 
-#: Game.Levels.L21Levels.L06
-msgid "# Level 2: The Derivative at a Point\n"
-"\n"
-"We've studied limits of functions extensively. Now we apply this knowledge to one of the most important concepts in calculus: the **derivative**!\n"
-"\n"
-"## The Definition\n"
-"\n"
-"**Definition (`FunDerivAt`):** We say that `f` has derivative `L` at `c` if:\n"
-"\n"
-"`FunLimAt (fun h ↦ (f (c + h) - f c) / h) L 0`\n"
-"\n"
-"This is written `FunDerivAt f L c`.\n"
-"\n"
-"**Reading the definition:** The derivative is the limit of the **difference quotient** as `h → 0`:\n"
-"\n"
-"`f'(c) = lim[h→0] (f(c + h) - f(c)) / h`\n"
-"\n"
-"## The Geometric Interpretation\n"
-"\n"
-"The difference quotient `(f(c + h) - f(c)) / h` is the **slope of the secant line** through the points `(c, f(c))` and `(c + h, f(c + h))`.\n"
-"\n"
-"As `h → 0`, these secant lines approach the **tangent line** at `x = c`, and the derivative is the slope of this tangent line!\n"
-"\n"
-"## Computing a Derivative\n"
-"\n"
-"Let's compute the derivative of `f(x) = x² - 1` at `x = 2`.\n"
-"\n"
-"We need to find the limit:\n"
-"\n"
-"`lim[h→0] (f(2 + h) - f(2)) / h`\n"
-"\n"
-"`     = lim[h→0] ((2 + h)² - 1 - 3) / h`\n"
-"\n"
-"`     = lim[h→0] (4 + 4h + h² - 4) / h`\n"
-"\n"
-"`     = lim[h→0] (4h + h²) / h`\n"
-"\n"
-"`     = lim[h→0] (h(4 + h)) / h`\n"
-"\n"
-"`     = lim[h→0] (4 + h)`\n"
-"\n"
-"`     = 4`\n"
-"\n"
-"So the derivative is `4`!\n"
-"\n"
-"## Your Challenge\n"
-"\n"
-"Prove that the function `f(x) = x² - 1` has derivative `4` at `x = 2`:\n"
-"\n"
-"`FunDerivAt (fun x ↦ x^2 - 1) 4 2`\n"
-"\n"
-"**Hint:** You need to prove `FunLimAt (fun h ↦ ((2 + h)^2 - 1 - 3) / h) 4 0`.\n"
-"\n"
-"Given `ε > 0`, you need to find `δ > 0` such that for `h ≠ 0` with `|h| < δ`, we have:\n"
-"```\n"
-"|((2 + h)² - 1 - 3) / h - 4| < ε\n"
-"```\n"
-"\n"
-"Simplify the difference quotient algebraically:\n"
-"- `(2 + h)² - 1 - 3 = 4 + 4h + h² - 4 = 4h + h²`\n"
-"- So `((2 + h)² - 1 - 3) / h = (4h + h²) / h = 4 + h` (for `h ≠ 0`)\n"
-"- Thus `|((2 + h)² - 1 - 3) / h - 4| = |4 + h - 4| = |h|`\n"
-"\n"
-"Therefore, taking `δ = ε` works perfectly!"
-msgstr ""
-
 #: Game.Levels.L10Lecture
 msgid "Lecture 10: Algebraic Limit Theorem, Part V"
 msgstr ""
@@ -3472,10 +3265,6 @@ msgstr ""
 
 #: Game.Levels.L12Levels.L00_SubseqIterate
 msgid "Try starting your proof with `apply subseq_of_succ`."
-msgstr ""
-
-#: Game.Levels.L21Levels.L06
-msgid "Computing a Derivative"
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset1
@@ -3934,10 +3723,6 @@ msgstr ""
 msgid "# Problem Set 9\n"
 "\n"
 "Good luck!"
-msgstr ""
-
-#: Game.Levels.L21Lecture
-msgid "# Lecture 21: Function Limits II"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L03_rw
@@ -4913,48 +4698,6 @@ msgstr ""
 msgid "If `¬ (m ≤ n)`, then `n < m`."
 msgstr ""
 
-#: Game.Levels.L21Levels.L05
-msgid "# Level 1: Sequential Criterion for Limits (Backward Direction)\n"
-"\n"
-"Previously, we proved that function limits imply sequential limits. Now we prove the **converse**: if function values converge for *every* appropriate sequence, then the function has a limit!\n"
-"\n"
-"## The Sequential Criterion (Backward Direction)\n"
-"\n"
-"**Theorem:** Suppose that for *every* sequence `(xₙ)` with `xₙ → c` and `xₙ ≠ c`, we have `f(xₙ) → L`. Then `FunLimAt f L c`.\n"
-"\n"
-"This says: if sequences **test** the limit and all tests pass, then the function limit exists!\n"
-"\n"
-"## Why This Is Harder\n"
-"\n"
-"The forward direction was straightforward: we had `δ` from the function limit and used it directly.\n"
-"\n"
-"The backward direction requires **proof by contradiction**:\n"
-"- Assume `FunLimAt f L c` is false\n"
-"- Then there exists ε > 0 such that for *every* δ > 0, there exists `x` with `|x - c| < δ`, `x ≠ c`, but `|f(x) - L| ≥ ε`\n"
-"- We'll construct a **problematic sequence** by choosing such an `x` for each `δ = 1/n`\n"
-"- This sequence converges to `c` but `f(xₙ)` does *not* converge to `L`, contradicting our hypothesis!\n"
-"\n"
-"## The Proof Strategy\n"
-"\n"
-"**Given:** For all sequences `xₙ → c` with `xₙ ≠ c`, we have `f(xₙ) → L`.\n"
-"\n"
-"**Want:** To show `FunLimAt f L c`, i.e., `∀ ε > 0, ∃ δ > 0, ∀ x ≠ c, |x - c| < δ → |f(x) - L| < ε`.\n"
-"\n"
-"**How (by contradiction):**\n"
-"1. Assume not: `∃ ε > 0` such that `∀ δ > 0`, the implication fails\n"
-"2. For each `n`, take `δ = 1/(n+1)` and get a counterexample `xₙ` with `|xₙ - c| < 1/(n+1)` and `|f(xₙ) - L| ≥ ε`\n"
-"3. Show `xₙ → c` (since `|xₙ - c| < 1/(n+1) → 0`)\n"
-"4. By hypothesis, `f(xₙ) → L`, which contradicts `|f(xₙ) - L| ≥ ε`\n"
-"\n"
-"## Your Challenge\n"
-"\n"
-"Prove the backward direction of the sequential criterion:\n"
-"\n"
-"`(∀ x : ℕ → ℝ, (∀ n, x n ≠ c) → SeqLimit x c → SeqLimit (fun n ↦ f (x n)) L) → FunLimAt f L c`\n"
-"\n"
-"**Hint:** Use `by_contra` to assume the negation. Push negations to get `∃ ε > 0, ∀ δ > 0, ∃ x, ...`. Use `choose` to extract the ε and a function that gives counterexamples. Construct a sequence using `δ = 1/(n+1)`, prove it converges to `c`, apply the hypothesis to get `f(xₙ) → L`, and derive a contradiction."
-msgstr ""
-
 #: Game.Levels.L17Pset.L06
 msgid "If `0 ≤ a n ≤ b n` and `Series b` converges, then so does `Series a`."
 msgstr ""
@@ -5390,7 +5133,6 @@ msgid "The `rewrite` tactic"
 msgstr ""
 
 #: Game.Levels.L18Pset.L01
-#: Game.Levels.L20Pset.L01
 msgid "DiffOfSeries"
 msgstr ""
 
@@ -6352,10 +6094,6 @@ msgid "# Level 9: `BddSeriesOdd`\n"
 "Prove `BddSeriesOdd`:"
 msgstr ""
 
-#: Game.Levels.L21Levels.L05
-msgid "Sequential Criterion for Limits (Backward Direction)"
-msgstr ""
-
 #: Game.Levels.L6Levels.L04_Cases'
 msgid "# Level 5: Cases' - Handling All Possibilities\n"
 "\n"
@@ -6501,11 +6239,6 @@ msgstr ""
 #: Game.Levels.L18Pset.L08
 #: Game.Levels.L18Pset.L09
 #: Game.Levels.L18Pset.L10
-#: Game.Levels.L20Pset.L01
-#: Game.Levels.L21Levels.L05
-#: Game.Levels.L21Levels.L06
-#: Game.Levels.L21Levels.L07
-#: Game.Levels.L21Levels.L08
 msgid ""
 msgstr ""
 
@@ -6790,10 +6523,6 @@ msgid "# Level 3: Continuity of Absolute Value—Sequences of Absolute Values\n"
 "preserve limits**. The absolute value function is continuous everywhere, so it maps\n"
 "convergent sequences to convergent sequences. This principle extends to all continuous\n"
 "functions and is fundamental to mathematical analysis."
-msgstr ""
-
-#: Game.Levels.L21Levels.L08
-msgid "Continuity Everywhere"
 msgstr ""
 
 #: Game.Levels.L2PsetIntro
@@ -7154,7 +6883,6 @@ msgid "Multiply the inequality `N ≤ n` by ε: `have f4 : N * ε ≤ n * ε := 
 msgstr ""
 
 #: Game.Levels.L18Pset.L01
-#: Game.Levels.L20Pset.L01
 msgid "# Level 1: `DiffOfSeries`\n"
 "\n"
 "Prove `DiffOfSeries`.\n"
@@ -7216,12 +6944,6 @@ msgstr ""
 
 #: Game.Levels.L18Pset.L03
 msgid "Prove `AntitoneLimitBound`"
-msgstr ""
-
-#: Game.Levels.L21Levels.L08
-msgid "`FunCont f` means that `f` is continuous everywhere.\n"
-"\n"
-"The function `x² - 1` is continuous on all of ℝ."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L08_choose
@@ -8437,10 +8159,6 @@ msgstr ""
 msgid "The syntax for induction is: `induction' n with k hk`. This means: apply induction on the\n"
 "variable `n`, use `k` for the new dummy variable (which could be `n` itself), and `hk` for\n"
 "the induction hypothesis on `k`."
-msgstr ""
-
-#: Game.Levels.L21Lecture
-msgid "Lecture 21: Function Limits II"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
