@@ -1,10 +1,10 @@
-import Game.Levels.L20Levels.L05
+import Game.Levels.L21Levels.L05
 
-World "Lecture20"
-Level 6
+World "Lecture21"
+Level 2
 Title "Computing a Derivative"
 Introduction "
-# Level 6: The Derivative at a Point
+# Level 2: The Derivative at a Point
 
 We've studied limits of functions extensively. Now we apply this knowledge to one of the most important concepts in calculus: the **derivative**!
 
@@ -74,7 +74,6 @@ def FunDerivAt (f : ℝ → ℝ) (L : ℝ) (c : ℝ) : Prop :=
   FunLimAt (fun h ↦ (f (c + h) - f c) / h) L 0
 
 /-- `FunLimAt (fun h ↦ (f (c + h) - f c) / h) L 0`
-
 
 The derivative of x² - 1 at x = 2 is 4.
 -/

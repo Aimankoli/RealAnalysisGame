@@ -1,10 +1,10 @@
-import Game.Levels.L20Levels.L06
+import Game.Levels.L21Levels.L06
 
-World "Lecture20"
-Level 7
+World "Lecture21"
+Level 3
 Title "The Derivative Function"
 Introduction "
-# Level 7: Derivatives Everywhere
+# Level 3: Derivatives Everywhere
 
 In the previous level, we computed the derivative of `f(x) = x² - 1` at a single point `x = 2`. Now we'll prove something much more powerful: we'll find the derivative at **every** point!
 
@@ -64,7 +64,7 @@ Given `ε > 0`, use `δ = ε`. For `h ≠ 0` with `|h| < ε`, simplify:
 def FunDeriv (f : ℝ → ℝ) (g : ℝ → ℝ) : Prop :=
   ∀ x, FunDerivAt f (g x) x
 
-/-- `FunDeriv f g` means that `g` is the derivative function of `f`.
+/-- `∀ x, FunDerivAt f (g x) x`.
 
 The derivative of `x² - 1` is `2x` everywhere.
 -/
@@ -72,8 +72,8 @@ DefinitionDoc FunDeriv as "FunDeriv"
 
 NewDefinition FunDeriv
 
-Statement :
-    FunDeriv (fun x ↦ x^2 - 1) (fun x ↦ 2 * x) := by
+Statement (f g : ℝ → ℝ) (hf : ∀ x, f x = x ^ 2 - 1) (hg : ∀ x, g x = 2 * x) :
+    FunDeriv f g := by
 sorry
 
 Conclusion "
@@ -123,7 +123,8 @@ intro x
 intro ε hε
 use ε, hε
 intro h hh0 hh
-change |(((x + h) ^ 2 - 1 - (x ^ 2 - 1)) / h) - 2 * x| < ε
+change |((f (x + h) - f (x)) / h) - g x| < ε
+rewrite [hf, hf, hg]
 rewrite [show (x + h) ^ 2 - 1 - (x ^ 2 - 1) = 2 * x * h + h ^ 2 by ring_nf]
 rewrite [show (2 * x * h + h ^ 2) / h = 2 * x + h by field_simp]
 rewrite [show 2 * x + h - 2 * x = h - 0 by ring_nf]

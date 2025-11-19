@@ -56,38 +56,6 @@ NewDefinition FunLimAt
 
 Statement :
     ∃ L, FunLimAt (fun x ↦ (x^2 - 1)/(x - 1)) L 1 := by
-sorry
-
-Conclusion "
-"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#exit
-
 use 2
 intro ε hε
 use ε, hε
@@ -97,3 +65,20 @@ have f1 : x - 1 ≠ 0 := by bound
 rewrite [show (x ^ 2 - 1) / (x - 1) = x + 1 by field_simp; ring_nf]
 rewrite [show x + 1 - 2 = x - 1 by ring_nf]
 apply hx
+
+Conclusion "
+## What We've Learned
+
+This first example captures the essence of function limits:
+
+- The limit is about **behavior near a point**, not at the point itself
+- The function `f(x) = (x² - 1)/(x - 1)` is undefined at `x = 1` (in standard mathematics), yet the limit exists!
+- The algebra works out beautifully: for `x ≠ 1`, we can simplify the expression
+- The `ε`-`δ` definition formalizes the intuitive idea of \"getting arbitrarily close\"
+
+Notice how simple our choice of `δ` was: we just took `δ = ε`! This is because after simplification, the difference `|f(x) - L|` equals exactly `|x - c|`. In more complicated examples (like the next level), we'll need to be more clever with our choice of `δ`.
+
+**Key insight:** Limits care about *tendency*, not *destination*.
+
+The real power of this definition becomes clear when we realize that we can study the behavior of functions at points where they're not even defined. This is exactly what makes calculus work—derivatives are limits of difference quotients that are undefined when `h = 0`!
+"

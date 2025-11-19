@@ -51,46 +51,6 @@ Prove the forward direction of the sequential criterion:
 Statement {f : ℝ → ℝ} {L c : ℝ}
     (hf : FunLimAt f L c) :
     ∀ x : ℕ → ℝ, (∀ n, x n ≠ c) → SeqLim x c → SeqLim (fun n ↦ f (x n)) L := by
-sorry
-
-Conclusion "
-"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#exit
-
 intro x hxc hx
 intro ε hε
 choose δ hδ hfδ using hf ε hε
@@ -100,3 +60,38 @@ intro n hn
 specialize hN n hn
 specialize hxc n
 apply hfδ (x n) hxc hN
+
+Conclusion "
+## What We've Learned
+
+This theorem is a **bridge between two worlds**: sequences and functions!
+
+### Why This Matters
+
+The Sequential Criterion gives us two powerful tools:
+
+1. **Testing function limits with sequences**: Instead of wrestling with `ε`-`δ`, we can use specific sequences
+2. **Connecting different areas of analysis**: Sequence convergence and function limits are deeply related
+
+### The Proof Strategy: Composing Guarantees
+
+The proof elegantly chains together two limit definitions:
+
+1. **Function limit** gives us: `ε → δ` (tolerance on output gives tolerance on input)
+2. **Sequence limit** gives us: `δ → N` (tolerance on distance from `c` gives a threshold index)
+3. **Composition**: `ε → δ → N` (tolerance on output gives threshold for the sequence `f(xₙ)`)
+
+This is a beautiful example of **modular reasoning**: we use the guarantees from each definition without re-proving them!
+
+### Looking Ahead
+
+There's a converse to this theorem (the backward direction): if `f(xₙ) → L` for **every** sequence `xₙ → c` with `xₙ ≠ c`, then `FunLimAt f L c`.
+
+Together, these give us a complete equivalence:
+
+`FunLimAt f L c ⟺ (for all sequences xₙ → c with xₙ ≠ c, we have f(xₙ) → L)`
+
+This means we can choose our weapon: use `ε`-`δ` when convenient, or use sequences when that's easier!
+
+**Key insight:** Different formulations of the same concept give us flexibility in proofs. The sequential characterization often provides better intuition than the abstract `ε`-`δ` definition.
+"
