@@ -59,7 +59,7 @@ def FunContAt (f : ℝ → ℝ) (c : ℝ) : Prop :=
 /-- `∀ ε > 0, ∃ δ > 0, ∀ x, |x - c| < δ → |f x - f c| < ε`
 
 
-The function `x² - 1` is continuous at x = 2.
+The function `f` is continuous at `x = c`.
 -/
 DefinitionDoc FunContAt as "FunContAt"
 

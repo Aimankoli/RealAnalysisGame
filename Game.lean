@@ -34,8 +34,8 @@ import Game.Levels.L18Lecture
 import Game.Levels.L18PsetIntro
 import Game.Levels.L19Lecture
 import Game.Levels.L20Lecture
---import Game.Levels.L20PsetIntro
---import Game.Levels.L21Lecture
+import Game.Levels.L20PsetIntro
+import Game.Levels.L21Lecture
 
 
 -- exercise for later : why not `|a n - a (n + 1)|`?
@@ -102,9 +102,9 @@ Dependency L18Pset → Lecture20
 
 Dependency Lecture19 → Lecture20
 
---Dependency L20Pset → Lecture21
+Dependency Lecture20 → L20Pset
 
---Dependency Lecture20 → Lecture21
+Dependency Lecture20 → Lecture21
 
 -- Here's what we'll put on the title screen
 Title "An Introduction to (Formal) Real Analysis"

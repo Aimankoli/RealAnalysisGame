@@ -66,9 +66,9 @@ Use `min 1 (ε / (|2 * x| + 1))` as your `δ`. The key is showing that when `|t 
 def FunCont (f : ℝ → ℝ) : Prop :=
   ∀ x, FunContAt f x
 
-/-- `FunCont f` means that `f` is continuous everywhere.
+/-- `∀ x, FunContAt f x`
 
-The function `x² - 1` is continuous on all of ℝ.
+The function `f` is continuous on all of `ℝ`.
 -/
 DefinitionDoc FunCont as "FunCont"
 
@@ -78,42 +78,30 @@ Statement :
     FunCont (fun x ↦ x^2 - 1) := by
 intro x
 intro ε hε
-use min 1 (ε / (|2 * x| + 1))
-split_ands
-norm_num
-have f : 0 ≤ |x| := by bound
-bound
+let δ := min 1 (ε / (|2 * x| + 1))
+have δ1 : δ ≤ 1 := by bound
+have δ2 : δ ≤ (ε / (|2 * x| + 1)) := by bound
+have δpos : 0 < δ := by
+  have f1 : 0 ≤ |2 * x| := by bound
+  have f2 : 0 < |2 * x| + 1 := by bound
+  bound
+use δ, δpos
 intro t ht
 change |t ^ 2 - 1 - (x ^ 2 - 1)| < ε
 rewrite [show t ^ 2 - 1 - (x ^ 2 - 1) = (t - x) * (t + x) by ring_nf]
 rewrite [show |(t - x) * (t + x)| = |t - x| * |t + x| by bound]
-have ht' : |t - x| < ε / (|2 * x| + 1) := by sorry
-
-  --   have ht1 : |t - x| < 1 := by
-  --     calc |t - x| < min 1 (ε / (|2 * x| + 1)) := ht
-  --       _ ≤ 1 := min_le_left 1 (ε / (|2 * x| + 1))
-  --   have htx : |t + x| < |2 * x| + 1 := by
-  --     have h1 : -(t - x) < 1 := by
-  --       have : |t - x| = |-(t - x)| := by bound
-  --       calc -(t - x) = |-(t - x)| := by bound
-  --         _ = |t - x| := by bound
-  --         _ < 1 := ht1
-  --     have h2 : t - x < 1 := by bound
-  --     have h3 : x - 1 < t := by linarith
-  --     have h4 : t < x + 1 := by linarith
-  --     calc |t + x| ≤ |t| + |x| := by bound
-  --       _ < (|x| + 1) + |x| := by bound
-  --       _ = |2 * x| + 1 := by bound
-  --   have hte : |t - x| < ε / (|2 * x| + 1) := by
-  --     calc |t - x| < min 1 (ε / (|2 * x| + 1)) := ht
-  --       _ ≤ ε / (|2 * x| + 1) := min_le_right 1 (ε / (|2 * x| + 1))
-  --   calc |t ^ 2 - 1 - (x ^ 2 - 1)| = |t ^ 2 - x ^ 2| := by ring_nf
-  --     _ = |(t - x) * (t + x)| := by ring_nf
-  --     _ = |t - x| * |t + x| := by bound
-  --     _ < (ε / (|2 * x| + 1)) * (|2 * x| + 1) := by bound
-  --     _ = ε := by field_simp
-
-sorry
+have ht1 : |t - x| < 1 := by linarith [ht, δ1]
+have ht2 : |t - x| < ε / (|2 * x| + 1) := by linarith [ht, δ2]
+have ht : |t + x| ≤ |2 * x| + 1 := by
+  have ht' : |t + x| ≤ |t - x| + |2 * x| := by
+    rewrite [show t + x = t - x + 2 * x by ring_nf]
+    have f1 : |t - x + 2 * x| ≤ |t - x| + |2 * x| := by apply abs_add
+    apply f1
+  linarith [ht', ht1]
+have ht' : |t - x| * |t + x| ≤ |t - x| * (|2 * x| + 1) := by bound
+have ht'' : |t - x| * (|2 * x| + 1) < (ε / (|2 * x| + 1)) * (|2 * x| + 1) := by field_simp at ⊢ ht2; apply ht2
+have ε1 : (ε / (|2 * x| + 1)) * (|2 * x| + 1) = ε := by field_simp
+linarith [ht', ht'', ε1]
 
 Conclusion "
 "

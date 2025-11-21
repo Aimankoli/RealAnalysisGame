@@ -18,7 +18,7 @@ This says: if sequences **test** the limit and all tests pass, then the function
 
 The forward direction was straightforward: we had `δ` from the function limit and used it directly.
 
-The backward direction requires **proof by contradiction**:
+For the backward direction, you might consider a **proof by contradiction**:
 - Assume `FunLimAt f L c` is false
 - Then there exists ε > 0 such that for *every* δ > 0, there exists `x` with `|x - c| < δ`, `x ≠ c`, but `|f(x) - L| ≥ ε`
 - We'll construct a **problematic sequence** by choosing such an `x` for each `δ = 1/n`

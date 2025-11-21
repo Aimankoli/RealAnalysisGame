@@ -66,7 +66,7 @@ def FunDeriv (f : ℝ → ℝ) (g : ℝ → ℝ) : Prop :=
 
 /-- `∀ x, FunDerivAt f (g x) x`.
 
-The derivative of `x² - 1` is `2x` everywhere.
+The derivative of `f` is `g` everywhere.
 -/
 DefinitionDoc FunDeriv as "FunDeriv"
 

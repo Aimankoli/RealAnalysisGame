@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0-rc2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-18\n"
+"POT-Creation-Date: 2025-11-20\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -31,6 +31,69 @@ msgstr ""
 msgid "`(a : ℕ → ℝ) : Prop := SeqConv (Series a)`\n"
 "\n"
 "The Series of a sequence `a : N → ℝ` converges if the sequence of its partial sums converges."
+msgstr ""
+
+#: Game.Levels.L20Pset.L03
+msgid "If `f → L` as `x → c`, then `k · f → k · L`."
+msgstr ""
+
+#: Game.Levels.L21Levels.L08
+msgid "# Level 4: Continuous Functions\n"
+"\n"
+"Just as we moved from derivatives at a point to derivative functions, we can move from continuity at a point to continuity everywhere!\n"
+"\n"
+"## From Point Continuity to Global Continuity\n"
+"\n"
+"So far, `FunContAt f c` tells us that `f` is continuous at the specific point `c`.\n"
+"\n"
+"But many functions (like polynomials) are continuous at *every* point.\n"
+"\n"
+"## The New Definition\n"
+"\n"
+"**Definition (`FunCont`):** We say that `f` is **continuous** (everywhere) if:\n"
+"```\n"
+"∀ x, FunContAt f x\n"
+"```\n"
+"\n"
+"This is written `FunCont f`.\n"
+"\n"
+"In other words: `f` is continuous at every point in its domain.\n"
+"\n"
+"## Why Polynomials Are Continuous\n"
+"\n"
+"Intuitively, polynomials like `f(x) = x² - 1` are continuous because:\n"
+"- You can draw them without lifting your pen\n"
+"- Small changes in `x` produce small changes in `f(x)`\n"
+"- There are no jumps, breaks, or asymptotes\n"
+"\n"
+"We proved in Level 2 that `x² - 1` is continuous at `x = 2`. Now we'll prove it's continuous **everywhere**!\n"
+"\n"
+"## The Strategy\n"
+"\n"
+"For any point `x`, we need to show `FunContAt (fun t ↦ t^2 - 1) x`.\n"
+"\n"
+"This means: given `ε > 0`, find `δ > 0` such that `|t - x| < δ` implies `|f(t) - f(x)| < ε`.\n"
+"\n"
+"The algebra is similar to Level 2:\n"
+"```\n"
+"f(t) - f(x) = (t² - 1) - (x² - 1) = t² - x² = (t - x)(t + x)\n"
+"```\n"
+"\n"
+"So `|f(t) - f(x)| = |t - x| · |t + x|`.\n"
+"\n"
+"If we restrict `|t - x| < 1`, then `|t + x| < |2x| + 1`.\n"
+"\n"
+"Taking `δ = min(1, ε / (|2x| + 1))` will work!\n"
+"\n"
+"## Your Challenge\n"
+"\n"
+"Prove that `f(x) = x² - 1` is continuous everywhere:\n"
+"\n"
+"`FunCont (fun x ↦ x^2 - 1)`\n"
+"\n"
+"**Hint:** After introducing `x`, the proof is very similar to Level 2, but you need to bound `|t + x|` in terms of `x` (not a constant like `5`).\n"
+"\n"
+"Use `min 1 (ε / (|2 * x| + 1))` as your `δ`. The key is showing that when `|t - x| < 1`, we have `|t + x| < |2 * x| + 1`."
 msgstr ""
 
 #: Game.Levels.L7Levels.L02_SeqOfAbs
@@ -246,6 +309,10 @@ msgstr ""
 
 #: Game.Levels.L11Levels.L01_IsCauchyOfLim
 msgid "If a sequence `a : ℕ → ℝ` converges, then it is Cauchy."
+msgstr ""
+
+#: Game.Levels.L20Pset.L01
+msgid "ContinuousIff I"
 msgstr ""
 
 #: Game.Levels.L20Lecture
@@ -582,6 +649,10 @@ msgid "# Congratulations!\n"
 "In Level 4, we'll see the shocking flip side: Riemann's Rearrangement Theorem. For conditionally convergent series, rearrangements can make the sum equal to *any* real number. The contrast couldn't be more dramatic!"
 msgstr ""
 
+#: Game.Levels.L20PsetIntro
+msgid "Pset 20"
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
 msgid "Now write `specialize hf t_pos` feed in the proof that `t > 0`; then you should be able to finish it yourself."
 msgstr ""
@@ -670,6 +741,10 @@ msgid "# Level 1: Introduction to Function Limits\n"
 "`FunLimAt (fun x ↦ (x^2 - 1)/(x - 1)) L 1`\n"
 "\n"
 "In other words, prove that the function `f(x) = (x² - 1)/(x - 1)` has *some* limit as `x` approaches `1`."
+msgstr ""
+
+#: Game.Levels.L21Levels.L07
+msgid "The Derivative Function"
 msgstr ""
 
 #: Game.Levels.L11Lecture
@@ -1405,12 +1480,6 @@ msgid "# Lecture 8: Mathematical Induction\n"
 "**SOCRATES:** Certainly."
 msgstr ""
 
-#: Game.Levels.L20Levels.L01
-msgid "`∀ ε > 0, ∃ δ > 0, ∀ x ≠ c, |x - c| < δ → |f x - L| < ε`\n"
-"\n"
-"  The function `(x² - 1)/(x - 1)` has a limit at x = 1."
-msgstr ""
-
 #: Game.Levels.L18Levels.L01
 msgid "`(a : ℕ → ℝ) := SeriesConv (fun n ↦ |a n|)`\n"
 "\n"
@@ -1468,6 +1537,12 @@ msgstr ""
 
 #: Game.Levels.L18Levels.L02
 msgid "Given `a : ℕ → ℝ`, if `a (2 n) → L` and `a (2n+1) → L`, then `a → L`."
+msgstr ""
+
+#: Game.Levels.L21Levels.L08
+msgid "`∀ x, FunContAt f x`\n"
+"\n"
+"The function `f` is continuous on all of `ℝ`."
 msgstr ""
 
 #: Game.Levels.L19Levels.L03
@@ -1605,6 +1680,63 @@ msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory
 msgid "Lecture 1: The Story of Real Analysis"
+msgstr ""
+
+#: Game.Levels.L21Levels.L07
+msgid "# Level 3: Derivatives Everywhere\n"
+"\n"
+"In the previous level, we computed the derivative of `f(x) = x² - 1` at a single point `x = 2`. Now we'll prove something much more powerful: we'll find the derivative at **every** point!\n"
+"\n"
+"## From Point Derivatives to Derivative Functions\n"
+"\n"
+"So far, `FunDerivAt f L c` tells us that `f` has derivative `L` at the specific point `c`.\n"
+"\n"
+"But for most functions, we can compute derivatives at *every* point, giving us a **derivative function**.\n"
+"\n"
+"## The New Definition\n"
+"\n"
+"**Definition (`FunDeriv`):** We say that `g` is the derivative of `f` (everywhere) if:\n"
+"```\n"
+"∀ x, FunDerivAt f (g x) x\n"
+"```\n"
+"\n"
+"This is written `FunDeriv f g`.\n"
+"\n"
+"In other words: for each point `x`, the derivative of `f` at `x` equals `g(x)`.\n"
+"\n"
+"## The Power Rule\n"
+"\n"
+"For `f(x) = x² - 1`, we'll prove that `f'(x) = 2x` for all `x`.\n"
+"\n"
+"This is an instance of the **power rule**: `d/dx[xⁿ] = n·xⁿ⁻¹`.\n"
+"\n"
+"## Computing the General Derivative\n"
+"\n"
+"For arbitrary `x`, we need:\n"
+"```\n"
+"lim[h→0] (f(x + h) - f(x)) / h\n"
+"     = lim[h→0] ((x + h)² - 1 - (x² - 1)) / h\n"
+"     = lim[h→0] (x² + 2xh + h² - x²) / h\n"
+"     = lim[h→0] (2xh + h²) / h\n"
+"     = lim[h→0] h(2x + h) / h\n"
+"     = lim[h→0] (2x + h)\n"
+"     = 2x\n"
+"```\n"
+"\n"
+"## Your Challenge\n"
+"\n"
+"Prove that the derivative of `f(x) = x² - 1` is `g(x) = 2x` everywhere:\n"
+"\n"
+"`FunDeriv (fun x ↦ x^2 - 1) (fun x ↦ 2 * x)`\n"
+"\n"
+"**Hint:** You need to prove `∀ x, FunDerivAt (fun x ↦ x^2 - 1) (2 * x) x`.\n"
+"\n"
+"After introducing `x`, the proof is very similar to Level 6, but with `x` instead of `2`.\n"
+"\n"
+"Given `ε > 0`, use `δ = ε`. For `h ≠ 0` with `|h| < ε`, simplify:\n"
+"- `(x + h)² - 1 - (x² - 1) = 2xh + h²`\n"
+"- `(2xh + h²) / h = 2x + h` (for `h ≠ 0`)\n"
+"- `|(2x + h) - 2x| = |h| < ε`"
 msgstr ""
 
 #: Game.Levels.L2Pset.L2Pset1
@@ -2387,6 +2519,8 @@ msgstr ""
 #: Game.Levels.L16Pset.L16Pset1
 #: Game.Levels.L16Pset.L16Pset2
 #: Game.Levels.L16Pset.L16Pset3
+#: Game.Levels.L20Pset.L01
+#: Game.Levels.L20Pset.L02
 msgid "Prove this"
 msgstr ""
 
@@ -3073,6 +3207,72 @@ msgstr ""
 msgid "Eventually"
 msgstr ""
 
+#: Game.Levels.L21Levels.L06
+msgid "# Level 2: The Derivative at a Point\n"
+"\n"
+"We've studied limits of functions extensively. Now we apply this knowledge to one of the most important concepts in calculus: the **derivative**!\n"
+"\n"
+"## The Definition\n"
+"\n"
+"**Definition (`FunDerivAt`):** We say that `f` has derivative `L` at `c` if:\n"
+"\n"
+"`FunLimAt (fun h ↦ (f (c + h) - f c) / h) L 0`\n"
+"\n"
+"This is written `FunDerivAt f L c`.\n"
+"\n"
+"**Reading the definition:** The derivative is the limit of the **difference quotient** as `h → 0`:\n"
+"\n"
+"`f'(c) = lim[h→0] (f(c + h) - f(c)) / h`\n"
+"\n"
+"## The Geometric Interpretation\n"
+"\n"
+"The difference quotient `(f(c + h) - f(c)) / h` is the **slope of the secant line** through the points `(c, f(c))` and `(c + h, f(c + h))`.\n"
+"\n"
+"As `h → 0`, these secant lines approach the **tangent line** at `x = c`, and the derivative is the slope of this tangent line!\n"
+"\n"
+"## Computing a Derivative\n"
+"\n"
+"Let's compute the derivative of `f(x) = x² - 1` at `x = 2`.\n"
+"\n"
+"We need to find the limit:\n"
+"\n"
+"`lim[h→0] (f(2 + h) - f(2)) / h`\n"
+"\n"
+"`     = lim[h→0] ((2 + h)² - 1 - 3) / h`\n"
+"\n"
+"`     = lim[h→0] (4 + 4h + h² - 4) / h`\n"
+"\n"
+"`     = lim[h→0] (4h + h²) / h`\n"
+"\n"
+"`     = lim[h→0] (h(4 + h)) / h`\n"
+"\n"
+"`     = lim[h→0] (4 + h)`\n"
+"\n"
+"`     = 4`\n"
+"\n"
+"So the derivative is `4`!\n"
+"\n"
+"## Your Challenge\n"
+"\n"
+"Prove that the function `f(x) = x² - 1` has derivative `4` at `x = 2`:\n"
+"\n"
+"`FunDerivAt (fun x ↦ x^2 - 1) 4 2`\n"
+"\n"
+"**Hint:** You need to prove `FunLimAt (fun h ↦ ((2 + h)^2 - 1 - 3) / h) 4 0`.\n"
+"\n"
+"Given `ε > 0`, you need to find `δ > 0` such that for `h ≠ 0` with `|h| < δ`, we have:\n"
+"```\n"
+"|((2 + h)² - 1 - 3) / h - 4| < ε\n"
+"```\n"
+"\n"
+"Simplify the difference quotient algebraically:\n"
+"- `(2 + h)² - 1 - 3 = 4 + 4h + h² - 4 = 4h + h²`\n"
+"- So `((2 + h)² - 1 - 3) / h = (4h + h²) / h = 4 + h` (for `h ≠ 0`)\n"
+"- Thus `|((2 + h)² - 1 - 3) / h - 4| = |4 + h - 4| = |h|`\n"
+"\n"
+"Therefore, taking `δ = ε` works perfectly!"
+msgstr ""
+
 #: Game.Levels.L10Lecture
 msgid "Lecture 10: Algebraic Limit Theorem, Part V"
 msgstr ""
@@ -3203,6 +3403,12 @@ msgstr ""
 msgid "Level 3 : Cauchy Implies Bounded"
 msgstr ""
 
+#: Game.Levels.L20Pset.L03
+msgid "# Level 3: Const Times Limit\n"
+"\n"
+"Prove that if `f → L` as `x → c`, then `k · f → k · L`."
+msgstr ""
+
 #: Game.Levels.L6Pset.L6Pset4
 msgid "# Problem 4\n"
 "\n"
@@ -3267,6 +3473,10 @@ msgstr ""
 msgid "Try starting your proof with `apply subseq_of_succ`."
 msgstr ""
 
+#: Game.Levels.L21Levels.L06
+msgid "Computing a Derivative"
+msgstr ""
+
 #: Game.Levels.L1Pset.L1Pset1
 #: Game.Levels.L8Pset.L8Pset1
 msgid "# Problem 1"
@@ -3283,6 +3493,10 @@ msgstr ""
 
 #: Game.Levels.L7Levels.L03_SeqInvLim
 msgid "For any real numbers `x` and `y`, we have `|x / y| = |x| / |y|`."
+msgstr ""
+
+#: Game.Levels.L20Pset.L03
+msgid "Prove `ConstTimesLimAt`"
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset5
@@ -3543,6 +3757,10 @@ msgstr ""
 msgid "The Convergence of a Sequence"
 msgstr ""
 
+#: Game.Levels.L20Pset.L02
+msgid "ContinuousIff II"
+msgstr ""
+
 #: Game.Levels.L12Levels.L01_Choose
 msgid "You can make `σ` by taking an orbit of `τ`! You can start at any base point, as long as `p` is satisfied for that base point; since we don't *a priori* know of such a point, we can start with `τ 0`. Try writing `let σ : ℕ → ℕ := fun n ↦ τ^[n] (τ 0)`."
 msgstr ""
@@ -3725,6 +3943,10 @@ msgid "# Problem Set 9\n"
 "Good luck!"
 msgstr ""
 
+#: Game.Levels.L21Lecture
+msgid "# Lecture 21: Function Limits II"
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L03_rw
 msgid "# Rewriting with equalities\n"
 "\n"
@@ -3749,6 +3971,13 @@ msgstr ""
 
 #: Game.Levels.L6Levels.L02_LeftRight
 msgid "Left and Right"
+msgstr ""
+
+#: Game.Levels.L20Pset.L01
+msgid "# Level 1: ContinuousIff I\n"
+"\n"
+"Prove the forward direction: If a function is continuous at `x=c`,\n"
+"then its limit at `x=c` exists and is equal to `f c`."
 msgstr ""
 
 #: Game.Levels.L16Pset.L16Pset1
@@ -4181,6 +4410,12 @@ msgstr ""
 
 #: Game.Levels.L12Levels.L01_MonotoneBdd
 msgid "If `a n ≤ a (n+1)` holds for all `n`, then `a` is `Monotone`."
+msgstr ""
+
+#: Game.Levels.L20Pset.L02
+msgid "# Level 2: ContinuousIff II\n"
+"\n"
+"Prove the backwards direction: If the limit at `x=c` of `f` exists and is equal to `f c`, then `f` is continuous at `x=c`."
 msgstr ""
 
 #: Game.Levels.L11Levels.L01_IsCauchyOfLim
@@ -4627,6 +4862,13 @@ msgid "# Level 1: Doubling Convergence\n"
 "- Integration (where Riemann sums involve scaling by partition widths)\n"
 "\n"
 "The ability to manage how constants affect convergence is fundamental to all of analysis!"
+msgstr ""
+
+#: Game.Levels.L20Pset.L04
+msgid "# Level 4: Bounded Near Limit\n"
+"\n"
+"Prove that if `f → L` as `x → c`, then there is an `M > 0` such that\n"
+"`|f (x)| < M` near `c`."
 msgstr ""
 
 #: Game.Levels.L5Levels.L01_DoubleSeqConv
@@ -5817,6 +6059,10 @@ msgid "# Level 2: Our First Real Limit\n"
 "This is a perfect example of how even \"obvious\" mathematical facts require sophisticated machinery to prove rigorously!"
 msgstr ""
 
+#: Game.Levels.L20Pset.L04
+msgid "Bounded Near Limit"
+msgstr ""
+
 #: Game.Levels.L18Levels.L02
 msgid "If `a : ℕ → ℝ` is `Antitone` and `∀ n, 0 ≤ a n`, then the even alternating series `n ↦ ∑ k ∈ range (2n), (-1)^k * a k` is bounded by `a 0`."
 msgstr ""
@@ -5851,6 +6097,12 @@ msgstr ""
 
 #: Game.Levels.L17Lecture
 msgid "Lecture 17: Series II"
+msgstr ""
+
+#: Game.Levels.L21Levels.L06
+msgid "`FunLimAt (fun h ↦ (f (c + h) - f c) / h) L 0`\n"
+"\n"
+"The derivative of `f` at `x = c` is `L`."
 msgstr ""
 
 #: Game.Levels.L20Levels.L01
@@ -5943,6 +6195,11 @@ msgid "# Problem 3\n"
 "then systematically use `abs_of_nonneg` and `abs_neg`...)"
 msgstr ""
 
+#: Game.Levels.L20Pset.L04
+msgid "If `f → L` as `x → c`, then there is an `M > 0` such that\n"
+"`|f (x)| < M` near `c`."
+msgstr ""
+
 #: Game.Levels.L3Pset.L3Pset4
 msgid "# Problem 4\n"
 "\n"
@@ -6026,6 +6283,10 @@ msgstr ""
 msgid "The ring_nf tactic"
 msgstr ""
 
+#: Game.Levels.L20Pset.L03
+msgid "Const Times Limit"
+msgstr ""
+
 #: Game.Levels.L4Pset.L4Pset1
 msgid "# Problem 1\n"
 "\n"
@@ -6092,6 +6353,10 @@ msgstr ""
 msgid "# Level 9: `BddSeriesOdd`\n"
 "\n"
 "Prove `BddSeriesOdd`:"
+msgstr ""
+
+#: Game.Levels.L21Levels.L05
+msgid "Sequential Criterion for Limits (Backward Direction)"
 msgstr ""
 
 #: Game.Levels.L6Levels.L04_Cases'
@@ -6239,6 +6504,14 @@ msgstr ""
 #: Game.Levels.L18Pset.L08
 #: Game.Levels.L18Pset.L09
 #: Game.Levels.L18Pset.L10
+#: Game.Levels.L20Pset.L01
+#: Game.Levels.L20Pset.L02
+#: Game.Levels.L20Pset.L03
+#: Game.Levels.L20Pset.L04
+#: Game.Levels.L21Levels.L05
+#: Game.Levels.L21Levels.L06
+#: Game.Levels.L21Levels.L07
+#: Game.Levels.L21Levels.L08
 msgid ""
 msgstr ""
 
@@ -6357,6 +6630,12 @@ msgstr ""
 
 #: Game.Levels.L17Lecture
 msgid "# Lecture 17: Series II"
+msgstr ""
+
+#: Game.Levels.L20Levels.L01
+msgid "`∀ ε > 0, ∃ δ > 0, ∀ x ≠ c, |x - c| < δ → |f x - L| < ε`\n"
+"\n"
+"  A function `f` has limit `L` at `x = c`."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L09_big_boss
@@ -6523,6 +6802,10 @@ msgid "# Level 3: Continuity of Absolute Value—Sequences of Absolute Values\n"
 "preserve limits**. The absolute value function is continuous everywhere, so it maps\n"
 "convergent sequences to convergent sequences. This principle extends to all continuous\n"
 "functions and is fundamental to mathematical analysis."
+msgstr ""
+
+#: Game.Levels.L21Levels.L08
+msgid "Continuity Everywhere"
 msgstr ""
 
 #: Game.Levels.L2PsetIntro
@@ -6942,8 +7225,56 @@ msgid "# The Final Challenge\n"
 "An LLM could easily work through all these Lean levels by pattern matching and logical manipulation - just as you could solve multiplication problems by plugging them into a calculator instead of memorizing your times tables. But that completely defeats the purpose of the exercise, which is to rewire your brain and build mathematical intuition. It's like deciding that you want to bench press 200 pounds, loading up the bar, and then using a forklift to lift it for you while you stand underneath - you might have moved the weight, but you haven't gotten any stronger. The real value isn't in producing correct proofs, it's in the cognitive transformation that happens when you *struggle* through the reasoning yourself, building the mental pathways that let you see mathematical structure intuitively."
 msgstr ""
 
+#: Game.Levels.L21Levels.L05
+msgid "# Level 1: Sequential Criterion for Limits (Backward Direction)\n"
+"\n"
+"Previously, we proved that function limits imply sequential limits. Now we prove the **converse**: if function values converge for *every* appropriate sequence, then the function has a limit!\n"
+"\n"
+"## The Sequential Criterion (Backward Direction)\n"
+"\n"
+"**Theorem:** Suppose that for *every* sequence `(xₙ)` with `xₙ → c` and `xₙ ≠ c`, we have `f(xₙ) → L`. Then `FunLimAt f L c`.\n"
+"\n"
+"This says: if sequences **test** the limit and all tests pass, then the function limit exists!\n"
+"\n"
+"## Why This Is Harder\n"
+"\n"
+"The forward direction was straightforward: we had `δ` from the function limit and used it directly.\n"
+"\n"
+"For the backward direction, you might consider a **proof by contradiction**:\n"
+"- Assume `FunLimAt f L c` is false\n"
+"- Then there exists ε > 0 such that for *every* δ > 0, there exists `x` with `|x - c| < δ`, `x ≠ c`, but `|f(x) - L| ≥ ε`\n"
+"- We'll construct a **problematic sequence** by choosing such an `x` for each `δ = 1/n`\n"
+"- This sequence converges to `c` but `f(xₙ)` does *not* converge to `L`, contradicting our hypothesis!\n"
+"\n"
+"## The Proof Strategy\n"
+"\n"
+"**Given:** For all sequences `xₙ → c` with `xₙ ≠ c`, we have `f(xₙ) → L`.\n"
+"\n"
+"**Want:** To show `FunLimAt f L c`, i.e., `∀ ε > 0, ∃ δ > 0, ∀ x ≠ c, |x - c| < δ → |f(x) - L| < ε`.\n"
+"\n"
+"**How (by contradiction):**\n"
+"1. Assume not: `∃ ε > 0` such that `∀ δ > 0`, the implication fails\n"
+"2. For each `n`, take `δ = 1/(n+1)` and get a counterexample `xₙ` with `|xₙ - c| < 1/(n+1)` and `|f(xₙ) - L| ≥ ε`\n"
+"3. Show `xₙ → c` (since `|xₙ - c| < 1/(n+1) → 0`)\n"
+"4. By hypothesis, `f(xₙ) → L`, which contradicts `|f(xₙ) - L| ≥ ε`\n"
+"\n"
+"## Your Challenge\n"
+"\n"
+"Prove the backward direction of the sequential criterion:\n"
+"\n"
+"`(∀ x : ℕ → ℝ, (∀ n, x n ≠ c) → SeqLimit x c → SeqLimit (fun n ↦ f (x n)) L) → FunLimAt f L c`\n"
+"\n"
+"**Hint:** Use `by_contra` to assume the negation. Push negations to get `∃ ε > 0, ∀ δ > 0, ∃ x, ...`. Use `choose` to extract the ε and a function that gives counterexamples. Construct a sequence using `δ = 1/(n+1)`, prove it converges to `c`, apply the hypothesis to get `f(xₙ) → L`, and derive a contradiction."
+msgstr ""
+
 #: Game.Levels.L18Pset.L03
 msgid "Prove `AntitoneLimitBound`"
+msgstr ""
+
+#: Game.Levels.L21Levels.L07
+msgid "`∀ x, FunDerivAt f (g x) x`.\n"
+"\n"
+"The derivative of `f` is `g` everywhere."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L08_choose
@@ -7634,6 +7965,10 @@ msgstr ""
 msgid "This is where you might find it useful to call `norm_num` and normalize `|0|` to `0`."
 msgstr ""
 
+#: Game.Levels.L20Pset.L04
+msgid "Prove `Bdd_of_LimAt`"
+msgstr ""
+
 #: Game.Levels.L18Pset.L01
 msgid "This is the analog of `sum_range_succ` to summing on intervals."
 msgstr ""
@@ -7942,13 +8277,6 @@ msgid "# 🎉 Excellent Work! 🎉\n"
 "**QED**"
 msgstr ""
 
-#: Game.Levels.L20Levels.L02
-msgid "`∀ ε > 0, ∃ δ > 0, ∀ x, |x - c| < δ → |f x - f c| < ε`\n"
-"\n"
-"\n"
-"The function `x² - 1` is continuous at x = 2."
-msgstr ""
-
 #: Game.Levels.L18Levels.L01
 msgid "# Congratulations!\n"
 "\n"
@@ -8155,10 +8483,29 @@ msgid "# More on sequences\n"
 "Let's get started."
 msgstr ""
 
+#: Game.Levels.L20PsetIntro
+msgid "# Problem Set 20\n"
+"\n"
+"$\\# 1)$ Suppose a function $f$ has the following property: There exist two sequences, $x_n, y_n$, both never equal to $c$ and both converging to $c$, but with different sequential limits: $\\lim_{n\\to\\infty}f(x_n) \\ne \\lim_{n\\to\\infty}f(y_n)$. Show that the function limit $\\lim_{x \\to c}f(x)$ does not exist.\n"
+"\n"
+"$\\# 2)$ Determine whether the function $f (x) = \\sin(1/x)$ has a limit as $x\\to0$. (You may wish to plot it, say, in Desmos.) Either way, prove your claim. [Hint: Consider the sequences $x_n=1/(2n\\pi)$ and $y_n=1/(2n\\pi + \\pi/2)$.]\n"
+"\n"
+"$\\# 3)$ Determine whether the function $f (x) = x\\sin(1/x)$ has a limit as $x\\to0$. (Again, you may wish to plot it, say, in Desmos.) Either way, prove your claim.\n"
+"\n"
+"$\\# 4)$ True or False (give a proof or counterexample): If $\\lim_{x\\to c}f(x)=0$, then for any function $g$ (defined near $c$), $\\lim_{x\\to c}f(x)g(x)=0$.\n"
+"\n"
+"\n"
+"$\\# 5)$ Compute the limit or prove that it doesn't exist: $\\lim_{x\\to 6}\\frac{x-6}{|x-6|}$."
+msgstr ""
+
 #: Game.Levels.L8Levels.L03_Induction'
 msgid "The syntax for induction is: `induction' n with k hk`. This means: apply induction on the\n"
 "variable `n`, use `k` for the new dummy variable (which could be `n` itself), and `hk` for\n"
 "the induction hypothesis on `k`."
+msgstr ""
+
+#: Game.Levels.L21Lecture
+msgid "Lecture 21: Function Limits II"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
@@ -8189,6 +8536,13 @@ msgstr ""
 
 #: Game.Levels.L12Levels.L01_Choose
 msgid "Try starting your proof with `choose τ hτBnd hτP using h`."
+msgstr ""
+
+#: Game.Levels.L20Levels.L02
+msgid "`∀ ε > 0, ∃ δ > 0, ∀ x, |x - c| < δ → |f x - f c| < ε`\n"
+"\n"
+"\n"
+"The function `f` is continuous at `x = c`."
 msgstr ""
 
 #: Game.Levels.L4Levels.L01_NonConverge

@@ -75,7 +75,7 @@ def FunDerivAt (f : ℝ → ℝ) (L : ℝ) (c : ℝ) : Prop :=
 
 /-- `FunLimAt (fun h ↦ (f (c + h) - f c) / h) L 0`
 
-The derivative of x² - 1 at x = 2 is 4.
+The derivative of `f` at `x = c` is `L`.
 -/
 DefinitionDoc FunDerivAt as "FunDerivAt"
 
