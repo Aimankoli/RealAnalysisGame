@@ -48,7 +48,7 @@ def FunLimAt (f : ℝ → ℝ) (L : ℝ) (c : ℝ) : Prop :=
 
 /-- `∀ ε > 0, ∃ δ > 0, ∀ x ≠ c, |x - c| < δ → |f x - L| < ε`
 
-  The function `(x² - 1)/(x - 1)` has a limit at x = 1.
+  A function `f` has limit `L` at `x = c`.
 -/
 DefinitionDoc FunLimAt as "FunLimAt"
 

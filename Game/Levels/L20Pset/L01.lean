@@ -1,22 +1,24 @@
 import Game.Levels.L20Lecture
+import Game.Levels.L18PsetIntro
+
 open Finset
 
 World "L20Pset"
 Level 1
-Title "DiffOfSeries"
+Title "ContinuousIff I"
 Introduction "
-# Level 1: `DiffOfSeries`
+# Level 1: ContinuousIff I
 
-Prove `DiffOfSeries`.
-
-## New Theorem: `sum_Ico_succ`.
+Prove the forward direction: If a function is continuous at `x=c`,
+then its limit at `x=c` exists and is equal to `f c`.
 
 "
 
-/-- Prove `DiffOfSeries`
+/-- Prove this
 -/
-Statement (a : ℕ → ℝ) {n m : ℕ} (hmn : n ≤ m) :
-  Series a m - Series a n = ∑ k ∈ Ico n m, a k := by
+Statement (f : ℝ → ℝ) (c : ℝ) (hf : FunContAt f c) :
+  FunLimAt f (f c) c := by
+
 sorry
 
 Conclusion "

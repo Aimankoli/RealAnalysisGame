@@ -1,4 +1,5 @@
 import Game.Levels.L7Lecture
+import Game.Levels.L6PsetIntro
 
 World "L7Pset"
 Level 1

@@ -1,4 +1,6 @@
 import Game.Levels.L18Lecture
+import Game.Levels.L17PsetIntro
+
 open Finset
 
 World "L18Pset"
