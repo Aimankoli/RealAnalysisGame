@@ -17,9 +17,8 @@ But for most functions, we can compute derivatives at *every* point, giving us a
 ## The New Definition
 
 **Definition (`FunDeriv`):** We say that `g` is the derivative of `f` (everywhere) if:
-```
-∀ x, FunDerivAt f (g x) x
-```
+
+`∀ x, FunDerivAt f (g x) x`
 
 This is written `FunDeriv f g`.
 
@@ -34,15 +33,20 @@ This is an instance of the **power rule**: `d/dx[xⁿ] = n·xⁿ⁻¹`.
 ## Computing the General Derivative
 
 For arbitrary `x`, we need:
-```
-lim[h→0] (f(x + h) - f(x)) / h
-     = lim[h→0] ((x + h)² - 1 - (x² - 1)) / h
-     = lim[h→0] (x² + 2xh + h² - x²) / h
-     = lim[h→0] (2xh + h²) / h
-     = lim[h→0] h(2x + h) / h
-     = lim[h→0] (2x + h)
-     = 2x
-```
+
+`lim[h→0] (f(x + h) - f(x)) / h`
+
+`     = lim[h→0] ((x + h)² - 1 - (x² - 1)) / h`
+
+`     = lim[h→0] (x² + 2xh + h² - x²) / h`
+
+`     = lim[h→0] (2xh + h²) / h`
+
+`     = lim[h→0] h(2x + h) / h`
+
+`     = lim[h→0] (2x + h)`
+
+`     = 2x`
 
 ## Your Challenge
 
@@ -52,7 +56,7 @@ Prove that the derivative of `f(x) = x² - 1` is `g(x) = 2x` everywhere:
 
 **Hint:** You need to prove `∀ x, FunDerivAt (fun x ↦ x^2 - 1) (2 * x) x`.
 
-After introducing `x`, the proof is very similar to Level 6, but with `x` instead of `2`.
+After introducing `x`, the proof is very similar to Level 2, but with `x` instead of `2`.
 
 Given `ε > 0`, use `δ = ε`. For `h ≠ 0` with `|h| < ε`, simplify:
 - `(x + h)² - 1 - (x² - 1) = 2xh + h²`
@@ -74,51 +78,6 @@ NewDefinition FunDeriv
 
 Statement (f g : ℝ → ℝ) (hf : ∀ x, f x = x ^ 2 - 1) (hg : ∀ x, g x = 2 * x) :
     FunDeriv f g := by
-sorry
-
-Conclusion "
-"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#exit
 intro x
 intro ε hε
 use ε, hε
@@ -129,3 +88,53 @@ rewrite [show (x + h) ^ 2 - 1 - (x ^ 2 - 1) = 2 * x * h + h ^ 2 by ring_nf]
 rewrite [show (2 * x * h + h ^ 2) / h = 2 * x + h by field_simp]
 rewrite [show 2 * x + h - 2 * x = h - 0 by ring_nf]
 apply hh
+
+Conclusion "
+# Outstanding Achievement!
+
+You've just proved the **power rule** from first principles! This is one of the most fundamental results in calculus, and you've established it rigorously using limit definitions.
+
+## What You Accomplished
+
+You proved that for `f(x) = x² - 1`, the derivative function is `f'(x) = 2x` **everywhere**. This means:
+- At any point `x`, the instantaneous rate of change is `2x`
+- The slope of the tangent line at `(x, x² - 1)` is exactly `2x`
+- The function has a well-defined derivative at every real number
+
+## From Specific to General
+
+Notice the beautiful progression:
+- **Level 2:** Derivative at one point (`x = 2` gives `f'(2) = 4`)
+- **Level 3:** Derivative everywhere (`f'(x) = 2x` for all `x`)
+
+Your Level 2 result now emerges as a special case: `f'(2) = 2(2) = 4` ✓
+
+## The Power Rule Emerges
+
+You've discovered a fundamental pattern:
+- `f(x) = x²` has `f'(x) = 2x = 2x¹`
+- This suggests the general rule: `d/dx[xⁿ] = n·xⁿ⁻¹`
+
+The constant `-1` disappeared because constants have derivative zero—another fundamental rule you've implicitly used!
+
+## The Algebraic Magic
+
+The key insight was recognizing that for **any** `x`:
+`(x + h)² - x² = 2xh + h²`
+
+This factorization:
+- Makes the `h` in the denominator cancel cleanly
+- Leaves `2x + h`, which approaches `2x` as `h → 0`
+- Works regardless of the value of `x`
+
+## Universal vs. Particular
+
+This level demonstrated the power of **universal quantification** (`∀ x`). Instead of proving the result for each individual point, you proved it holds for **every** point simultaneously. This is the essence of mathematical generality!
+
+## Looking Ahead
+
+You now have the tools to understand **continuity everywhere**. Just as we moved from point derivatives to derivative functions, we can move from point continuity to global continuity. Can you guess what comes next?
+
+The derivative function `f'(x) = 2x` you just found is itself a function—is it continuous? Spoiler alert: absolutely!
+
+"

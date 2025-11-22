@@ -17,9 +17,8 @@ But many functions (like polynomials) are continuous at *every* point.
 ## The New Definition
 
 **Definition (`FunCont`):** We say that `f` is **continuous** (everywhere) if:
-```
-∀ x, FunContAt f x
-```
+
+`∀ x, FunContAt f x`
 
 This is written `FunCont f`.
 
@@ -32,7 +31,7 @@ Intuitively, polynomials like `f(x) = x² - 1` are continuous because:
 - Small changes in `x` produce small changes in `f(x)`
 - There are no jumps, breaks, or asymptotes
 
-We proved in Level 2 that `x² - 1` is continuous at `x = 2`. Now we'll prove it's continuous **everywhere**!
+We've worked with continuity of `x² - 1` before. Now we'll prove it's continuous **everywhere**!
 
 ## The Strategy
 
@@ -40,10 +39,9 @@ For any point `x`, we need to show `FunContAt (fun t ↦ t^2 - 1) x`.
 
 This means: given `ε > 0`, find `δ > 0` such that `|t - x| < δ` implies `|f(t) - f(x)| < ε`.
 
-The algebra is similar to Level 2:
-```
-f(t) - f(x) = (t² - 1) - (x² - 1) = t² - x² = (t - x)(t + x)
-```
+The algebra follows a familiar pattern:
+
+`f(t) - f(x) = (t² - 1) - (x² - 1) = t² - x² = (t - x)(t + x)`
 
 So `|f(t) - f(x)| = |t - x| · |t + x|`.
 
@@ -57,7 +55,7 @@ Prove that `f(x) = x² - 1` is continuous everywhere:
 
 `FunCont (fun x ↦ x^2 - 1)`
 
-**Hint:** After introducing `x`, the proof is very similar to Level 2, but you need to bound `|t + x|` in terms of `x` (not a constant like `5`).
+**Hint:** After introducing `x`, you need to bound `|t + x|` in terms of `x` (not a constant like `5`).
 
 Use `min 1 (ε / (|2 * x| + 1))` as your `δ`. The key is showing that when `|t - x| < 1`, we have `|t + x| < |2 * x| + 1`.
 
@@ -104,4 +102,49 @@ have ε1 : (ε / (|2 * x| + 1)) * (|2 * x| + 1) = ε := by field_simp
 linarith [ht', ht'', ε1]
 
 Conclusion "
+# Great Work!
+
+You've just proved that a polynomial function is continuous everywhere! This completes a beautiful journey from studying individual points to understanding global behavior.
+
+## What You Accomplished
+
+You proved that `f(x) = x² - 1` is continuous at **every** point in ℝ. This means:
+- The function has no jumps, breaks, or discontinuities anywhere
+- Small changes in input always produce small changes in output
+- You can trace the entire graph without lifting your pen
+
+## The Technical Triumph
+
+The key challenge was making your `δ` depend on the point `x` where you're proving continuity. Unlike derivatives where `δ = ε` worked universally, continuity required the more sophisticated choice:
+
+`δ = min(1, ε / (|2x| + 1))`
+
+This elegant formula ensures that:
+- `|t - x| < 1` controls how far `t` can be from `x`
+- The factor `|2x| + 1` accounts for how the function's \"sensitivity\" changes at different points
+- The `min` operation balances both constraints perfectly
+
+## From Specific to Universal
+
+Notice the beautiful progression through all four levels:
+
+1. **Level 1:** Sequential limits ↔ Function limits (foundational equivalence)
+2. **Level 2:** Derivative at one point (local linear behavior)
+3. **Level 3:** Derivatives everywhere (global differentiability)
+4. **Level 4:** Continuity everywhere (global continuity)
+
+You've built a complete picture of how polynomials behave!
+
+## The Hierarchy of Smoothness
+
+You've now established that `f(x) = x² - 1` is:
+- **Continuous everywhere** (what you just proved)
+- **Differentiable everywhere** (from Level 3)
+
+This illustrates a fundamental hierarchy: differentiability implies continuity. Functions that have derivatives must be continuous, but continuous functions need not have derivatives everywhere.
+
+## The Power of Uniform Arguments
+
+This level showcased **uniform techniques**—proving a property holds at every point simultaneously rather than point-by-point. The expression `|2x| + 1` captures how the \"difficulty\" of proving continuity varies with location, but your single formula handles all points at once!
+
 "
