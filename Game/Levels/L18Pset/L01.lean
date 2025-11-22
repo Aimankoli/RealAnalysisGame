@@ -30,7 +30,22 @@ NewTheorem sum_Ico_succ
 -/
 Statement (a : ℕ → ℝ) {n m : ℕ} (hmn : n ≤ m) :
   Series a m - Series a n = ∑ k ∈ Ico n m, a k := by
-sorry
+induction' m with m hm
+have hn : n = 0 := by bound
+rewrite [hn]
+bound
+change (∑ k ∈ range (m+1), a k) - _ = _
+by_cases hm' : n ≤ m
+specialize hm hm'
+rewrite [sum_Ico_succ_top hm']
+rewrite [sum_range_succ]
+rewrite [← hm]
+change Series a m + _ - _ = _
+ring_nf
+have hn : n = m + 1 := by bound
+rewrite [hn]
+change Series a (m+1) - _ = _
+bound
 
 Conclusion "
 "

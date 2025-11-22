@@ -34,6 +34,8 @@ We need to find the limit:
 
 `lim[h→0] (f(2 + h) - f(2)) / h`
 
+`     = lim[h→0] ((2 + h)² - 1 - (2² - 1)) / h`
+
 `     = lim[h→0] ((2 + h)² - 1 - 3) / h`
 
 `     = lim[h→0] (4 + 4h + h² - 4) / h`
@@ -57,9 +59,8 @@ Prove that the function `f(x) = x² - 1` has derivative `4` at `x = 2`:
 **Hint:** You need to prove `FunLimAt (fun h ↦ ((2 + h)^2 - 1 - 3) / h) 4 0`.
 
 Given `ε > 0`, you need to find `δ > 0` such that for `h ≠ 0` with `|h| < δ`, we have:
-```
-|((2 + h)² - 1 - 3) / h - 4| < ε
-```
+
+`|((2 + h)² - 1 - 3) / h - 4| < ε`
 
 Simplify the difference quotient algebraically:
 - `(2 + h)² - 1 - 3 = 4 + 4h + h² - 4 = 4h + h²`
@@ -83,43 +84,6 @@ NewDefinition FunDerivAt
 
 Statement :
     FunDerivAt (fun x ↦ x^2 - 1) 4 2 := by
-sorry
-
-Conclusion "
-"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#exit
-
 intro ε hε
 use ε, hε
 intro h hh0 hh
@@ -128,3 +92,46 @@ rewrite [show (2 + h) ^ 2 - 1 - (2 ^ 2 - 1) = 4 * h + h ^ 2 by ring_nf]
 rewrite [show (4 * h + h ^ 2) / h = 4 + h by field_simp]
 rewrite [show 4 + h - 4 = h - 0 by ring_nf]
 apply hh
+
+Conclusion "
+# Excellent Work!
+
+You've just computed your first derivative using the formal limit definition! This is a foundational skill that connects the abstract world of limits to the concrete world of rates of change.
+
+## What You Accomplished
+
+You proved that the derivative of `f(x) = x² - 1` at `x = 2` is exactly `4`. This means:
+- The **instantaneous rate of change** of `f` at `x = 2` is `4`
+- The **slope of the tangent line** to the graph at `(2, 3)` is `4`
+- If you zoom in very close to the point `(2, 3)`, the function looks like the line `y = 4x - 5`
+
+## The Power of Algebraic Simplification
+
+Your proof showcased a key technique: **algebraic manipulation before taking limits**.
+
+Instead of wrestling with the indeterminate form `0/0`, you:
+1. **Expanded:** `(2 + h)² = 4 + 4h + h²`
+2. **Simplified:** `(4h + h²)/h = h(4 + h)/h = 4 + h`
+3. **Applied the limit:** `lim[h→0] (4 + h) = 4`
+
+This \"simplify first, then limit\" approach is essential for derivative computations!
+
+## The Beautiful Result: δ = ε
+
+Notice how clean the final step was: to prove `|h| < ε`, you simply chose `δ = ε`. This perfect correspondence happens because the simplified difference quotient `4 + h` has slope exactly `1` near the limit point.
+
+This won't always be so simple, but it's a beautiful example of how algebra can make limit proofs elegant.
+
+## Connection to Calculus
+
+In traditional calculus, you might have computed this as:
+- `d/dx[x²] = 2x`, so at `x = 2` we get `2(2) = 4`
+- The constant `-1` has derivative `0`
+
+You've now proven this rigorously from first principles! Every time you use the power rule, you're implicitly using the kind of limit argument you just mastered.
+
+## Looking Ahead
+
+In the next level, we'll generalize this computation to find the derivative at **every** point, not just `x = 2`. You'll discover the famous **power rule** emerging naturally from limit definitions!
+
+"
