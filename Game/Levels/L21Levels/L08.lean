@@ -104,10 +104,6 @@ linarith [ht', ht'', ε1]
 Conclusion "
 # Great Work!
 
-You've just proved that a polynomial function is continuous everywhere! This completes a beautiful journey from studying individual points to understanding global behavior.
-
-## What You Accomplished
-
 You proved that `f(x) = x² - 1` is continuous at **every** point in ℝ. This means:
 - The function has no jumps, breaks, or discontinuities anywhere
 - Small changes in input always produce small changes in output
@@ -142,9 +138,5 @@ You've now established that `f(x) = x² - 1` is:
 - **Differentiable everywhere** (from Level 3)
 
 This illustrates a fundamental hierarchy: differentiability implies continuity. Functions that have derivatives must be continuous, but continuous functions need not have derivatives everywhere.
-
-## The Power of Uniform Arguments
-
-This level showcased **uniform techniques**—proving a property holds at every point simultaneously rather than point-by-point. The expression `|2x| + 1` captures how the \"difficulty\" of proving continuity varies with location, but your single formula handles all points at once!
-
+a
 "
