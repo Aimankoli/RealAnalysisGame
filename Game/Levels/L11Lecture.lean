@@ -70,7 +70,10 @@ Oh! But wait, that sequence isn't bounded. Are you saying that if all I know abo
 
 **SOCRATES:** Beautiful! But since we already have a different meaning for the notion of  \"has a limit\", we'll call this property \"Cauchy\". So we say that **a sequence is Cauchy** if, as you said:
 
-`∀ ε > 0, ∃ N, ∀ m ≥ N, ∀ n ≥ N, |a m - a n| < ε`
+`∀ ε > 0, ∃ N, ∀ n ≥ N, ∀ m ≥ n, |a m - a n| < ε`
+
+(It will be very convenient later to know which of `m` and `n` is bigger, instead of needing to break into cases;
+ so we can just say `m ≥ n`.)
 
 This is one of the most important definitions in **all of mathematics**.
 It appears not only here in real analysis, but also in higher arithmetic when building the p-adic numbers, in functional analysis when studying Banach spaces and Hilbert spaces, and in topology and geometry when \"completing\" metric spaces. Anywhere mathematicians want to talk about  \"convergence\" but without knowing *a priori* where things converge *to*, they reach for a version of Cauchy's definition.

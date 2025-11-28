@@ -37,7 +37,7 @@ import Game.Levels.L20Lecture
 import Game.Levels.L20PsetIntro
 import Game.Levels.L21Lecture
 import Game.Levels.L22Lecture
-
+import Game.Levels.L22PsetIntro
 
 -- exercise for later : why not `|a n - a (n + 1)|`?
 
