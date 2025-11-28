@@ -8,16 +8,14 @@ Title "Integral Exercise"
 Introduction "
 # Level 4: Integral Exercise
 
-Show that `x ↦ x ^ 2` is integrable.
+As you may imagine, the proof that `f(x) = x ^ 2` is integrable will involve the following formula for the sum of squares:
 
-You may find this lemma useful: `sum_of_squares` For any natural number `n`,
 `∑ i ∈ Finset.range n, (i + 1) ^ 2 = (n * (n + 1) * (2 * n + 1)) / 6`.
+
+(All as real numbers.) Prove it. Then in natural language, prove that `f(x) = x ^ 2` is integrable on `[a,b]`.
 
 "
 
-theorem sum_of_squares (n : ℕ) :
-  ∑ i ∈ Finset.range n, (i + 1) ^ 2 = (n * (n + 1) * (2 * n + 1)) / 6 := by
-sorry
 
 /--
 The sum of the squares of the first `n` natural numbers is given by the formula:
@@ -25,13 +23,10 @@ $$\\sum_{i=0}^{n-1} (i+1)^2 = \frac{n(n+1)(2n+1)}{6}.$$
 -/
 TheoremDoc sum_of_squares as "sum_of_squares" in "Series"
 
-NewTheorem sum_of_squares
-
 /-- Prove this
 -/
-Statement {a b : ℝ} (hab : a < b) : IntegrableOn (fun x ↦ x ^ 2) a b := by
-use (b ^ 3 - a ^ 3) / 3
-
+Statement sum_of_squares (n : ℕ) :
+  ∑ i ∈ Finset.range n, ((i : ℝ) + 1) ^ 2 = ((n : ℝ) * (n + 1) * (2 * n + 1)) / 6 := by
 sorry
 
 Conclusion "

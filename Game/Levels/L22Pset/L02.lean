@@ -15,7 +15,6 @@ Prove that `x ↦ x ^ 3` is continuous.
 /-- Prove this
 -/
 Statement : FunCont (fun x ↦ x ^ 3) := by
-intro x ε hε
 sorry
 
 Conclusion "

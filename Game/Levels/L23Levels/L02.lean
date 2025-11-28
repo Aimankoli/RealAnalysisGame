@@ -17,9 +17,7 @@ Uniform continuity:
 Prove `HasIntegral_of_UnifContOn` that if `f` is uniformly continuous on `[a,b]`,
 then `f` is integrable on `[a,b]`.
 
-
 "
-
 
 def UnifContOn (f : ℝ → ℝ) (a b : ℝ) : Prop :=
   ∀ ε > 0, ∃ δ > 0, ∀ x ∈ Icc a b, ∀ y ∈ Icc a b, |x - y| < δ → |f x - f y| < ε
@@ -33,7 +31,6 @@ The Riemann sum of `f` from `a` to `b` with `N` subintervals.
 DefinitionDoc UnifContOn as "UnifContOn"
 
 NewDefinition UnifContOn
-
 
 /--
 If a function `f` is uniformly continuous on `[a,b]`, then the Riemann sums of `f` converge to a limit as `N → ∞`.
