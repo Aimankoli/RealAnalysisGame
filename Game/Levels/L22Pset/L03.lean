@@ -16,9 +16,6 @@ Show that `x ↦ x ^ 3` is differentiable.
 -/
 Statement : ∃ g : ℝ → ℝ,
   FunDeriv (fun x ↦ x ^ 3) g := by
-use (fun x ↦ 3 * x ^ 2)
-intro x ε hε
-
 sorry
 
 Conclusion "
