@@ -111,6 +111,8 @@ Dependency Lecture21 → Lecture22
 
 Dependency L20Pset → Lecture22
 
+Dependency Lecture22 → L22Pset
+
 -- Here's what we'll put on the title screen
 Title "An Introduction to (Formal) Real Analysis"
 
