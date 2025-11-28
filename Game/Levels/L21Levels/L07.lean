@@ -68,7 +68,7 @@ Given `ε > 0`, use `δ = ε`. For `h ≠ 0` with `|h| < ε`, simplify:
 def FunDeriv (f : ℝ → ℝ) (g : ℝ → ℝ) : Prop :=
   ∀ x, FunDerivAt f (g x) x
 
-/-- `∀ x, FunDerivAt f (g x) x`.
+/-- `(f : ℝ → ℝ) (g : ℝ → ℝ) := ∀ x, FunDerivAt f (g x) x`.
 
 The derivative of `f` is `g` everywhere.
 -/
