@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0-rc2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-28\n"
+"POT-Creation-Date: 2025-12-01\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -27,6 +27,10 @@ msgstr ""
 msgid "Prove the \\\"Archimedean Property\\\"\n"
 "that no matter how small `ε > 0` may be,\n"
 "there is always a natural number `N` with `1 / ε < N`."
+msgstr ""
+
+#: Game.Levels.L23Levels.L03
+msgid "A continuous function on a compact set is uniformly continuous on that set."
 msgstr ""
 
 #: Game.Levels.L10Pset.L10Pset6
@@ -86,6 +90,14 @@ msgstr ""
 
 #: Game.Levels.L14Lecture
 msgid "# Lecture 14: Bolzano-Weierstrass"
+msgstr ""
+
+#: Game.Levels.L23Levels.L03
+msgid "`IsCompact (S : Set ℝ) : Prop :=\n"
+"  ∀ (ι : Type) (xs : ι → ℝ) (δs : ι → ℝ), (∀ i, 0 < δs i) → (S ⊆ ⋃ i, Ball (xs i) (δs i)) →\n"
+"    ∃ (V : Finset ι), S ⊆ ⋃ i ∈ V, Ball (xs i) (δs i)`\n"
+"\n"
+"A set `S` is compact if for every cover of `S` by balls, there exists a finite subcover."
 msgstr ""
 
 #: Game.Levels.L11Levels.L01_IsCauchyOfLim
@@ -512,6 +524,10 @@ msgstr ""
 msgid "# Problem Set 6\n"
 "\n"
 "Good luck!"
+msgstr ""
+
+#: Game.Levels.L23Levels.L02
+msgid "If a function `f` is uniformly continuous on `[a,b]`, then the Riemann sums of `f` converge to a limit as `N → ∞`."
 msgstr ""
 
 #: Game.Levels.L22Levels.L02
@@ -1734,6 +1750,17 @@ msgstr ""
 msgid "# Problem Set 18"
 msgstr ""
 
+#: Game.Levels.L23Levels.L01
+msgid "# Level 1: Riemann Sum Refinement\n"
+"\n"
+"Suppose that we are given `ε > 0`, `δ > 0`, and `f : ℝ → ℝ` such that for all `x, y ∈ [a,b]`, if `|x - y| < δ`, then `|f x - f y| < ε`. Show that for all natural numbers `n, k ≠ 0`, if the partition of `[a,b]` into `n` subintervals is fine enough (i.e., if `(b - a) / n < δ`), then the Riemann sum of `f` on `[a,b]` with `n * k` subintervals differs from that with `n` subintervals by at most `(b - a) * ε`.\n"
+"\n"
+"## Useful lemma: `sum_of_prod`\n"
+"\n"
+"`∑ i ∈ range (m * n), f i =\n"
+"    ∑ j ∈ range m, ∑ k ∈ range n, f (j + k * m)`"
+msgstr ""
+
 #: Game.Levels.L18Levels.L01
 msgid "If `n ≤ m`, then `Series a m - Series a n = ∑ k ∈ Ico n m, a k`."
 msgstr ""
@@ -2108,6 +2135,16 @@ msgid "Perfect! You've learned the `use` tactic for existence proofs.\n"
 "- `use` for existence proofs"
 msgstr ""
 
+#: Game.Levels.L22Pset.L04
+msgid "# Level 4: Integral Exercise\n"
+"\n"
+"As you may imagine, the proof that `f(x) = x ^ 2` is integrable will involve the following formula for the sum of squares:\n"
+"\n"
+"`∑ i ∈ Finset.range n, (i + 1) ^ 2 = (n * (n + 1) * (2 * n + 1)) / 6`.\n"
+"\n"
+"(All as real numbers.) Prove it. Then in natural language, prove that `f(x) = x ^ 2` is integrable on `[a,b]`."
+msgstr ""
+
 #: Game.Levels.L18Levels.L02
 msgid "If `a : ℕ → ℝ` is `Antitone` and `∀ n, 0 ≤ a n`, then the odd alternating series `n ↦ ∑ k ∈ range (2n+1), (-1)^k * a k` is bounded below by `0`."
 msgstr ""
@@ -2383,34 +2420,6 @@ msgstr ""
 
 #: Game.Levels.L11Levels.L03_IsBddOfCauchy
 msgid "If a sequence `a` is Cauchy, then it is eventually bounded."
-msgstr ""
-
-#: Game.Levels.L22PsetIntro
-msgid "# Problem Set 22\n"
-"\n"
-"$\\# 1)$ Prove `IntegrableOn` for `f : x ↦ x^2`; that is, formally (in natural language) compute $\\int_a^b x^2 \\, dx$.\n"
-"[Hint: The identity $\\sum_{i=0}^{n-1} (i+1)^2 = \\frac{(n)(n+1)(2n+1)}{6}$ may be useful. You're welcome\n"
-"that we're using right Riemann sums!..]\n"
-"\n"
-"$\\# 2)$ Prove the Product Rule for derivatives: If `f` and `g` are differentiable at `c`, then so is `f * g`, and\n"
-"`(f * g)'(c) = f'(c) * g(c) + f(c) * g'(c)`, formally (in natural language).\n"
-"\n"
-"$\\# 3)$ Prove the Reciprocal Rule for derivatives: If `f` is differentiable at `c` and `f(c) ≠ 0`, then\n"
-"`fun x ↦ 1 / f x` is differentiable at `c`, with derivative `-f'(c) / (f(c))^2`, formally (in natural language).\n"
-"\n"
-"$\\# 4)$ Prove the Chain Rule for derivatives: If `f` is differentiable at `c` and `g` is differentiable at `f(c)`, then\n"
-"`fun x ↦ g (f x)` is differentiable at `c`, with derivative `g'(f(c)) * f'(c)`, formally (in natural language).\n"
-"\n"
-"$\\# 4)$ Prove that integrals are linear (part I): If `f` and `g` are integrable on `[a, b]`, then so is `fun x ↦ f x + g x`, and\n"
-"$\\int_a^b (f(x) + g(x)) \\, dx = \\int_a^b f(x) \\, dx + \\int_a^b g(x) \\, dx$.\n"
-"\n"
-"$\\# 5)$ Prove that integrals are linear (part II): If `f` is integrable on `[a, b]` and `k` is a constant, then so is `fun x ↦ k * f x`, and\n"
-"$\\int_a^b k * f(x) \\, dx = k * \\int_a^b f(x) \\, dx$.\n"
-"\n"
-"$\\# 6)$ Prove that derivatives are linear (part I): If `f` and `g` are differentiable at `c`, then so is `fun x ↦ f x + g x`, with derivative\n"
-"`f'(c) + g'(c)`.\n"
-"\n"
-"$\\# 7)$ Prove that derivatives are linear (part II): If `f` is differentiable at `c` and `k` is a constant, then so is `fun x ↦ k * f x`, with derivative `k * f'(c)`."
 msgstr ""
 
 #: Game.Levels.L12Pset.L12Pset1
@@ -3598,6 +3607,12 @@ msgid "For a function `σ : ℕ → ℕ`, if `σ n < σ (n+1)`, then\n"
 "for any `i < j`, `σ i < σ j` -- that is, `Subseq σ` holds."
 msgstr ""
 
+#: Game.Levels.L23Levels.L03
+msgid "`Ball (x : ℝ) (r : ℝ) : Set ℝ := Ioo (x - r) (x + r)`\n"
+"\n"
+"A ball of radius `r` centered at `x` is the open interval `(x - r, x + r)`."
+msgstr ""
+
 #: Game.Levels.L5Levels.L01_DoubleSeqConv
 msgid "Apply the convergence of `a` with tolerance `ε / 2`. Try: `specialize h (ε / 2)`"
 msgstr ""
@@ -4231,6 +4246,10 @@ msgid "`(f : ℝ → ℝ) (a b : ℝ) (I : ℝ) := SeqLim (fun N ↦ RiemannSum 
 "A function `f : ℝ → ℝ` has integral `I` from `a` to `b` if the sequence of Riemann sums converges to `I`."
 msgstr ""
 
+#: Game.Levels.L23Levels.L03
+msgid "An element `x` is in the union of sets `s i` if and only if there exists an index `i` such that `x` is in `s i`."
+msgstr ""
+
 #: Game.Levels.L21Lecture
 msgid "# Lecture 21: Function Limits II"
 msgstr ""
@@ -4302,6 +4321,13 @@ msgid "# Proving existence\n"
 "If you think you know what value of `c` would work, you can write `use 42` (or with `42` replaced by whatever number you think is right). Lean will then substitute that value and ask you to prove that the resulting equation is true.\n"
 "\n"
 "Try writing `use`, then a space, and then a number. Do you see what to do after that?"
+msgstr ""
+
+#: Game.Levels.L23Levels.L02
+msgid "`(f : ℝ → ℝ) (S : Set ℝ) :=\n"
+"  ∀ ε > 0, ∃ δ > 0, ∀ x ∈ S, ∀ y ∈ S, |y - x| < δ → |f y - f x| < ε`\n"
+"\n"
+"For any `ε > 0`, there exists a `δ > 0` such that for all `x, y ∈ S`, if `|x - y| < δ`, then `|f x - f y| < ε`."
 msgstr ""
 
 #: Game.Levels.L18Levels.L02
@@ -4861,6 +4887,14 @@ msgid "# Level 2: Enhanced `Choose`\n"
 " but you'll need to think about how *exactly* to make it work..."
 msgstr ""
 
+#: Game.Levels.L23Levels.L03
+msgid "Given an indexing type `ι`, a finite subset `V` of `ι`, and a function `δs : ι → ℝ` that assigns a positive real number to each index, there exists a positive real number `δ` such that for all indices `i` in the finite set `V`, `δ` is less than or equal to `δs i`."
+msgstr ""
+
+#: Game.Levels.L23Lecture
+msgid "Lecture 23: Uniformity II: Continuity"
+msgstr ""
+
 #: Game.Levels.L1Pset.L1Pset2
 msgid "If you're stuck at this point, let me remind you that, in a previous level, the Goal was: `∀ ε > 0, BlahBlah`, and\n"
 "after `intro ε`, the Goal became `ε > 0 → BlahBlah`.\n"
@@ -5220,6 +5254,11 @@ msgstr ""
 msgid "If `0 < |x|`, then `x ≠ 0`."
 msgstr ""
 
+#: Game.Levels.L23Levels.L01
+msgid "If a function `f` is uniformly continuous on `[a,b]`, then the Riemann sum at `n * k` differs\n"
+"from that at `n` by at most `(b - a) * ε`, provided the partition is fine enough."
+msgstr ""
+
 #: Game.Levels.L9Levels.L04_FiniteSums
 msgid "If your hypotheses lead to a contradiction, (for example: if one of your hypotheses is that `h : n < 0` where `n : ℕ` is a natural number) then the `contradiction` tactic closes the goal."
 msgstr ""
@@ -5246,6 +5285,10 @@ msgstr ""
 
 #: Game.Levels.L13Levels.L03_MonotoneSubseq
 msgid "If a sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) does not have unbounded peaks, then it has a `Monotone` subsequence."
+msgstr ""
+
+#: Game.Levels.L23Levels.L01
+msgid "The sum over `m * n` terms can be expressed as a double sum over `m` and `n`."
 msgstr ""
 
 #: Game.Levels.L6Levels.L03_DotNotation
@@ -5866,6 +5909,42 @@ msgid "# Problem 2\n"
 "\n"
 "You know that `h : x = 2 ∧ y = 3 ∧ z = 4`.\n"
 "Your goal is to show that: `z = 4`."
+msgstr ""
+
+#: Game.Levels.L23Levels.L03
+msgid "# Level 3: Compactness\n"
+"\n"
+"When is a continuous function *uniformly* continuous? It turns out: a function that is\n"
+"continuous on a *compact* set is automatically uniformly continuous (on that same set). So what is compactness?\n"
+"\n"
+"In topology, a set is called *compact* if every cover by (open) balls of the set has a finite subcover. In simpler terms, this means that if you can cover the set with a collection of open balls, you can always find a finite number of those sets that still cover the entire set. Can you see how that notion can be *very* useful when trying to prove uniformity?\n"
+"\n"
+"## New definitions:\n"
+"\n"
+"`def Ball (x : ℝ) (r : ℝ) : Set ℝ := Ioo (x - r) (x + r)`\n"
+"\n"
+"Of course, `Ioo` means an interval with open ends on both sides.\n"
+"\n"
+"Here's the formal definition of compactness: Notice that we don't say how to index the balls; they could be indexed by the natural numbers, or by the real numbers, or by any other type!\n"
+"\n"
+"`def IsCompact (S : Set ℝ) : Prop :=`\n"
+"\n"
+"`∀ (ι : Type) (xs : ι → ℝ) (δs : ι → ℝ), (∀ i, 0 < δs i) → (S ⊆ ⋃ i, Ball (xs i) (δs i)) →`\n"
+"\n"
+"`∃ (V : Finset ι), S ⊆ ⋃ i ∈ V, Ball (xs i) (δs i)`\n"
+"\n"
+"To package a set as a `Type`, here's what you do: If `S : Set ℝ` is some set, then writing\n"
+"\n"
+"`let ι : Type := S`\n"
+"\n"
+"creates a new Type, whose terms are pairs `⟨x, hx⟩` where `x : ℝ` and `hx : x ∈ S`.\n"
+"\n"
+"## Helpful lemmas\n"
+"\n"
+"`mem_Union : (x ∈ ⋃ i, s i) ↔ ∃ i, x ∈ s i `\n"
+"\n"
+"`lemma FinMinPos (ι : Type) (V : Finset ι) (δs : ι → ℝ) (hδs : ∀ i, δs i > 0) :\n"
+"    ∃ δ > 0, ∀ i ∈ V, δ ≤ δs i`"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
@@ -6894,15 +6973,6 @@ msgstr ""
 msgid "The `ring_nf` tactic puts both sides of an equation into a standard algebraic form and checks if they're equal."
 msgstr ""
 
-#: Game.Levels.L22Pset.L04
-msgid "# Level 4: Integral Exercise\n"
-"\n"
-"Show that `x ↦ x ^ 2` is integrable.\n"
-"\n"
-"You may find this lemma useful: `sum_of_squares` For any natural number `n`,\n"
-"`∑ i ∈ Finset.range n, (i + 1) ^ 2 = (n * (n + 1) * (2 * n + 1)) / 6`."
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L06_intro
 msgid "Use `intro ε` to introduce the variable, then `intro hε` to introduce the hypothesis `ε > 0`. Then how do you solve the goal?"
 msgstr ""
@@ -7125,6 +7195,34 @@ msgid "# Level 7 Big Boss: Squeeze Theorem\n"
 "The formal proof requires careful epsilon management. Given any tolerance `ε`, you need to show that `b (n)` gets within `ε` of `L`. Since `a (n)` and `c (n)` both get within `ε` of `L`, and `b (n)` is squeezed between them, you can use the transitivity of inequalities to show that `b (n)` is also within `ε` of `L`."
 msgstr ""
 
+#: Game.Levels.L22PsetIntro
+msgid "# Problem Set 22\n"
+"\n"
+"$\\# 1)$ Prove `IntegrableOn` for `f : x ↦ x^2`; that is, formally (in natural language) compute $\\int_a^b x^2 \\, dx$.\n"
+"[Hint: The identity $\\sum_{i=0}^{n-1} (i+1)^2 = \\frac{(n)(n+1)(2n+1)}{6}$ may be useful. You're welcome\n"
+"that we're using right Riemann sums!..]\n"
+"\n"
+"$\\# 2)$ Prove the Product Rule for derivatives: If `f` and `g` are differentiable at `c`, then so is `f * g`, and\n"
+"`(f * g)'(c) = f'(c) * g(c) + f(c) * g'(c)`, formally (in natural language).\n"
+"\n"
+"$\\# 3)$ Prove the Reciprocal Rule for derivatives: If `f` is differentiable at `c` and `f(c) ≠ 0`, then\n"
+"`fun x ↦ 1 / f x` is differentiable at `c`, with derivative `-f'(c) / (f(c))^2`, formally (in natural language).\n"
+"\n"
+"$\\# 4)$ Prove the Chain Rule for derivatives: If `f` is differentiable at `c` and `g` is differentiable at `f(c)`, then\n"
+"`fun x ↦ g (f x)` is differentiable at `c`, with derivative `g'(f(c)) * f'(c)`, formally (in natural language).\n"
+"\n"
+"$\\# 5)$ Prove that integrals are linear (part I): If `f` and `g` are integrable on `[a, b]`, then so is `fun x ↦ f x + g x`, and\n"
+"$\\int_a^b (f(x) + g(x)) \\, dx = \\int_a^b f(x) \\, dx + \\int_a^b g(x) \\, dx$.\n"
+"\n"
+"$\\# 6)$ Prove that integrals are linear (part II): If `f` is integrable on `[a, b]` and `k` is a constant, then so is `fun x ↦ k * f x`, and\n"
+"$\\int_a^b k * f(x) \\, dx = k * \\int_a^b f(x) \\, dx$.\n"
+"\n"
+"$\\# 7)$ Prove that derivatives are linear (part I): If `f` and `g` are differentiable at `c`, then so is `fun x ↦ f x + g x`, with derivative\n"
+"`f'(c) + g'(c)`.\n"
+"\n"
+"$\\# 8)$ Prove that derivatives are linear (part II): If `f` is differentiable at `c` and `k` is a constant, then so is `fun x ↦ k * f x`, with derivative `k * f'(c)`."
+msgstr ""
+
 #: Game.Levels.L16Levels.L01_check
 msgid "`(a : ℕ → ℝ) : ℕ → ℝ := fun n ↦ ∑ k ∈ range n, a k`\n"
 "\n"
@@ -7309,6 +7407,9 @@ msgstr ""
 #: Game.Levels.L22Pset.L02
 #: Game.Levels.L22Pset.L03
 #: Game.Levels.L22Pset.L04
+#: Game.Levels.L23Levels.L01
+#: Game.Levels.L23Levels.L02
+#: Game.Levels.L23Levels.L03
 msgid ""
 msgstr ""
 
@@ -7478,6 +7579,10 @@ msgstr ""
 
 #: Game.Levels.L4Lecture
 msgid "Lecture 4: Even more fun with Sequences"
+msgstr ""
+
+#: Game.Levels.L23Levels.L01
+msgid "Riemann Sum Refinement"
 msgstr ""
 
 #: Game.Levels.L13Levels.L03_MonotoneSubseq
@@ -7929,6 +8034,10 @@ msgstr ""
 msgid "Dot Notation"
 msgstr ""
 
+#: Game.Levels.L23Levels.L02
+msgid "Integration Converges!"
+msgstr ""
+
 #: Game.Levels.L1Pset.L1Pset3
 msgid "# Problem 3\n"
 "\n"
@@ -8039,6 +8148,78 @@ msgstr ""
 #: Game.Levels.L1RealAnalysisStory.L08_choose
 msgid "If you're struggling to prove that `2 ^ 2 = 4`, it's\n"
 "a basic fact in a *ring*..."
+msgstr ""
+
+#: Game.Levels.L23Lecture
+msgid "# Lecture 23: Uniformity II: Continuity\n"
+"\n"
+"**SOCRATES:** Last time, we saw that limits of continuous functions are continuous, but only if the convergence is *uniform*. And we saw how Riemann sums, if they converge\n"
+"to a limit, define the integral of a function on an interval. Let's talk about what conditions might ensure that Riemann sums converge.\n"
+"\n"
+"**SIMPLICIO:** Hmm... Is it enough for the function to be continuous?\n"
+"\n"
+"**SOCRATES:** Well, that's a good guess. The answer is *no*... and *yes*. Let's think about how we could prove that the sequence of Riemann sums converges. First of all, do we know what it should converge *to*?\n"
+"\n"
+"**SIMPLICIO:** Umm... I guess we don't know yet -- that's the mystery of the integral! We just want to show that it converges to *something*. Oh! I know what to do in these cases: we need to show that the sequence of Riemann sums is Cauchy.\n"
+"\n"
+"**SOCRATES:** Exactly! So let's think about how the difference\n"
+"\n"
+"`|RiemannSum f a b m - RiemannSum f a b n|`\n"
+"\n"
+"can be made small.\n"
+"\n"
+"**SIMPLICIO:** Well, if `m` and `n` are very large, then the partitions are very fine, so the Riemann sums should be close to each other. Right? I guess if you make the partitions finer, after a certain point the Riemann sums shouldn't change much.\n"
+"\n"
+"**SOCRATES:** Yes, that's the right intuition. But we need to be a bit more precise.\n"
+"Is there something we could do to compare Riemann sums with different numbers of subintervals? What if one of the numbers is a multiple of the other?\n"
+"\n"
+"**SIMPLICIO:** Oh! If `m` is a multiple of `n`, say `m = n * k`, then we can compare `RiemannSum f a b (n * k)` to `RiemannSum f a b n`. Maybe we can show that if the partition with `n` subintervals is fine enough, then the Riemann sum with `n * k` subintervals is close to that with `n` subintervals. I think i see how to do it. But! We'll need a single `δ` that works for *all* points in `[a,b]`, not a different `δ` for each point.\n"
+"\n"
+"**SOCRATES:** Bingo! You just invented the notion of *uniform continuity*! Tell me what it should mean.\n"
+"\n"
+"**SIMPLICIO:** Wait, what's uniform continuity? Does that have anything to do with uniform convergence that we just discussed?\n"
+"\n"
+"**SOCRATES:** Oh, sorry! You're right, that can be confusing. We need to make sure to distiguish these two somewhat similar-sounding but actually rather different concepts. I think of uniform convergence as a \"vertical\" notion: you have a family of different functions `fₙ` converging to `F`, and the convergence happens uniformly over the entire domain. Uniform continuity, on the other hand, is more of a \"horizontal\" notion: it applies to a single function `f`. What should it mean, given our discussion about Riemann sums?\n"
+"\n"
+"**SIMPLICIO:** Hmm... So ordinary continuity of a function `f` at a point `x` means the following:\n"
+"\n"
+"Given an `ε > 0` and a point `x`, we can find a `δ > 0` (which may depend on `x`!!) such that for all `y` with `|x - y| < δ`, we have `|f x - f y| < ε`.\n"
+"\n"
+"\n"
+"And so the \"uniformity\" should say that the `δ > 0` can be chosen regardless of what `x` is. Ah! Something like this?\n"
+"\n"
+"Given an `ε > 0`, we can find a `δ > 0` such that for *all* `x` and `y` in the domain, if `|x - y| < δ`, then `|f x - f y| < ε`.\n"
+"\n"
+"Again, it's just about reordering the quantifiers?\n"
+"\n"
+"**SOCRATES:** Yes, that's exactly right! You've just defined *uniform continuity*. So just like in pointwise convergence where `N` can depend on the point `x` but uniform convergence requires a single `N` that works for all `x`, here ordinary continuity allows `δ` to depend on `x` but uniform continuity requires a single `δ` that works for all `x` and `y`. So that's how they're similar but different!\n"
+"\n"
+"**SIMPLICIO:** Ok, I think I get it.\n"
+"\n"
+"**SOCRATES:** What we'll prove today is that if a function is uniformly continuous on `[a,b]`, then its Riemann sums converge to a limit, and this limit is what we call the integral of the function on `[a,b]`. But this raises another fundamental question: When is a continuous function *uniformly* continuous? Remember how we proved that `f(x) = x ^ 2 - 1` is continuous everywhere? Remember what value of `δ` we chose once `ε` was given?\n"
+"\n"
+"**SIMPLICIO:** For the third time, we chose `δ = ε / (2|x|+1)`. Oh, I see! So `δ` depended on `x`, which means that `f(x) = x ^ 2 - 1` is not uniformly continuous on all of `ℝ`.\n"
+"\n"
+"**SOCRATES:** Right. But! When we integrate a function on a finite interval like `[a, b]`, we only care about its behavior on that interval. Let's say we wanted to integrate `f(x) = x ^ 2 - 1` on the interval `[-10,10]`. Can we find a `δ` that works for *all* `x`, just in that range?\n"
+"\n"
+"**SIMPLICIO:** Hmm... Well, on `[-10,10]`, the maximum value of `|x|` is `10`. Instead of a different value of `δ = ε / (2|x|+1)` for each `x`, we can just use the largest possible denominator, which is when `|x| = 10`. That is, we can use `δ = ε / (2*10 + 1) = ε / 21` for *all* `x` in `[-10,10]`.\n"
+"\n"
+"**SOCRATES:** Exactly! So on the interval `[-10,10]`, the function `f(x) = x ^ 2 - 1` *is* uniformly continuous. In fact, there's a general theorem here: It turns out that any function that is continuous on a \"*compact*\" interval like `[-10, 10]` is automatically uniformly continuous on that interval. But this is not a theorem in calculus; it's a result in topology! So to understand some of the next steps of calculus, we need to learn a bit of topology first.\n"
+"\n"
+"**SIMPLICIO:** Ok, what's topology?\n"
+"\n"
+"**SOCRATES:** Well, of all the subjects in mathematics, topology is among the youngest. Geometry and algebra have been studied for thousands of years, and calculus for a few hundred years. But topology only really started to be developed \"officially\" in the 19th and early 20th centuries. In fact, once you see just how important topology is for understanding calculus, you'll feel embarrassed for all of the great mathematicians of the past who did calculus without it! The proper notion of compactness was not fully understood until the late 19th century, well after Riemann's fundamental work on integration.\n"
+"\n"
+"**SIMPLICIO:** Wow, that's surprising. Ok, so what is compactness?\n"
+"\n"
+"**SOCRATES:** Like so many other concepts in this course, I hope you'll come to\n"
+"appreciate how complicated and subtle the idea is, despite the fact that we can now\n"
+"make the definition quite intuitively clear. It took people decades to figure out *exactly* what compactness should mean! Let's go back to uniform continuity. You have continuity at every single point `x` in your set `S`. So for every `x`, there's a little ball `(x - δₓ, x + δₓ)` where continuity holds with `δₓ` depending on `x`. And of course all these balls cover your set `S ⊆ ⋃ x, (x - δₓ, x + δₓ)`.\n"
+"Here's the key idea for compactness. What if: whenever you can cover `S` by any number of balls (possibly infinitely many, even uncountably many), you can *always* find a subcover that uses only *finitely many* of those balls? **That** is the key idea and definition of compactness!\n"
+"\n"
+"**SIMPLICIO:** Ah! And if I have only finitely many balls covering `S`, then I can just take the minimum of all the `δ`s for those balls, and that minimum `δ` will work for the entire set `S`! I see now how compactness leads to uniform continuity. At least I think I do.\n"
+"\n"
+"**SOCRATES:** Good; let's find out for *sure*. :)"
 msgstr ""
 
 #: Game.Levels.L19Levels.L03
@@ -8384,6 +8565,25 @@ msgid "# Level 2: Uniform Convergence\n"
 "**Lean signature**: `(∀ n, FunCont (f n)) → UnifConv f F → FunCont F`\n"
 "\n"
 "Ready to fix Cauchy's \"mistake\" and see how the right kind of convergence preserves continuity? The $\\varepsilon/3$ method awaits!"
+msgstr ""
+
+#: Game.Levels.L23Levels.L03
+msgid "Compactness"
+msgstr ""
+
+#: Game.Levels.L23Levels.L02
+msgid "# Level 2: Integration Converges!\n"
+"\n"
+"Prove `HasIntegral_of_UnifContOn` that if `f` is *uniformly* continuous on `[a,b]`,\n"
+"then `f` is integrable on `[a,b]`.\n"
+"\n"
+"## New definitions:\n"
+"\n"
+"Uniform continuity:\n"
+"\n"
+"`def UnifContOn (f : ℝ → ℝ) (S : Set ℝ) : Prop :=`\n"
+"\n"
+"`  ∀ ε > 0, ∃ δ > 0, ∀ x ∈ S, ∀ y ∈ S, |x - y| < δ → |f x - f y| < ε`"
 msgstr ""
 
 #: Game.Levels.L17Pset.L05
