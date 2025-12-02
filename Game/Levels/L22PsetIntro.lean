@@ -22,15 +22,15 @@ $\\# 3)$ Prove the Reciprocal Rule for derivatives: If `f` is differentiable at 
 $\\# 4)$ Prove the Chain Rule for derivatives: If `f` is differentiable at `c` and `g` is differentiable at `f(c)`, then
 `fun x ↦ g (f x)` is differentiable at `c`, with derivative `g'(f(c)) * f'(c)`, formally (in natural language).
 
-$\\# 4)$ Prove that integrals are linear (part I): If `f` and `g` are integrable on `[a, b]`, then so is `fun x ↦ f x + g x`, and
+$\\# 5)$ Prove that integrals are linear (part I): If `f` and `g` are integrable on `[a, b]`, then so is `fun x ↦ f x + g x`, and
 $\\int_a^b (f(x) + g(x)) \\, dx = \\int_a^b f(x) \\, dx + \\int_a^b g(x) \\, dx$.
 
-$\\# 5)$ Prove that integrals are linear (part II): If `f` is integrable on `[a, b]` and `k` is a constant, then so is `fun x ↦ k * f x`, and
+$\\# 6)$ Prove that integrals are linear (part II): If `f` is integrable on `[a, b]` and `k` is a constant, then so is `fun x ↦ k * f x`, and
 $\\int_a^b k * f(x) \\, dx = k * \\int_a^b f(x) \\, dx$.
 
-$\\# 6)$ Prove that derivatives are linear (part I): If `f` and `g` are differentiable at `c`, then so is `fun x ↦ f x + g x`, with derivative
+$\\# 7)$ Prove that derivatives are linear (part I): If `f` and `g` are differentiable at `c`, then so is `fun x ↦ f x + g x`, with derivative
 `f'(c) + g'(c)`.
 
-$\\# 7)$ Prove that derivatives are linear (part II): If `f` is differentiable at `c` and `k` is a constant, then so is `fun x ↦ k * f x`, with derivative `k * f'(c)`.
+$\\# 8)$ Prove that derivatives are linear (part II): If `f` is differentiable at `c` and `k` is a constant, then so is `fun x ↦ k * f x`, with derivative `k * f'(c)`.
 
 "
