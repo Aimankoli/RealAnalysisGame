@@ -8,14 +8,19 @@ Title "Riemann Sum Refinement"
 Introduction "
 # Level 1: Riemann Sum Refinement
 
-Suppose that we are given `ε > 0`, `δ > 0`, and `f : ℝ → ℝ` such that for all `x, y ∈ [a,b]`, if `|x - y| < δ`, then `|f x - f y| < ε`. Show that for all natural numbers `n, k ≠ 0`, if the partition of `[a,b]` into `n` subintervals is fine enough (i.e., if `(b - a) / n < δ`), then the Riemann sum of `f` on `[a,b]` with `n * k` subintervals differs from that with `n` subintervals by at most `(b - a) * ε`.
+**The Setup**: We have a uniformly continuous function on `[a,b]` - that is, there's a single `δ > 0` such that whenever two points are within `δ` of each other, the function values differ by at most `ε`.
 
-## Useful lemma: `sum_of_prod`
+**The Question**: If we refine our Riemann sum partition from `n` subintervals to `n * k` subintervals, how much can the Riemann sum change?
 
-`∑ i ∈ range (m * n), f i =
-    ∑ j ∈ range m, ∑ k ∈ range n, f (j + k * m)`
+**The Intuition**: When we go from `n` to `n * k` subintervals, we're making the partition finer. If our original partition was already fine enough (meaning `2 * (b - a) / n < δ`), then the sample points in the refined partition shouldn't be too far from the corresponding sample points in the coarse partition. By uniform continuity, this means the function values shouldn't differ by much either.
 
+**Your Goal**: Prove that under these conditions, the difference between the two Riemann sums is bounded by `(b - a) * ε`. This makes sense dimensionally: `ε` measures how much the function can vary locally, and `(b - a)` measures the size of the interval we're integrating over.
 
+**Key Tool**: The `sum_of_prod` lemma lets you reorganize a sum over `m * n` terms as a double sum:
+
+`∑ i ∈ range (m * n), f i = ∑ j ∈ range m, ∑ k ∈ range n, f (j + k * m)`
+
+This will help you compare the refined sum (with `n * k` terms) to the original sum (with `n` terms) by grouping the refined sum into `n` blocks of `k` terms each.
 "
 
 lemma sum_of_prod {X : Type*} [CommSemiring X] (f : ℕ → X) (m n : ℕ) :
@@ -42,64 +47,49 @@ Statement RiemannSumRefinement (f : ℝ → ℝ) {a b : ℝ} (hab : a < b) {n k 
     (hn : n ≠ 0) (hk : k ≠ 0)
     {ε δ : ℝ} (hε : ε > 0) (hδ : δ > 0)
     (hunif : ∀ x ∈ Icc a b, ∀ y ∈ Icc a b, |y - x| < δ → |f y - f x| < ε)
-    (hfine : (b - a) / n < δ) :
-  |RiemannSum f a b (n * k) - RiemannSum f a b n| ≤ (b - a) * ε  := by
+    (hfine : 2 * (b - a) / n < δ) :
+  |RiemannSum f a b (n * k) - RiemannSum f a b n| < (b - a) * ε  := by
 change |(b - a) / ↑(n * k) * ∑ i ∈ range (n * k), f (a + (i + 1) * (b - a) / ↑(n * k)) -
-      (b - a) / n * ∑ i ∈ range n, f (a + (i + 1) * (b - a) / ↑n)| ≤
+      (b - a) / n * ∑ i ∈ range n, f (a + (i + 1) * (b - a) / ↑n)| <
   (b - a) * ε
 rewrite [sum_of_prod]
-rewrite [show (b - a) / ↑(n * k) * ∑ j ∈ range n, ∑ ℓ ∈ range k, f (a + (↑(j + ℓ * n) + 1) * (b - a) / ↑(n * k)) = (b - a) / n * ((∑ j ∈ range n,  (∑ ℓ ∈ range k, f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k)))) / k) by
-  push_cast
-  field_simp]
-rewrite [show (b - a) / n * ((∑ j ∈ range n,  (∑ ℓ ∈ range k, f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k)))) / k) = (b - a) / n * ((∑ j ∈ range n,  (∑ ℓ ∈ range k, f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k))) / k) ) by
-  rewrite [sum_div]
-  field_simp]
-rewrite [show
-  (b - a) / n *
-        ∑ j ∈ range n, (∑ ℓ ∈ range k, f (a + (j + ℓ * n + 1) * (b - a) / (n * k))) / k -
-      (b - a) / n * ∑ i ∈ range n, f (a + (i + 1) * (b - a) / n)
-  = (b - a) / n * (
-        ∑ j ∈ range n, (∑ ℓ ∈ range k, f (a + (↑j + ↑ℓ * ↑n + 1) * (b - a) / (n * k))) / k -
-      ∑ i ∈ range n, f (a + (i + 1) * (b - a) / n))
-  by field_simp]
--- rewrite [show (
---       ((∑ j ∈ Finset.range n, (∑ ℓ ∈ Finset.range k, f (a + (↑j + ↑ℓ * ↑n + 1) * (b - a) / (↑n * ↑k))) / ↑k) -
---         ∑ i ∈ Finset.range n, f (a + (↑i + 1) * (b - a) / ↑n)))
---   = (
---       ((∑ j ∈ Finset.range n, (∑ ℓ ∈ Finset.range k, f (a + (↑j + ↑ℓ * ↑n + 1) * (b - a) / (↑n * ↑k))) / ↑k) +
---         (∑ i ∈ Finset.range n, f (a + (↑i + 1) * (b - a) / ↑n))*(-1)) )
---   by
---     ring_nf]
-
-sorry
-#exit
-
-rewrite [show (b - a) / ↑(n * k) * ∑ j ∈ range n, ∑ ℓ ∈ range k, f (a + (↑(j + ℓ * n) + 1) * (b - a) / ↑(n * k)) = (b - a) / n * ∑ j ∈ range n,  (1 / k * ∑ ℓ ∈ range k, f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k))) by
-  push_cast
-  rewrite [show ∑ j ∈ range n, 1 / k * ∑ ℓ ∈ range k, f (a + (j + ℓ * n + 1) * (b - a) / (n * k)) = 1 / k * ∑ j ∈ range n,  ∑ ℓ ∈ range k, f (a + (j + ℓ * n + 1) * (b - a) / (n * k)) by
-    --apply
-    sorry]
-  ring_nf]
-rewrite [show (b - a) / n *
-        ∑ j ∈ range n, 1 / k * ∑ ℓ ∈ range k, f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k)) -
-      (b - a) / n * ∑ i ∈ range n, f (a + (i + 1) * (b - a) / n)
-      = (b - a) / n *
-        ∑ j ∈ range n, (1 / k * ∑ ℓ ∈ range k, (f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k)) -
-       f (a + (j + 1) * (b - a) / n))) by sorry]
-have h1 : ∀ j ∈ range n, |(1 / k * ∑ ℓ ∈ range k, (f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k)) -
-       f (a + (j + 1) * (b - a) / n)))| ≤ 1 / k * ∑ ℓ ∈ range k, |(f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k)) -
-       f (a + (j + 1) * (b - a) / n))| := by sorry
-have h2 : ∀ j ∈ range n, ∀ ℓ ∈ range k,
-      |((a + ((j + ℓ * n) + 1) * (b - a) / (n * k)) -  (a + (j + 1) * (b - a) / n))| < δ := by
+rewrite [show (b - a) / ↑(n * k) * ∑ j ∈ Finset.range n, ∑ k_1 ∈ Finset.range k, f (a + (↑(j + k_1 * n) + 1) * (b - a) / ↑(n * k)) -
+      (b - a) / ↑n * ∑ i ∈ Finset.range n, f (a + (↑i + 1) * (b - a) / ↑n) =
+      (b - a) / n * ∑ j ∈ Finset.range n,  ((1 / k) * ∑ ℓ ∈ Finset.range k, f (a + (ℓ + j * k + 1) * (b - a) / (n * k)) -
+      f (a + (j + 1) * (b - a) / n)) by sorry]
+have dx : ∀ j ∈ range n, ∀ ℓ ∈ range k,
+      |a + (ℓ + j * k + 1) * (b - a) / (n * k) -  (a + (j + 1) * (b - a) / n)| < δ := by
   intro j hj ℓ hℓ
-  push_cast
-  ring_nf
-  sorry
-have h3 : ∀ j ∈ range n, ∀ ℓ ∈ range k,
-      |f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k)) -  f (a + (j + 1) * (b - a) / n)| < ε := by sorry
-have h4 : ∀ j ∈ range n, ∑ ℓ ∈ range k, 1 / k * ∑ ℓ ∈ range k, |(f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k)) -
-       f (a + (j + 1) * (b - a) / n))| ≤ ε := by sorry
+  rewrite [show
+    |a + (ℓ + j * k + 1) * (b - a) / (n * k) -  (a + (j + 1) * (b - a) / n)|
+    = |(ℓ + 1) * (b - a) / (n * k) -  (b - a) / n| by
+    field_simp
+    ring_nf]
+  have h1 : |(ℓ + 1) * (b - a) / (n * k)  -  (b - a) / n| ≤ 2 * (b - a) / n := by sorry
+  linarith [hfine, hδ, h1]
+have dy : ∀ j ∈ range n, ∀ ℓ ∈ range k,
+  |f (a + (ℓ + j * k + 1) * (b - a) / (n * k)) -  f (a + (j + 1) * (b - a) / n)| < ε := by
+  intro j hj ℓ hℓ
+  specialize hunif (a + (j + 1) * (b - a) / n) (by sorry)
+    (a + (ℓ + j * k + 1) * (b - a) / (n * k)) (by sorry)
+    (dx j hj ℓ hℓ)
+  apply hunif
 sorry
 
 Conclusion "
+# What You've Just Proved
+
+You've just established a crucial bridge between uniform continuity and integration theory! Here's why this result matters:
+
+**The Big Picture**: To prove that Riemann sums converge (i.e., that integrals exist), we need to show the Riemann sum sequence is Cauchy. But Riemann sums with different numbers of partitions seem hard to compare directly. Your theorem solves this by showing that if one partition count is a multiple of another, and both are fine enough, then their Riemann sums are close.
+
+**The Uniform Continuity Connection**: Notice how the proof relied crucially on having a *single* `δ` that works for all points in `[a,b]`. If we only had pointwise continuity (where `δ` depends on the specific point), we couldn't make this argument work. This is why uniform continuity is the 'right' condition for integration.
+
+**Next Steps**: In the next level, we'll use this result to prove the fundamental theorem that uniformly continuous functions are integrable. The strategy will be:
+1. Given any two large partition counts `m` and `n`
+2. Consider their common multiple `m * n`
+3. Use your theorem twice: once to compare `m` with `m * n`, and once to compare `n` with `m * n`
+4. Apply the triangle inequality to conclude that the Riemann sums for `m` and `n` are close
+
+This is a beautiful example of how the 'right' mathematical framework (uniform continuity) makes difficult problems tractable!
 "

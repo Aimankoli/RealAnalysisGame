@@ -48,7 +48,12 @@ Prove the forward direction of the sequential criterion:
 
 "
 
-Statement {f : ℝ → ℝ} {L c : ℝ}
+/--
+If a function `f` has limit `L` at point `c`, then for every sequence `(xₙ)` converging to `c` with `xₙ ≠ c`, the sequence `f(xₙ)` converges to `L`.
+-/
+TheoremDoc SeqLim_of_FunLimAt as "SeqLim_of_FunLimAt" in "Functions"
+
+Statement SeqLim_of_FunLimAt {f : ℝ → ℝ} {L c : ℝ}
     (hf : FunLimAt f L c) :
     ∀ x : ℕ → ℝ, (∀ n, x n ≠ c) → SeqLim x c → SeqLim (fun n ↦ f (x n)) L := by
 intro x hxc hx
