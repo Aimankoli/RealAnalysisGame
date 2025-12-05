@@ -1,8 +1,8 @@
-import Game.Levels.L23Lecture
+import Game.Levels.L24Lecture
 
 open Finset Set
 
-World "L23Pset"
+World "L24Pset"
 Level 1
 Title "Lipschitz implies Uniformly Continuous"
 Introduction "
@@ -19,7 +19,7 @@ In this problem, you will prove that every Lipschitz function is uniformly conti
 /-- Prove this
 -/
 Statement (f : ℝ → ℝ) (K : ℝ) (hK : K > 0) (hf : ∀ x y : ℝ, |f x - f y| ≤ K * |x - y|) (a b : ℝ) :
-  UnifContOn f a b := by
+  UnifContOn f (Icc a b) := by
 sorry
 
 Conclusion "

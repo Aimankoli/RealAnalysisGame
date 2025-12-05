@@ -117,7 +117,7 @@ noncomputable def RiemannSum (f : ℝ → ℝ) (a b : ℝ) (N : ℕ) : ℝ :=
   (b - a) / N * ∑ i ∈ range N, f (a + (i + 1) * (b - a) / N)
 
 /-- `(f : ℝ → ℝ) (a b : ℝ) (N : ℕ) :=
-  (b - a) / N * ∑ i ∈ range N, f (a + i * (b - a) / N)`
+  (b - a) / N * ∑ i ∈ range N, f (a + (i + 1) * (b - a) / N)`
 
 
 The Riemann sum of `f` from `a` to `b` with `N` subintervals.

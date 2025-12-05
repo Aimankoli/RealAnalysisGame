@@ -2,7 +2,7 @@ import Game.Levels.L7Levels.L01_Eventually
 
 World "Lecture7"
 Level 3
-Title "Eventually"
+Title "Sequences of Absolute Values"
 
 Introduction "
 # Level 3: Continuity of Absolute Value—Sequences of Absolute Values
