@@ -1,20 +1,12 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0-rc2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-01\n"
+"POT-Creation-Date: 2025-12-05\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
-
-#: Game.Levels.L22Levels.L03
-msgid "`(f : ℝ → ℝ) (a b : ℝ) (N : ℕ) :=\n"
-"  (b - a) / N * ∑ i ∈ range N, f (a + i * (b - a) / N)`\n"
-"\n"
-"\n"
-"The Riemann sum of `f` from `a` to `b` with `N` subintervals."
-msgstr ""
 
 #: Game.Levels.L6Pset.L6Pset3
 msgid "# Problem 3\n"
@@ -330,6 +322,35 @@ msgstr ""
 msgid "And now the `bound` tactic will do the trick."
 msgstr ""
 
+#: Game.Levels.L24PsetIntro
+msgid "# Problem Set 24\n"
+"\n"
+"Prove Problems 1 - 6 formally (in natural language); the rest can be proved using sketches of the main ideas.\n"
+"\n"
+"$\\# 1)$ Prove that an arbitrary union of open sets is open.\n"
+"\n"
+"$\\# 2)$ Prove that a finite intersection of open sets is open. Give a counterexample to show that an infinite intersection of open sets need not be open.\n"
+"\n"
+"$\\# 3)$ Prove that an arbitrary intersection of closed sets is closed.\n"
+"\n"
+"$\\# 4)$ Prove that a finite union of closed sets is closed. Give a counterexample to show that an infinite union of closed sets need not be closed.\n"
+"\n"
+"$\\# 5)$ Prove that if a set `S : Set ℝ` is closed, then it contains all its limit points; that is, if a sequence `(x_n)` in `S` converges to `x`, then `x ∈ S`. (This is in fact what closed sets are \"closed\" under -- taking limits!)\n"
+"\n"
+"$\\# 6)$ Prove that if a set `S : Set ℝ` contains all its limit points (`∀ (x : ℕ → ℝ) (L : ℝ), (∀ n, x n ∈ S) → (SeqLim x L) → (L ∈ S)`), then it is closed.\n"
+"\n"
+"$\\# 7)$ Give a different proof that a closed interval `[a, b]` is Closed. Suppose `xₙ` is a sequence in `[a, b]` converging to `L`. Show that `L ∈ [a, b]`. [Hint: Try the Order Limit Theorem from Lecture 10, Level 2...]\n"
+"\n"
+"$\\# 8)$ Let `S` be a set of reals, and let `T` be the set of its limit points (that is, the set of all `L : ℝ` such that there exists a sequence `(x_n)` in `S` converging to `L`). Show that if `L` is a limit point of `S ⋃ T`, then `L` is a limit point of `S`. That is, no new limit points are created when we pass from `S` to its \"closure\" `S ⋃ T`. [Hint: Remember how we proved that the real numbers are complete?...]\n"
+"\n"
+"$\\# 9)$ Prove that if `S` is compact, then any sequence `(x_n)` in `S` has a subsequence that converges to a limit in `S`. The latter property is called *sequential compactness*.\n"
+"\n"
+"$\\# 10)$ Conversely, prove that if `S` is sequentially compact (that is, every sequence in `S` has a subsequence converging to a limit in `S`), then it is compact.\n"
+"\n"
+"$\\# 11)$⋆ (Optional!) Let `C` denote the \"Cantor set\". This is constructed as follows. Start with the closed interval `[0, 1]`. Remove the open middle third `(1/3, 2/3)`, leaving the two closed intervals `[0, 1/3]` and `[2/3, 1]`. Now remove the open middle thirds of these two intervals, leaving four closed intervals: `[0, 1/9]`, `[2/9, 1/3]`, `[2/3, 7/9]`, and `[8/9, 1]`. Continue this process indefinitely. The Cantor set `C` is defined as the intersection of all these sets obtained at each step. Show that the Cantor set `C` is closed and hence compact. A point `p` in a set `S` is said to be an *isolated point* of `S` if there exists a ball `Ball p r` that contains no other points of `S` except for `p` itself; that is, there is no nontrivial sequence in `S` converging to `p`. A set `S` is called *perfect* if it has no isolated points, that is, its every point is a nontrivial limit point.\n"
+"Show that the Cantor set is perfect."
+msgstr ""
+
 #: Game.Levels.L9Pset.L9Pset3
 msgid "# Problem 3\n"
 "\n"
@@ -518,6 +539,10 @@ msgstr ""
 
 #: Game.Levels.L14Levels.L01_BolzanoWeierstrass
 msgid "If a sequence `a : ℕ → X` (where `X` can be `ℚ` or `ℝ`) is antitone and bounded, then it is Cauchy."
+msgstr ""
+
+#: Game.Levels.L24Levels.L05
+msgid "Any closed subset of a compact set is compact."
 msgstr ""
 
 #: Game.Levels.L6PsetIntro
@@ -965,6 +990,12 @@ msgstr ""
 msgid "A First Course in Real Analysis"
 msgstr ""
 
+#: Game.Levels.L24Levels.L03
+msgid "`(S : Set ℝ) (L : ℝ) : Prop := IsUB S L ∧ ∀ M, IsUB S M → L ≤ M`\n"
+"\n"
+"The point `L` is a least upper bound (supremum) of the set `S` if `L` is an upper bound of `S`, and for any other upper bound `M` of `S`, we have `L ≤ M`."
+msgstr ""
+
 #: Game.Levels.L10Levels.L07_Order
 msgid "# Level 2: Order Limit Theorem\n"
 "\n"
@@ -1091,6 +1122,10 @@ msgid "Beautiful! You've found an explicit formula for the partial sums of the L
 "---\n"
 "\n"
 "**Historical note:** Leibniz studied many such telescoping series in his work on infinite series in the 1670s-1680s, alongside his development of calculus!"
+msgstr ""
+
+#: Game.Levels.L24Levels.L01
+msgid "A finite list has a maximum element."
 msgstr ""
 
 #: Game
@@ -1385,6 +1420,10 @@ msgstr ""
 msgid "# Problem Set 13\n"
 "\n"
 "Good luck!"
+msgstr ""
+
+#: Game.Levels.L24Levels.L02
+msgid "A compact set is closed."
 msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
@@ -1744,6 +1783,10 @@ msgstr ""
 
 #: Game.Levels.L8Levels.L03_Induction'
 msgid "For all `n`, `n < 2 ^ n`."
+msgstr ""
+
+#: Game.Levels.L7Levels.L02_SeqOfAbs
+msgid "Sequences of Absolute Values"
 msgstr ""
 
 #: Game.Levels.L18PsetIntro
@@ -2145,6 +2188,12 @@ msgid "# Level 4: Integral Exercise\n"
 "(All as real numbers.) Prove it. Then in natural language, prove that `f(x) = x ^ 2` is integrable on `[a,b]`."
 msgstr ""
 
+#: Game.Levels.L24Levels.L02
+msgid "`(S : Set ℝ) : Prop := IsOpen Sᶜ`\n"
+"\n"
+"A set is closed if its complement is open."
+msgstr ""
+
 #: Game.Levels.L18Levels.L02
 msgid "If `a : ℕ → ℝ` is `Antitone` and `∀ n, 0 ≤ a n`, then the odd alternating series `n ↦ ∑ k ∈ range (2n+1), (-1)^k * a k` is bounded below by `0`."
 msgstr ""
@@ -2432,6 +2481,10 @@ msgstr ""
 
 #: Game.Levels.L7Levels.L00_Uniqueness
 msgid "Prove that limits are unique."
+msgstr ""
+
+#: Game.Levels.L24Levels.L04
+msgid "Any closed interval `[a, b]` (which is closed and bounded) is compact."
 msgstr ""
 
 #: Game.Levels.L6Levels.L05_AbsLt
@@ -2858,6 +2911,7 @@ msgstr ""
 #: Game.Levels.L22Pset.L02
 #: Game.Levels.L22Pset.L03
 #: Game.Levels.L22Pset.L04
+#: Game.Levels.L24Pset.L05
 msgid "Prove this"
 msgstr ""
 
@@ -3376,8 +3430,20 @@ msgstr ""
 msgid "If `a : ℕ → ℝ` converges to `L` and `M`, then `L = M`."
 msgstr ""
 
+#: Game.Levels.L24Levels.L05
+msgid "Heine-Borel Theorem: Part 2b"
+msgstr ""
+
 #: Game.Levels.L14Levels.L01_BolzanoWeierstrass
 msgid "Bolzano-Weierstrass"
+msgstr ""
+
+#: Game.Levels.L22Levels.L03
+msgid "`(f : ℝ → ℝ) (a b : ℝ) (N : ℕ) :=\n"
+"  (b - a) / N * ∑ i ∈ range N, f (a + (i + 1) * (b - a) / N)`\n"
+"\n"
+"\n"
+"The Riemann sum of `f` from `a` to `b` with `N` subintervals."
 msgstr ""
 
 #: Game.Levels.L18Pset.L04
@@ -3544,7 +3610,6 @@ msgid "Continuous Composition"
 msgstr ""
 
 #: Game.Levels.L7Levels.L01_Eventually
-#: Game.Levels.L7Levels.L02_SeqOfAbs
 msgid "Eventually"
 msgstr ""
 
@@ -4048,6 +4113,10 @@ msgstr ""
 
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
 msgid "The Convergence of a Sequence"
+msgstr ""
+
+#: Game.Levels.L24Pset.L05
+msgid "Lipschitz implies Uniformly Continuous"
 msgstr ""
 
 #: Game.Levels.L20Pset.L02
@@ -4795,6 +4864,10 @@ msgid "# Level 3: Sum of Continuous Functions\n"
 "**Hint:** After introducing `ε` and `hε`, use the hypotheses `hf` and `hg` with `ε/2` to choose `δ₁` and `δ₂`. Then `use min δ₁ δ₂`. You'll need to show this is positive and that it works. The triangle inequality and `bound` will be your friends!"
 msgstr ""
 
+#: Game.Levels.L24PsetIntro
+msgid "Pset 24"
+msgstr ""
+
 #: Game.Levels.L7Lecture
 msgid "Lecture 7: Algebraic Limit Theorem, Part III"
 msgstr ""
@@ -4887,12 +4960,27 @@ msgid "# Level 2: Enhanced `Choose`\n"
 " but you'll need to think about how *exactly* to make it work..."
 msgstr ""
 
+#: Game.Levels.L24Levels.L01
+msgid "# Level 1: Heine-Borel Theorem: Part 1a\n"
+"\n"
+"Show that if `S : Set ℝ` is compact, then it is bounded.\n"
+"\n"
+"# New lemma: `FinMax` :\n"
+"\n"
+"`lemma FinMax (ι : Type) (V : Finset ι) (δs : ι → ℝ) :\n"
+"    ∃ δ, ∀ i ∈ V, δs i ≤ δ`"
+msgstr ""
+
 #: Game.Levels.L23Levels.L03
 msgid "Given an indexing type `ι`, a finite subset `V` of `ι`, and a function `δs : ι → ℝ` that assigns a positive real number to each index, there exists a positive real number `δ` such that for all indices `i` in the finite set `V`, `δ` is less than or equal to `δs i`."
 msgstr ""
 
 #: Game.Levels.L23Lecture
 msgid "Lecture 23: Uniformity II: Continuity"
+msgstr ""
+
+#: Game.Levels.L24Levels.L01
+msgid "Heine-Borel Theorem: Part 1a"
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset2
@@ -5479,6 +5567,16 @@ msgstr ""
 msgid "The `exact_mod_cast` tactic is similar to `apply`, except it automatically handles type coercions that would otherwise require manual casting."
 msgstr ""
 
+#: Game.Levels.L24Pset.L05
+msgid "# Level 1: Lipschitz implies Uniformly Continuous\n"
+"\n"
+"A function `f : ℝ → ℝ` is called *Lipschitz* if there exists a constant `K > 0` such that for all `x, y ∈ ℝ`,\n"
+"\n"
+"`|f(x) - f(y)| ≤ K * |x - y|`.\n"
+"\n"
+"In this problem, you will prove that every Lipschitz function is uniformly continuous."
+msgstr ""
+
 #: Game.Levels.L22Levels.L01
 msgid "The composition of continuous functions is continuous."
 msgstr ""
@@ -5882,6 +5980,10 @@ msgstr ""
 msgid "If `a n ≤ b n`, then `∑ k, a n ≤ ∑ k, b n`."
 msgstr ""
 
+#: Game.Levels.L24Levels.L03
+msgid "Every nonempty set of real numbers that is bounded above has a least upper bound."
+msgstr ""
+
 #: Game.Levels.L7Levels.L03_SeqInvLim
 msgid "If `a : ℕ → ℝ` converges to `L`, and `b : ℕ → ℝ` is its inverse, `b n = 1 / a n` for all `n`, then `b` converges to `1 / L`, provided `L ≠ 0`."
 msgstr ""
@@ -6268,6 +6370,10 @@ msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L00_the_problem
 msgid "The `apply` tactic solves a goal when one of the hypotheses is the same as the goal. The syntax is `apply hypothesis_name`"
+msgstr ""
+
+#: Game.Levels.L24Lecture
+msgid "Lecture 24: Topology"
 msgstr ""
 
 #: Game.Levels.L21Levels.L08
@@ -6745,6 +6851,10 @@ msgid "# Problem Set 11\n"
 "Good luck!"
 msgstr ""
 
+#: Game.Levels.L24Levels.L02
+msgid "Heine-Borel Theorem: Part 1b"
+msgstr ""
+
 #: Game.Levels.L21Levels.L07
 msgid "`(f : ℝ → ℝ) (g : ℝ → ℝ) := ∀ x, FunDerivAt f (g x) x`.\n"
 "\n"
@@ -6947,6 +7057,18 @@ msgstr ""
 msgid "If `a : ℕ → ℝ` is `Monotone` and has limit `L`, then for all `n`, `a n ≤ L`."
 msgstr ""
 
+#: Game.Levels.L24Levels.L02
+msgid "# Level 2: Heine-Borel Theorem: Part 1b\n"
+"\n"
+"Show that if `S : Set ℝ` is compact, then it is closed.\n"
+"\n"
+"# New definitions:\n"
+"\n"
+"- `IsClosed S := IsOpen Sᶜ`.\n"
+"\n"
+"- `IsOpen S := ∀ x ∈ S, ∃ δ > 0, Ball x δ ⊆ S`."
+msgstr ""
+
 #: Game.Levels.L16PsetIntro
 msgid "# Problem Set 16: Solve these problems in Natural Language:\n"
 "\n"
@@ -7062,6 +7184,10 @@ msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L04_ring_nf
 msgid "The ring_nf tactic"
+msgstr ""
+
+#: Game.Levels.L24Levels.L03
+msgid "Least Upper Bound Property"
 msgstr ""
 
 #: Game.Levels.L20Pset.L03
@@ -7407,9 +7533,14 @@ msgstr ""
 #: Game.Levels.L22Pset.L02
 #: Game.Levels.L22Pset.L03
 #: Game.Levels.L22Pset.L04
-#: Game.Levels.L23Levels.L01
 #: Game.Levels.L23Levels.L02
 #: Game.Levels.L23Levels.L03
+#: Game.Levels.L24Levels.L01
+#: Game.Levels.L24Levels.L02
+#: Game.Levels.L24Levels.L03
+#: Game.Levels.L24Levels.L04
+#: Game.Levels.L24Levels.L05
+#: Game.Levels.L24Pset.L05
 msgid ""
 msgstr ""
 
@@ -7453,6 +7584,12 @@ msgid "# Level 1: Leibniz Series — Partial Sums\n"
 "`∑ k ∈ range n, a k = 1 - 1 / (n + 1)`\n"
 "\n"
 "**Hint:** Use induction on `n`. The base case is straightforward. For the inductive step, use `sum_range_succ` to split off the last term, apply the inductive hypothesis, and then do some algebra with `field_simp` and `ring_nf`."
+msgstr ""
+
+#: Game.Levels.L24Levels.L05
+msgid "# Level 5: Heine-Borel Theorem: Part 2b\n"
+"\n"
+"And finally, the full converse: show that any closed, bounded set is compact. We do this by showing that a closed subset of a compact set is compact. Then since a bounded set is a subset of a closed interval, and closed intervals are compact, we are done."
 msgstr ""
 
 #: Game.Levels.L3Levels.L01_ArchProp
@@ -7526,6 +7663,10 @@ msgid "# Congratulations!\n"
 "In the next level, we'll formalize what a rearrangement is and prove that rearrangements eventually \"catch up\" with the original ordering. Combined with this strong Cauchy property, we'll have all the tools needed to prove the magnificent Rearrangement Theorem."
 msgstr ""
 
+#: Game.Levels.L24Levels.L01
+msgid "A compact set is bounded."
+msgstr ""
+
 #: Game.Levels.L22Pset.L02
 msgid "# Level 2: Continuity Exercise\n"
 "\n"
@@ -7589,6 +7730,12 @@ msgstr ""
 msgid "`(a : ℕ → X) (n : ℕ) := ∀ m > n, a m ≤ a n`\n"
 "\n"
 "For a sequence `a : ℕ → X` (where `X` is `ℚ` or `ℝ`) and `n : ℕ`, we say that `IsAPeak a n` if: `∀ m > n, a m ≤ a n`."
+msgstr ""
+
+#: Game.Levels.L24Levels.L04
+msgid "# Level 4: Heine-Borel Theorem: Part 2a\n"
+"\n"
+"And finally, the converse, part (a): show that a closed, bounded interval `[a, b]` is compact."
 msgstr ""
 
 #: Game.Levels.L17Levels.L03
@@ -7894,6 +8041,12 @@ msgid "# Level 2: Rearrangements\n"
 "Your task: Prove that every rearrangement eventually covers any initial segment!"
 msgstr ""
 
+#: Game.Levels.L24Levels.L03
+msgid "`(S : Set ℝ) (M : ℝ) : Prop := ∀ s ∈ S, s ≤ M`\n"
+"\n"
+"The point `M` is an upper bound of the set `S` if every element `s` in `S` satisfies `s ≤ M`."
+msgstr ""
+
 #: Game.Levels.L11Pset.L11Pset1
 msgid "# Problem 1:\n"
 "\n"
@@ -7944,6 +8097,24 @@ msgstr ""
 
 #: Game.Levels.L9Pset.L9Pset3
 msgid "`1 + 2 + ... + N = N * (N + 1) / 2`."
+msgstr ""
+
+#: Game.Levels.L24Levels.L03
+msgid "# Level 3: Least Upper Bound Property\n"
+"\n"
+"Show that if `S : Set ℝ` is nonempty and bounded above, then it has a least upper bound (aka *supremum*).\n"
+"\n"
+"# New definitions:\n"
+"\n"
+"`M` is an upper bound of `S` if:\n"
+"\n"
+"- `IsUB S (M : ℝ) := ∀ s ∈ S, s ≤ M`.\n"
+"\n"
+"`L` is a (soon to be, the) least upper bound of `S` if:\n"
+"\n"
+"- `IsLUB S L := IsUB L ∧ ∀ M, IsUB M → L ≤ M`.\n"
+"\n"
+"that is, `L` is itself an upper bound, and any other upper bound `M` is at least as large as `L`."
 msgstr ""
 
 #: Game.Levels.L16Pset.L16Pset1
@@ -8293,6 +8464,12 @@ msgstr ""
 msgid "If a function is nonnegative, then its sum is also."
 msgstr ""
 
+#: Game.Levels.L24Levels.L02
+msgid "`(S : Set ℝ) : Prop := ∀ x ∈ S, ∃ r > 0, Ball x r ⊆ S`\n"
+"\n"
+"A set is open if for every point `x` in the set, there exists a radius `r > 0` such that the ball of radius `r` centered at `x` is entirely contained within the set."
+msgstr ""
+
 #: Game.Levels.L16Pset.L16Pset3
 msgid "# Problem 3: Prove that the sum of two series is the series of the sum."
 msgstr ""
@@ -8588,6 +8765,86 @@ msgstr ""
 
 #: Game.Levels.L17Pset.L05
 msgid "If `a : ℕ → ℝ` is nonnegative, then `Series a` is `Monotone`."
+msgstr ""
+
+#: Game.Levels.L24Lecture
+msgid "# Lecture 24: Topology\n"
+"\n"
+"**SIMPLICIO:** So wait, is \"compact\" just about being bounded?\n"
+"\n"
+"**SOCRATES:** Good question! Tell me about the function `f(x) = 1/x` on the interval `(0,1)`. It's certainly continuous (as long as we don't include `0`). The interval `(0,1)` is bounded. If that interval were compact, then `f` would be uniformly continuous on `(0,1)`. Is `f` uniformly continuous on `(0,1)`?\n"
+"\n"
+"**SIMPLICIO:** Ooh, doesn't look it; the slope gets really steep as `x` approaches `0`. That means that if I want to keep the fluctuation of `f`, that is, `|f y - f x|`, small, I need to make `|y - x|` ever smaller and smaller, for `x` getting closer to `0`. So I can't pick a single `δ` that works for all `x` in `(0,1)`.\n"
+"\n"
+"**SOCRATES:** Good. Can you see another way to see that `(0,1)` is not compact, directly from the definition?\n"
+"\n"
+"**SIMPLICIO:** Umm... I guess I could try to cover `(0,1)` with balls. Like, I could cover it with the balls `(1/2, 1) ⋃ (1/3, 1) ⋃ (1/4, 1) ⋃ ...`. The ... Archimedean property (again!!) says that these balls cover all of `(0,1)`. But if only finitely many of them are used, say up to `(1/N, 1)`, then the point `1/(N+1)` is not covered. So there's no finite subcover.\n"
+"\n"
+"**SOCRATES:** Excellent! So `(0,1)` is not compact; that is, being bounded is not enough for compactness. But it's easy to see that bounded *is* necessary. Can you see why?\n"
+"\n"
+"**SIMPLICIO:** Oh, I see it! Let `S` be our compact set. We can conver `S` by the balls `(-n, n)` for all natural numbers `n`. Since `S` is compact, there must be a finite subcover. That means that there is some largest `N` such that `(-N, N)` covers all of `S`. Therefore, `S` is bounded.\n"
+"\n"
+"**SOCRATES:** Perfect. So boundedness is necessary but, as we just saw with the example of `(0,1)`, not sufficient for compactness. There's one more ingredient we need.\n"
+"\n"
+"**SIMPLICIO:** What is it?\n"
+"\n"
+"**SOCRATES:** The set also needs to be *closed*. Here's some more topology-speak for you: A set is *closed* if its complement is *open*.\n"
+"\n"
+"**SIMPLICIO:** Greaaaat, more definitions.\n"
+"\n"
+"**SOCRATES:** Last one, for now. A set `S` is *open* if: for every point in `S`, there is a ball around that point which is entirely contained in `S`. That is: `S` is open if:\n"
+"\n"
+"`∀ x ∈ S, ∃ δ > 0, Ball x δ ⊆ S`\n"
+"\n"
+"Let's check your understanding: is a ball itself open?\n"
+"\n"
+"**SIMPLICIO:** Hmm let's see. I have a point `y ∈ Ball x r`. I have to find a `δ > 0` such that `Ball y δ ⊆ Ball x r`. The condition that `y` is in the ball means that `|x - y| < r`, which looks something like this:\n"
+"\n"
+"---|(x-r)----(y)---(x)-------(x+r)|----\n"
+"\n"
+"So if we let `δ := min (y - (x - r)) (x + r - y)`, then `Ball y δ` will fit inside `Ball x r`. So yes, a ball is open!\n"
+"\n"
+"**SOCRATES:** Excellent! So now you have all the ingredients to understand compactness in `ℝ`: A famous result called the *Heine-Borel Theorem* says that a set `S ⊆ ℝ` is compact if and only if:\n"
+"\n"
+"it is closed and bounded.\n"
+"\n"
+"Heine proved this in 1872, and Borel generalized it to higher dimensions in 1895. This is a very important theorem in real analysis, because it allows us to easily check whether a set is compact or not. For example, the complement of `[a, b]` is the union of `(-∞, a)` and `(b, ∞)`, both of which are open, so `[a, b]` is closed. And of course `[a, b]` is bounded. Therefore, by Heine-Borel, `[a, b]` is compact. This gives us the important result we wanted:\n"
+"\n"
+"**Theorem:** For any function that is continuous on a closed and bounded interval `[a, b]`, the sequence of Riemann sums converges to a limit, which we call the integral of the function on `[a, b]`.\n"
+"\n"
+"(Note again that `f` must be continuous on the *entire* closed interval `[a, b]`. The function `f(x) = 1/x` is continuous on `(0,1]`, all but one point; but the Riemann sums do not converge, because `∫₀¹ 1/x dx = ∞`!)\n"
+"\n"
+"The proof is very simple: `[a, b]` is closed and bounded, and hence compact by Heine-Borel. Any function that is continuous on a compact set is uniformly continuous there. And if a function is uniformly continuous on an interval, then the Riemann sums converge to a limit. Just chain everything we've learned together!\n"
+"\n"
+"**SIMPLICIO:** Wow, that's really elegant. How is Heine-Borel proved? I guess we already proved half of one direction, if a set is compact then it's bounded. How do we prove that it's also closed?\n"
+"\n"
+"**SOCRATES:** You tell me!\n"
+"\n"
+"**SIMPLICIO:** Ok, let's try. Suppose `S` is compact. We want to show that its complement `Sᶜ` is open. So take any point `x ∈ Sᶜ`. We need to show that there's a whole ball around `x` that stays away from `S`. And the only way to make use of compactness is to cover `S` with balls. Oh, I think I see it!\n"
+"\n"
+"For every point `y ∈ S`, look at the ball centered at `y` of radius `|y - x| / 2`, say. That's a ball that contains `y` but stays away from `x`. The collection of all such balls covers `S`, and hence only finitely many such balls cover `S`. So we have `V : Finset I` and for each `i ∈ V`, we have a point `yᵢ ∈ S` and a ball `Ball yᵢ (|yᵢ - x| / 2)`, and these finitely many balls cover `S`. Now let `δ > 0` be the minimum of all the `|yᵢ - x| / 2` for `i ∈ V`. Then the ball `Ball x δ` stays away from all the balls covering `S`, and hence from `S` itself. Therefore, `Sᶜ` is open, and so `S` is closed.\n"
+"\n"
+"**SOCRATES:** Well done! You hardly need me anymore! :) Channel your inner me; what's the next thing I'd say?\n"
+"\n"
+"**SIMPLICIO:** You'd tell me to try to prove the other direction. Ok, let's say that `S` is closed and bounded. We want to show that it's compact. So take any cover of `S` by balls. We need to find a finite subcover. I ... don't see what to do.\n"
+"\n"
+"**SOCRATES:** Ok, this direction is a bit harder. Let's build up to it with a few more definitions. (I know, I know.) Given a set `S` and a real number `M`, we say that `M` is an *upper bound* for `S` if for all `s ∈ S`, `s ≤ M`. Easy, right? We say that `L` is a *least upper bound* (or *supremum*) for `S` if `L` is an upper bound for `S`, and for any other upper bound `M`, we have `L ≤ M`. In other words, `L` is the smallest of all upper bounds.\n"
+"\n"
+"**SIMPLICIO:** Ok, so far so good... So what?\n"
+"\n"
+"**SOCRATES:** Now, here's an important property of the real numbers: *every nonempty set of real numbers that is bounded above has a least upper bound*. This is called the *Least Upper Bound Property*. Let's talk about how you might go about proving it.\n"
+"\n"
+"**SIMPLICIO:** Hmm... Let me think. Ok, I start with at least one point `s₀ ∈ S`, since `S` is nonempty, and at least one upper bound `M₀`. I think I see what to do! Let's think about the middle point between `s₀` and `M₀`, that is, `(s₀ + M₀) / 2`. Is that an upper bound for `S`? If not, then there exists some point `s₁ ∈ S` such that `s₁ > (s₀ + M₀) / 2`. Otherwise, if it *is* an upper bound, then we can set `M₁ := (s₀ + M₀) / 2`. In either case, we have a smaller interval `[s₁, M₀]` or `[s₀, M₁]`. We can keep repeating this process, halving (or more) the interval each time. This gives us a sequence of nested intervals whose lengths go to zero. The bottoms are all points in `S` and increasing and bounded, hence have a limit `L`. The tops are all upper bounds and decreasing and bounded, hence have a limit `U`. Since the lengths of the intervals go to zero, `L = U`. Now, I need to show that `L` is *the* least upper bound for `S`. I think I can do that by showing that `L` is an upper bound, and that any smaller number is not an upper bound. Ok, I'm satisfied.\n"
+"\n"
+"**SOCRATES:** Excellent! Now, armed with the Least Upper Bound Property, you can finally prove that any closed and bounded set is compact. First let's prove that a closed interval `[a, b]` is compact. Take any cover of `[a, b]` by balls. We want to find a finite subcover. Consider the set `T` of all points `t ∈ [a, b]` such that the interval `[a, t]` can be covered by finitely many of the balls. Clearly, `a ∈ T`, so `T` is nonempty. Also, every point in `T` is at most `b`, so `T` is bounded above by `b`. By the Least Upper Bound Property, `T` has a least upper bound `L`. We want to show that `L = b`. If not, then since the balls cover `[a, b]`, there is some ball covering `L`. Since the ball has positive radius, it covers some interval around `L`, say `[L - δ, L + δ]`. Since `L` is the least upper bound of `S`, there must be some point `t ∈ S` with `t > L - δ`. But then we can cover `[a, t]` with finitely many balls (since `t ∈ S`), and also cover `[t, L + δ]` with the ball around `L`. This gives us a finite cover for `[a, L + δ]`, contradicting the fact that `L` is an upper bound for `S`. Therefore, `L = b`, and hence `[a, b]` can be covered by finitely many balls.\n"
+"\n"
+"**SIMPLICIO:** Ok, I'm with you. But what do we do for *any* closed and bounded set?\n"
+"\n"
+"**SOCRATES:** Ah, and here's the last step. Any closed subset of a compact set is itself compact! Can you see why?\n"
+"\n"
+"**SIMPLICIO:** Hmm, let's see. Let `S` be a closed subset of a compact set `T`. Take any cover of `S` by balls. We want to find a finite subcover. Since `S` is closed, its complement `Sᶜ` is open. Therefore, for every point `x ∈ Sᶜ`, there is a ball around `x` that stays within `Sᶜ`, that is, away from `S`. The collection of all such balls, together with the balls covering `S`, forms an open cover of the entire set `T`. Since `T` is compact, there is a finite subcover of `T`. This finite subcover must include finitely many balls covering `S`, since the balls covering `Sᶜ` do not cover any points in `S`. Therefore, we have found a finite subcover for `S`. Hence, `S` is compact. Nice! Since a bounded set is a subset of some closed interval `[a, b]`, and we've just shown that `[a, b]` is compact, it follows that any closed and bounded set is compact.\n"
+"\n"
+"**SOCRATES:** Well done, Simplicio! You've just proved the Heine-Borel Theorem. And to bring it all the way back to calculus, this means that any continuous function on a closed and bounded interval `[a, b]` is uniformly continuous there, and hence Riemann integrable. Now let's do all this \"for real\"..."
 msgstr ""
 
 #: Game.Levels.L13Lecture
@@ -9650,6 +9907,10 @@ msgstr ""
 
 #: Game.Levels.L12Levels.L01_Choose
 msgid "Try starting your proof with `choose τ hτBnd hτP using h`."
+msgstr ""
+
+#: Game.Levels.L24Levels.L04
+msgid "Heine-Borel Theorem: Part 2a"
 msgstr ""
 
 #: Game.Levels.L20Levels.L02

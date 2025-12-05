@@ -19,7 +19,6 @@ Uniform continuity:
 
 `  ∀ ε > 0, ∃ δ > 0, ∀ x ∈ S, ∀ y ∈ S, |x - y| < δ → |f x - f y| < ε`
 
-
 "
 
 def UnifContOn (f : ℝ → ℝ) (S : Set ℝ) : Prop :=

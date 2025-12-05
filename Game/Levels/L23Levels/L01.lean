@@ -48,25 +48,56 @@ change |(b - a) / ↑(n * k) * ∑ i ∈ range (n * k), f (a + (i + 1) * (b - a)
       (b - a) / n * ∑ i ∈ range n, f (a + (i + 1) * (b - a) / ↑n)| ≤
   (b - a) * ε
 rewrite [sum_of_prod]
-rewrite [show (b - a) / ↑(n * k) * ∑ j ∈ range n, ∑ k_1 ∈ range k, f (a + (↑(j + k_1 * n) + 1) * (b - a) / ↑(n * k)) = (b - a) / n * ∑ j ∈ range n,  (1 / k * ∑ k_1 ∈ range k, f (a + (↑(j + k_1 * n) + 1) * (b - a) / ↑(n * k))) by push_cast; ring_nf; sorry]
+rewrite [show (b - a) / ↑(n * k) * ∑ j ∈ range n, ∑ ℓ ∈ range k, f (a + (↑(j + ℓ * n) + 1) * (b - a) / ↑(n * k)) = (b - a) / n * ((∑ j ∈ range n,  (∑ ℓ ∈ range k, f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k)))) / k) by
+  push_cast
+  field_simp]
+rewrite [show (b - a) / n * ((∑ j ∈ range n,  (∑ ℓ ∈ range k, f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k)))) / k) = (b - a) / n * ((∑ j ∈ range n,  (∑ ℓ ∈ range k, f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k))) / k) ) by
+  rewrite [sum_div]
+  field_simp]
+rewrite [show
+  (b - a) / n *
+        ∑ j ∈ range n, (∑ ℓ ∈ range k, f (a + (j + ℓ * n + 1) * (b - a) / (n * k))) / k -
+      (b - a) / n * ∑ i ∈ range n, f (a + (i + 1) * (b - a) / n)
+  = (b - a) / n * (
+        ∑ j ∈ range n, (∑ ℓ ∈ range k, f (a + (↑j + ↑ℓ * ↑n + 1) * (b - a) / (n * k))) / k -
+      ∑ i ∈ range n, f (a + (i + 1) * (b - a) / n))
+  by field_simp]
+-- rewrite [show (
+--       ((∑ j ∈ Finset.range n, (∑ ℓ ∈ Finset.range k, f (a + (↑j + ↑ℓ * ↑n + 1) * (b - a) / (↑n * ↑k))) / ↑k) -
+--         ∑ i ∈ Finset.range n, f (a + (↑i + 1) * (b - a) / ↑n)))
+--   = (
+--       ((∑ j ∈ Finset.range n, (∑ ℓ ∈ Finset.range k, f (a + (↑j + ↑ℓ * ↑n + 1) * (b - a) / (↑n * ↑k))) / ↑k) +
+--         (∑ i ∈ Finset.range n, f (a + (↑i + 1) * (b - a) / ↑n))*(-1)) )
+--   by
+--     ring_nf]
+
+sorry
+#exit
+
+rewrite [show (b - a) / ↑(n * k) * ∑ j ∈ range n, ∑ ℓ ∈ range k, f (a + (↑(j + ℓ * n) + 1) * (b - a) / ↑(n * k)) = (b - a) / n * ∑ j ∈ range n,  (1 / k * ∑ ℓ ∈ range k, f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k))) by
+  push_cast
+  rewrite [show ∑ j ∈ range n, 1 / k * ∑ ℓ ∈ range k, f (a + (j + ℓ * n + 1) * (b - a) / (n * k)) = 1 / k * ∑ j ∈ range n,  ∑ ℓ ∈ range k, f (a + (j + ℓ * n + 1) * (b - a) / (n * k)) by
+    --apply
+    sorry]
+  ring_nf]
 rewrite [show (b - a) / n *
-        ∑ j ∈ range n, 1 / k * ∑ k_1 ∈ range k, f (a + (↑(j + k_1 * n) + 1) * (b - a) / ↑(n * k)) -
-      (b - a) / ↑n * ∑ i ∈ range n, f (a + (↑i + 1) * (b - a) / ↑n)
-      = (b - a) / ↑n *
-        ∑ j ∈ range n, (1 / k * ∑ k_1 ∈ range k, (f (a + ((j + k_1 * n) + 1) * (b - a) / (n * k)) -
+        ∑ j ∈ range n, 1 / k * ∑ ℓ ∈ range k, f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k)) -
+      (b - a) / n * ∑ i ∈ range n, f (a + (i + 1) * (b - a) / n)
+      = (b - a) / n *
+        ∑ j ∈ range n, (1 / k * ∑ ℓ ∈ range k, (f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k)) -
        f (a + (j + 1) * (b - a) / n))) by sorry]
-have h1 : ∀ j ∈ range n, |(1 / k * ∑ k_1 ∈ range k, (f (a + ((j + k_1 * n) + 1) * (b - a) / (n * k)) -
-       f (a + (j + 1) * (b - a) / n)))| ≤ 1 / k * ∑ k_1 ∈ range k, |(f (a + ((j + k_1 * n) + 1) * (b - a) / (n * k)) -
+have h1 : ∀ j ∈ range n, |(1 / k * ∑ ℓ ∈ range k, (f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k)) -
+       f (a + (j + 1) * (b - a) / n)))| ≤ 1 / k * ∑ ℓ ∈ range k, |(f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k)) -
        f (a + (j + 1) * (b - a) / n))| := by sorry
-have h2 : ∀ j ∈ range n, ∀ k_1 ∈ range k,
-      |((a + ((j + k_1 * n) + 1) * (b - a) / (n * k)) -  (a + (j + 1) * (b - a) / n))| < δ := by
-  intro j hj k_1 hk_1
+have h2 : ∀ j ∈ range n, ∀ ℓ ∈ range k,
+      |((a + ((j + ℓ * n) + 1) * (b - a) / (n * k)) -  (a + (j + 1) * (b - a) / n))| < δ := by
+  intro j hj ℓ hℓ
   push_cast
   ring_nf
   sorry
-have h3 : ∀ j ∈ range n, ∀ k_1 ∈ range k,
-      |f (a + ((j + k_1 * n) + 1) * (b - a) / (n * k)) -  f (a + (j + 1) * (b - a) / n)| < ε := by sorry
-have h4 : ∀ j ∈ range n, ∑ k_1 ∈ range k, 1 / k * ∑ k_1 ∈ range k, |(f (a + ((j + k_1 * n) + 1) * (b - a) / (n * k)) -
+have h3 : ∀ j ∈ range n, ∀ ℓ ∈ range k,
+      |f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k)) -  f (a + (j + 1) * (b - a) / n)| < ε := by sorry
+have h4 : ∀ j ∈ range n, ∑ ℓ ∈ range k, 1 / k * ∑ ℓ ∈ range k, |(f (a + ((j + ℓ * n) + 1) * (b - a) / (n * k)) -
        f (a + (j + 1) * (b - a) / n))| ≤ ε := by sorry
 sorry
 
