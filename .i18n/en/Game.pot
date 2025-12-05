@@ -798,6 +798,10 @@ msgstr ""
 msgid "Pset 20"
 msgstr ""
 
+#: Game.Levels.L23Levels.L03
+msgid "A `Type` is an arbitrary mathematical object."
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
 msgid "Now write `specialize hf t_pos` feed in the proof that `t > 0`; then you should be able to finish it yourself."
 msgstr ""
@@ -1083,6 +1087,27 @@ msgstr ""
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "Presumably you know that you\n"
 "should `choose N hN using f1` at this stage. But maybe you'd like to give `hN` a more descriptive name (so that I can keep giving you hints). Try `choose N eps_inv_lt_N using f1`."
+msgstr ""
+
+#: Game.Levels.L23Levels.L02
+msgid "# Level 2: Integration Converges!\n"
+"\n"
+"**The Big Question**: We know that continuous functions *should* be integrable, but proving this rigorously is surprisingly subtle. The key insight is that we need *uniform* continuity, not just pointwise continuity.\n"
+"\n"
+"**What We're Proving**: If `f` is uniformly continuous on `[a,b]`, then the sequence of Riemann sums `{RiemannSum f a b n}` converges as `n → ∞`. This means the integral exists!\n"
+"\n"
+"**The Strategy**: We'll prove convergence by showing the Riemann sum sequence is Cauchy. For any `ε > 0`:\n"
+"1. Use uniform continuity to get a `δ` that works everywhere on `[a,b]`\n"
+"2. Choose `N` large enough so that partitions with `≥ N` subintervals are all fine enough\n"
+"3. For any `m, n ≥ N`, compare `RiemannSum f a b m` and `RiemannSum f a b n` by using their common multiple `m * n` as an intermediate step\n"
+"4. Apply your Level 1 theorem twice to bound the total error\n"
+"\n"
+"**New Definition - Uniform Continuity**:\n"
+"\n"
+"`def UnifContOn (f : ℝ → ℝ) (S : Set ℝ) : Prop :=\n"
+"  ∀ ε > 0, ∃ δ > 0, ∀ x ∈ S, ∀ y ∈ S, |x - y| < δ → |f x - f y| < ε`\n"
+"\n"
+"**Key Insight**: Notice the quantifier order! Unlike pointwise continuity where `δ` can depend on the specific point `x`, uniform continuity requires a single `δ` that works for *all* pairs of points simultaneously. This seemingly small change makes all the difference for integration theory."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L08_choose
@@ -1717,6 +1742,10 @@ msgstr ""
 msgid "Given `a : ℕ → ℝ`, if `a (2 n) → L` and `a (2n+1) → L`, then `a → L`."
 msgstr ""
 
+#: Game.Levels.L21Levels.L05
+msgid "If for every sequence `(xₙ)` converging to `c` with `xₙ ≠ c`, the sequence `f(xₙ)` converges to `L`, then the function `f` has limit `L` at point `c`."
+msgstr ""
+
 #: Game.Levels.L21Levels.L08
 msgid "`∀ x, FunContAt f x`\n"
 "\n"
@@ -1791,17 +1820,6 @@ msgstr ""
 
 #: Game.Levels.L18PsetIntro
 msgid "# Problem Set 18"
-msgstr ""
-
-#: Game.Levels.L23Levels.L01
-msgid "# Level 1: Riemann Sum Refinement\n"
-"\n"
-"Suppose that we are given `ε > 0`, `δ > 0`, and `f : ℝ → ℝ` such that for all `x, y ∈ [a,b]`, if `|x - y| < δ`, then `|f x - f y| < ε`. Show that for all natural numbers `n, k ≠ 0`, if the partition of `[a,b]` into `n` subintervals is fine enough (i.e., if `(b - a) / n < δ`), then the Riemann sum of `f` on `[a,b]` with `n * k` subintervals differs from that with `n` subintervals by at most `(b - a) * ε`.\n"
-"\n"
-"## Useful lemma: `sum_of_prod`\n"
-"\n"
-"`∑ i ∈ range (m * n), f i =\n"
-"    ∑ j ∈ range m, ∑ k ∈ range n, f (j + k * m)`"
 msgstr ""
 
 #: Game.Levels.L18Levels.L01
@@ -2234,6 +2252,24 @@ msgid "## Your First Induction Proof Complete!\n"
 "The key insight to remember: induction transforms an infinite problem (proving something for all `n`) into two finite problems (the base case and the inductive step). Master this technique, and you'll have access to a vast collection of provable theorems."
 msgstr ""
 
+#: Game.Levels.L23Levels.L01
+msgid "# What You've Just Proved\n"
+"\n"
+"You've just established a crucial bridge between uniform continuity and integration theory! Here's why this result matters:\n"
+"\n"
+"**The Big Picture**: To prove that Riemann sums converge (i.e., that integrals exist), we need to show the Riemann sum sequence is Cauchy. But Riemann sums with different numbers of partitions seem hard to compare directly. Your theorem solves this by showing that if one partition count is a multiple of another, and both are fine enough, then their Riemann sums are close.\n"
+"\n"
+"**The Uniform Continuity Connection**: Notice how the proof relied crucially on having a *single* `δ` that works for all points in `[a,b]`. If we only had pointwise continuity (where `δ` depends on the specific point), we couldn't make this argument work. This is why uniform continuity is the 'right' condition for integration.\n"
+"\n"
+"**Next Steps**: In the next level, we'll use this result to prove the fundamental theorem that uniformly continuous functions are integrable. The strategy will be:\n"
+"1. Given any two large partition counts `m` and `n`\n"
+"2. Consider their common multiple `m * n`\n"
+"3. Use your theorem twice: once to compare `m` with `m * n`, and once to compare `n` with `m * n`\n"
+"4. Apply the triangle inequality to conclude that the Riemann sums for `m` and `n` are close\n"
+"\n"
+"This is a beautiful example of how the 'right' mathematical framework (uniform continuity) makes difficult problems tractable!"
+msgstr ""
+
 #: Game.Levels.L3Lecture
 msgid "Lecture 3: More fun with Sequences"
 msgstr ""
@@ -2469,6 +2505,12 @@ msgstr ""
 
 #: Game.Levels.L11Levels.L03_IsBddOfCauchy
 msgid "If a sequence `a` is Cauchy, then it is eventually bounded."
+msgstr ""
+
+#: Game.Levels.L24Levels.L05
+msgid "`(s : Finset (α ⊕ β)) : Finset α`\n"
+"\n"
+"The `lefts` of a finite set `s` of elements from the disjoint union `α ⊕ β` is the finite set of all elements from `α` that appear in `s`."
 msgstr ""
 
 #: Game.Levels.L12Pset.L12Pset1
@@ -3849,6 +3891,42 @@ msgid "# Level 3: Differentiability Exercise\n"
 "Show that `x ↦ x ^ 3` is differentiable."
 msgstr ""
 
+#: Game.Levels.L23Levels.L03
+msgid "# Level 3: Compactness\n"
+"\n"
+"**The Final Puzzle Piece**: We've shown that uniformly continuous functions are integrable. But when is a continuous function *uniformly* continuous? The beautiful answer involves one of mathematics' most elegant concepts: **compactness**.\n"
+"\n"
+"**The Big Theorem**: Every continuous function on a compact set is automatically uniformly continuous on that set. Combined with Level 2, this means every continuous function on a compact set is integrable!\n"
+"\n"
+"**What Is Compactness?**: Intuitively, a set is compact if it's \"small enough\" that any covering by open balls can be reduced to a finite covering. Here's the key insight for uniform continuity:\n"
+"\n"
+"1. **Start with continuity**: At each point `x` in your set `S`, continuity gives you a ball around `x` where the function doesn't vary much\n"
+"2. **Cover the set**: These balls cover your entire set `S`\n"
+"3. **Apply compactness**: Extract a *finite* subcover\n"
+"4. **Take the minimum**: Since you now have only finitely many balls, you can take the minimum of their radii to get a uniform `δ`!\n"
+"\n"
+"**New Definitions**:\n"
+"\n"
+"Open ball of radius `r` around `x`:\n"
+"\n"
+"`def Ball (x : ℝ) (r : ℝ) : Set ℝ := Ioo (x - r) (x + r)`\n"
+"\n"
+"Compactness (every open cover has a finite subcover):\n"
+"\n"
+"`def IsCompact (S : Set ℝ) : Prop :=\n"
+"  ∀ (ι : Type) (xs : ι → ℝ) (δs : ι → ℝ), (∀ i, 0 < δs i) →\n"
+"    (S ⊆ ⋃ i, Ball (xs i) (δs i)) →\n"
+"    ∃ (V : Finset ι), S ⊆ ⋃ i ∈ V, Ball (xs i) (δs i)`\n"
+"\n"
+"**The Magic**: The index type `ι` can be *anything* - natural numbers, real numbers, even uncountable sets. But compactness guarantees we can always reduce to a finite subcover!\n"
+"\n"
+"**Key Tools**:\n"
+"- `mem_Union`: `(x ∈ ⋃ i, s i) ↔ ∃ i, x ∈ s i`\n"
+"- `FinMinPos`: From finitely many positive numbers, you can extract a positive lower bound\n"
+"\n"
+"**Your Mission**: Prove that continuous + compact = uniformly continuous!"
+msgstr ""
+
 #: Game.Levels.L7Levels.L03_SeqInvLim
 msgid "For any real numbers `x` and `y`, we have `|x / y| = |x| / |y|`."
 msgstr ""
@@ -4248,6 +4326,10 @@ msgid "# 🎉 Congratulations!\n"
 "**Ready for the homework? Time to make those peaks tumble down!**"
 msgstr ""
 
+#: Game.Levels.L20Levels.L04
+msgid "If a function `f` has limit `L` at point `c`, then for every sequence `(xₙ)` converging to `c` with `xₙ ≠ c`, the sequence `f(xₙ)` converges to `L`."
+msgstr ""
+
 #: Game.Levels.L12Pset.L12Pset2
 msgid "# Problem 2:\n"
 "\n"
@@ -4401,6 +4483,25 @@ msgstr ""
 
 #: Game.Levels.L18Levels.L02
 msgid "If `a : ℕ → ℝ` is `Antitone` and `∀ n, 0 ≤ a n`, then the even alternating series `n ↦ ∑ k ∈ range (2n), (-1)^k * a k` is `Monotone`."
+msgstr ""
+
+#: Game.Levels.L23Levels.L02
+msgid "# A Major Milestone!\n"
+"\n"
+"Congratulations! You've just proved one of the fundamental theorems of real analysis: **uniformly continuous functions are integrable**.\n"
+"\n"
+"**What Makes This Proof Beautiful**:\n"
+"- **The Cauchy Strategy**: Instead of guessing what the integral should be, we proved convergence by showing the Riemann sum sequence is Cauchy. This is a powerful technique that works even when you don't know the limit in advance.\n"
+"- **The Common Multiple Trick**: The key insight was using `m * n` as an intermediate step to compare Riemann sums with `m` and `n` partitions. This transformed a seemingly difficult comparison into two applications of your Level 1 theorem.\n"
+"- **The ε/2 Split**: Dividing the tolerance in half and applying the triangle inequality is a classic move in analysis that you'll see again and again.\n"
+"\n"
+"**The Historical Context**: This result was crucial for putting Riemann's theory of integration on solid foundations. Riemann himself understood this intuitively, but the rigorous proof required careful attention to uniform continuity - a concept that wasn't fully formalized until later.\n"
+"\n"
+"**What's Still Missing**: We've shown that *uniformly* continuous functions are integrable, but when is a continuous function *uniformly* continuous? The answer involves one of the most important concepts in mathematics: **compactness**.\n"
+"\n"
+"**Looking Ahead**: In Level 3, we'll prove that continuous functions on compact sets (like closed intervals `[a,b]`) are automatically uniformly continuous. Combined with today's result, this will show that *every* continuous function on `[a,b]` is integrable - the foundation of calculus!\n"
+"\n"
+"This is why topology matters for analysis: the 'right' topological framework (compactness) makes analytical problems (integration) much more tractable."
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset2
@@ -6013,42 +6114,6 @@ msgid "# Problem 2\n"
 "Your goal is to show that: `z = 4`."
 msgstr ""
 
-#: Game.Levels.L23Levels.L03
-msgid "# Level 3: Compactness\n"
-"\n"
-"When is a continuous function *uniformly* continuous? It turns out: a function that is\n"
-"continuous on a *compact* set is automatically uniformly continuous (on that same set). So what is compactness?\n"
-"\n"
-"In topology, a set is called *compact* if every cover by (open) balls of the set has a finite subcover. In simpler terms, this means that if you can cover the set with a collection of open balls, you can always find a finite number of those sets that still cover the entire set. Can you see how that notion can be *very* useful when trying to prove uniformity?\n"
-"\n"
-"## New definitions:\n"
-"\n"
-"`def Ball (x : ℝ) (r : ℝ) : Set ℝ := Ioo (x - r) (x + r)`\n"
-"\n"
-"Of course, `Ioo` means an interval with open ends on both sides.\n"
-"\n"
-"Here's the formal definition of compactness: Notice that we don't say how to index the balls; they could be indexed by the natural numbers, or by the real numbers, or by any other type!\n"
-"\n"
-"`def IsCompact (S : Set ℝ) : Prop :=`\n"
-"\n"
-"`∀ (ι : Type) (xs : ι → ℝ) (δs : ι → ℝ), (∀ i, 0 < δs i) → (S ⊆ ⋃ i, Ball (xs i) (δs i)) →`\n"
-"\n"
-"`∃ (V : Finset ι), S ⊆ ⋃ i ∈ V, Ball (xs i) (δs i)`\n"
-"\n"
-"To package a set as a `Type`, here's what you do: If `S : Set ℝ` is some set, then writing\n"
-"\n"
-"`let ι : Type := S`\n"
-"\n"
-"creates a new Type, whose terms are pairs `⟨x, hx⟩` where `x : ℝ` and `hx : x ∈ S`.\n"
-"\n"
-"## Helpful lemmas\n"
-"\n"
-"`mem_Union : (x ∈ ⋃ i, s i) ↔ ∃ i, x ∈ s i `\n"
-"\n"
-"`lemma FinMinPos (ι : Type) (V : Finset ι) (δs : ι → ℝ) (hδs : ∀ i, δs i > 0) :\n"
-"    ∃ δ > 0, ∀ i ∈ V, δ ≤ δs i`"
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
 msgid "The specialize tactic"
 msgstr ""
@@ -7533,7 +7598,6 @@ msgstr ""
 #: Game.Levels.L22Pset.L02
 #: Game.Levels.L22Pset.L03
 #: Game.Levels.L22Pset.L04
-#: Game.Levels.L23Levels.L02
 #: Game.Levels.L23Levels.L03
 #: Game.Levels.L24Levels.L01
 #: Game.Levels.L24Levels.L02
@@ -7584,12 +7648,6 @@ msgid "# Level 1: Leibniz Series — Partial Sums\n"
 "`∑ k ∈ range n, a k = 1 - 1 / (n + 1)`\n"
 "\n"
 "**Hint:** Use induction on `n`. The base case is straightforward. For the inductive step, use `sum_range_succ` to split off the last term, apply the inductive hypothesis, and then do some algebra with `field_simp` and `ring_nf`."
-msgstr ""
-
-#: Game.Levels.L24Levels.L05
-msgid "# Level 5: Heine-Borel Theorem: Part 2b\n"
-"\n"
-"And finally, the full converse: show that any closed, bounded set is compact. We do this by showing that a closed subset of a compact set is compact. Then since a bounded set is a subset of a closed interval, and closed intervals are compact, we are done."
 msgstr ""
 
 #: Game.Levels.L3Levels.L01_ArchProp
@@ -8079,6 +8137,42 @@ msgid "Prove that the constant sequence converges to its constant value.\n"
 "This is the Machinist's dream scenario: we're already producing exactly what's required!"
 msgstr ""
 
+#: Game.Levels.L24Levels.L05
+msgid "# Level 5: Heine-Borel Theorem: Part 2b\n"
+"\n"
+"And finally, the full converse: show that any closed, bounded set is compact. We do this by showing that a closed subset of a compact set is compact. Then since a bounded set is a subset of a closed interval, and closed intervals are compact, we are done.\n"
+"\n"
+"## New definitions:\n"
+"\n"
+"If you have two types `α` and `β`, then their *disjoint union* (or \"sum type\") is defined as follows:\n"
+"\n"
+"`α ⊕ β`\n"
+"\n"
+"To define functions on `α ⊕ β`, we use pattern matching:\n"
+"\n"
+"` let f : α ⊕ β → γ := fun x ↦\n"
+"  match x with\n"
+"  | Sum.inl a => ... -- case when x is from α\n"
+"  | Sum.inr b => ... -- case when x is from β`\n"
+"\n"
+"Then to argue about elements of `α ⊕ β`, we can also use pattern matching by `cases` (no prime this time!), for example:\n"
+"\n"
+"`cases x with\n"
+"| inl a => ... -- case when x is from α\n"
+"| inr b => ... -- case when x is from β`\n"
+"\n"
+"Then if you have a finite set `s : Finset (α ⊕ β)`, and you want to just extract, say,\n"
+"the `α` part, you can use:\n"
+"\n"
+"`def Finset.lefts {α β : Type} (s : Finset (α ⊕ β)) : Finset α`\n"
+"\n"
+"The theorem that characterizes membership in `lefts` is:\n"
+"\n"
+"`theorem mem_lefts {α β : Type}\n"
+"    (s : Finset (α ⊕ β)) (a : α) :\n"
+"    a ∈ s.lefts ↔ Sum.inl a ∈ s`"
+msgstr ""
+
 #: Game.Levels.L5Levels.L01_DoubleSeqConv
 msgid "For any real numbers `x` and `y`, we have `|x * y| = |x| * |y|`."
 msgstr ""
@@ -8242,6 +8336,24 @@ msgstr ""
 
 #: Game.Levels.L1PsetIntro
 msgid "Pset 1"
+msgstr ""
+
+#: Game.Levels.L23Levels.L01
+msgid "# Level 1: Riemann Sum Refinement\n"
+"\n"
+"**The Setup**: We have a uniformly continuous function on `[a,b]` - that is, there's a single `δ > 0` such that whenever two points are within `δ` of each other, the function values differ by at most `ε`.\n"
+"\n"
+"**The Question**: If we refine our Riemann sum partition from `n` subintervals to `n * k` subintervals, how much can the Riemann sum change?\n"
+"\n"
+"**The Intuition**: When we go from `n` to `n * k` subintervals, we're making the partition finer. If our original partition was already fine enough (meaning `2 * (b - a) / n < δ`), then the sample points in the refined partition shouldn't be too far from the corresponding sample points in the coarse partition. By uniform continuity, this means the function values shouldn't differ by much either.\n"
+"\n"
+"**Your Goal**: Prove that under these conditions, the difference between the two Riemann sums is bounded by `(b - a) * ε`. This makes sense dimensionally: `ε` measures how much the function can vary locally, and `(b - a)` measures the size of the interval we're integrating over.\n"
+"\n"
+"**Key Tool**: The `sum_of_prod` lemma lets you reorganize a sum over `m * n` terms as a double sum:\n"
+"\n"
+"`∑ i ∈ range (m * n), f i = ∑ j ∈ range m, ∑ k ∈ range n, f (j + k * m)`\n"
+"\n"
+"This will help you compare the refined sum (with `n * k` terms) to the original sum (with `n` terms) by grouping the refined sum into `n` blocks of `k` terms each."
 msgstr ""
 
 #: Game.Levels.L8Pset.L8Pset4
@@ -8746,21 +8858,6 @@ msgstr ""
 
 #: Game.Levels.L23Levels.L03
 msgid "Compactness"
-msgstr ""
-
-#: Game.Levels.L23Levels.L02
-msgid "# Level 2: Integration Converges!\n"
-"\n"
-"Prove `HasIntegral_of_UnifContOn` that if `f` is *uniformly* continuous on `[a,b]`,\n"
-"then `f` is integrable on `[a,b]`.\n"
-"\n"
-"## New definitions:\n"
-"\n"
-"Uniform continuity:\n"
-"\n"
-"`def UnifContOn (f : ℝ → ℝ) (S : Set ℝ) : Prop :=`\n"
-"\n"
-"`  ∀ ε > 0, ∃ δ > 0, ∀ x ∈ S, ∀ y ∈ S, |x - y| < δ → |f x - f y| < ε`"
 msgstr ""
 
 #: Game.Levels.L17Pset.L05
@@ -9974,6 +10071,10 @@ msgid "# Level 2: Bounded\n"
 "Construct the bound `M`, prove it's positive, then verify it works for all terms by splitting into the two cases. Let your `TermLeSum` theorem shine!\n"
 "\n"
 "Good luck! 🚀"
+msgstr ""
+
+#: Game.Levels.L24Levels.L05
+msgid "A point `a : α` is in the `lefts` of a finite set `s : Finset (α ⊕ β)` if and only if the element `Sum.inl a` is in `s`."
 msgstr ""
 
 #: Game.Levels.L19Levels.L01
