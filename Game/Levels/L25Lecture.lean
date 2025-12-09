@@ -75,7 +75,7 @@ Hilbert steps out of his office, and sighs with disappointment. \"I'm very sorry
 
 The clerk is shocked. \"But Professor, why not? We've handled infinitely many buses with infinitely many passengers before! This is just *one* bus!\"
 
-Hilbert says to the clerk, \"Take out the ledger. Let's work backwards. Imagine that we're done placing *every single person* from that bus into a room. So in room `R1`, we have `ABBAAA...`, say, and in room `R2`, we have `AAABBB...`, and in room `R3` is `BABBAA...` and so on. Ok? I claim we're not done, and we've left someone off the ledger. If I can prove to you that there's at least one passenger hasn't been assigned a room, then do you see how the entire enterprise is futile?\"
+Hilbert says to the clerk, \"Take out the ledger. Let's work backwards. Imagine that we're done placing *every single person* from that bus into a room. So in room `R1`, we have `ABBAAA...`, say, and in room `R2`, we have `AAABBB...`, and in room `R3` is `BABBAA...` and so on. Ok? I claim we're not done, and we've left someone off the ledger. If I can prove to you that at least *one passenger hasn't been assigned a room, then do you see how the entire enterprise is futile?\"
 
 The clerk nods reluctantly. Hilbert continues: \"The person in room `R1` is named `ABBAAA...`, which starts with `A`. So if I give you the name of a person whose first letter is `B`, then that person is certainly not in room `R1`, right?\" The clerk nods. \"Now, the person in room `R2` is named `AAABBB...`. If I give you the name of a person whose *second* letter is `B`, then that differs from the second letter of the person in room `R2`, and so that person is not in room `R2`. Do you follow?\" The clerk nods again.
 
