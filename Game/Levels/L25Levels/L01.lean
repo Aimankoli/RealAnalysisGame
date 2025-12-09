@@ -26,10 +26,10 @@ TheoremDoc RealAnalysisGame.Integrable_of_UnifConv as "Integrable_of_UnifConv" i
 
 Statement Integrable_of_UnifConv {f : ℕ → ℝ → ℝ} {F : ℝ → ℝ}
     {a b : ℝ} (hab : a < b)
-    {l : ℕ → ℝ}
-    (hfint : ∀ n, HasIntegral (f n) a b (l n))
+    {ℓ : ℕ → ℝ}
+    (hfint : ∀ n, HasIntegral (f n) a b (ℓ n))
     (hfF : UnifConv f F) :
-    ∃ (L : ℝ), SeqLim l L ∧ HasIntegral F a b L
+    ∃ (L : ℝ), SeqLim ℓ L ∧ HasIntegral F a b L
  := by
 have RSdiff : ∀ ε > 0, ∃ N, ∀ n ≥ N, ∀ M, |RiemannSum (f n) a b M - RiemannSum F a b M| < ε := by
   intro ε hε
@@ -38,7 +38,7 @@ have RSdiff : ∀ ε > 0, ∃ N, ∀ n ≥ N, ∀ M, |RiemannSum (f n) a b M - R
   intro n hn M
   specialize hN n hn
   sorry
-have Lconv : SeqConv l := by
+have Lconv : SeqConv ℓ := by
   apply SeqConv_of_IsCauchy
   intro ε hε
   choose N hN using RSdiff (ε / 4) (by bound)
@@ -51,8 +51,8 @@ have Lconv : SeqConv l := by
   specialize hM2 M (by bound)
   have hNn := hN n hn M
   have hNm := hN m (by bound) M
-  have b1 : |l m - l n| ≤ |RiemannSum (f n) a b M - l n| + |RiemannSum (f n) a b M - RiemannSum F a b M| +
-    |RiemannSum (f m) a b M - RiemannSum F a b M| + |RiemannSum (f m) a b M - l m| := by
+  have b1 : |ℓ m - ℓ n| ≤ |RiemannSum (f n) a b M - ℓ n| + |RiemannSum (f n) a b M - RiemannSum F a b M| +
+    |RiemannSum (f m) a b M - RiemannSum F a b M| + |RiemannSum (f m) a b M - ℓ m| := by
     sorry
   linarith [b1, hM1, hM2, hNn, hNm]
 choose L hL using Lconv
@@ -71,7 +71,7 @@ intro M hM
 specialize hMmax M hM
 specialize hN2 M
 have b2 : |RiemannSum F a b M - L| ≤ |RiemannSum (f N) a b M - RiemannSum F a b M| +
-  |RiemannSum (f N) a b M - l N| + |l N - L| := by
+  |RiemannSum (f N) a b M - ℓ N| + |ℓ N - L| := by
   sorry
 linarith [b2, hMmax, hN1, hN2, Nbnd1, Nbnd2]
 

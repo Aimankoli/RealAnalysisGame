@@ -9,10 +9,10 @@ Title "Intermediate Value Theorem"
 Introduction "
 # Level 2 **BIG BOSS**: Intermediate Value Theorem
 
-And let's finish off with the \"greatest\" theorem of all! The one everyone assumed was true because
-it was completely obvious, but which now we can finally prove rigorously using all the tools we've built up so far!
+And let's finish off the whole course with the \"greatest\" theorem of all! The one everyone assumed was true because
+it was completely **obvious**, but which now we can finally prove rigorously using all the tools we've built up so far!
 
-**The Theorem**: If a function `f` is continuous on a closed interval `[a, b]`, and takes values `f(a) < 0` and `0 < f(b)`, then there exists some `c ∈ (a, b)` such that `f(c) = 0`. In other words, the function crosses the x-axis somewhere in the interval.
+**The Intermediate Value Theorem**: If a function `f` is continuous on a closed interval `[a, b]`, and takes values `f(a) < 0` and `0 < f(b)`, then there exists some `c ∈ (a, b)` such that `f(c) = 0`. In other words, the function crosses the x-axis somewhere in the interval.
 
 "
 
