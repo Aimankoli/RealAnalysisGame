@@ -73,7 +73,7 @@ have hSnonempty : S.Nonempty := by
 have hSbdd : ∀ s ∈ S, s ≤ b := by
   intro s hs
   exact hs.1.2
-choose L hL using HasLUB_of_BddNonempty S hSnonempty b hSbdd
+choose L hL using HasLUB_of_BddNonempty hSnonempty hSbdd
 have hLb : L = b := by sorry
 have hb : b ∈ S := by sorry
 simp only [mem_setOf_eq, S] at hb

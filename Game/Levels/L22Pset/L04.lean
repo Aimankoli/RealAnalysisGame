@@ -27,7 +27,11 @@ TheoremDoc sum_of_squares as "sum_of_squares" in "Series"
 -/
 Statement sum_of_squares (n : ℕ) :
   ∑ i ∈ Finset.range n, ((i : ℝ) + 1) ^ 2 = ((n : ℝ) * (n + 1) * (2 * n + 1)) / 6 := by
-sorry
+induction' n with n hn
+bound
+rewrite [sum_range_succ, hn]
+push_cast
+ring_nf
 
 Conclusion "
 "
